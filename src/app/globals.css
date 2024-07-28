@@ -4,10 +4,10 @@
 
 html {
   scroll-behavior: smooth;
-  /* background-color: #131313; */
 }
 
 body {
+  position: relative;
   background: #000;
   /* background: rgb(119, 168, 163, 0.2); */
 }
@@ -16,5 +16,21 @@ body {
   .mobile {
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+}
+
+.rotate {
+  animation: rotate 2s 0s linear infinite both both;
+  transform-origin: center;
+  animation-play-state: running;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(10deg);
+  }
+
+  to {
+    transform: rotate(360deg);
   }
 }
