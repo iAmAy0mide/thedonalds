@@ -20,7 +20,7 @@ const NavBar = () => {
     
 
   return (
-    <nav className='w-full h-[20rem] flex flex-col  mx-auto fixed top-0 pt-4 z-50'>
+    <nav className='w-full h-[20rem] flex flex-col bg-[#303A39] mx-auto fixed top-0 pt-4 z-50'>
         <div className="mobile px-8 md:px-16 flex w-full justify-end">            
             <button
                 // aria-label="Increment value"

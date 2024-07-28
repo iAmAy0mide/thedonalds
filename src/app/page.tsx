@@ -13,7 +13,7 @@ export default function Home() {
   }
   
   return (
-    <main className="mobile px-8 md:px-12 mx-auto bg-mainBg h-[100dvh] relative overflow-hidden">
+    <main className="mobile px-8 md:px-12 mx-auto h-[100dvh] relative overflow-hidden">
       
       <div className="absolute bottom-0 right-10">
         <Image alt=""  width={100} height={100} src={Star}/>

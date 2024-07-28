@@ -18,6 +18,8 @@ const config: Config = {
       mainBg: "rgb(119, 168, 163, 0.2)",
       red: "#EC032A",
       actionBg: "#04A998",
+      greyBg: "#D9D9D9",
+      albumOverlay: "rgba(119, 168, 163, 0.2)",
     }
   },
   plugins: [],
