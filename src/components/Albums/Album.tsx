@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import CommentIcon from "/public/CommentIcon.svg";
 import DeleteIcon from "/public/DeleteIcon.svg";
@@ -8,17 +9,30 @@ import { Alex_Brush } from 'next/font/google';
 
 const Album: React.FC = () => {
   return (
-    <div className='relative w-[20rem] h-[25rem]' style={{ backgroundImage: ` ${Human.src}`}}>
-        <div className="absolute inset-0 bg-albumOverlay">
-            <div className="flex flex-col w-full "></div>
-            <div className="flex w-full justify-between">
-                <div className="bg-greyBg rounded-xl p-2 w-10">
-                    <Image width={100} height={100} src={CommentIcon} alt='Comment Icon' />
+    <div className='relative border border-[#052844] text-[#fff] w-[20rem] flex flex-col  overflow-hidden h-[18rem]  rounded-xl' >
+        <div className="rounded-xl relative  h-[90%]" style={{ backgroundImage: `url(${Human.src})`, backgroundPosition: "center", backgroundSize: "cover"}}>
+            <div className="absolute bg-albumOverlay rounded-xl  inset-0 z-[5] "></div>
+            <div className="flex relative flex-col h-full w-full z-20  p-2">
+                <div className="w-[17em] ">
+                    <Image
+                        width={100}
+                        height={100}
+                        src={AlbumFolderIcon}
+                        alt='Album Folder Icon'
+                        className='w-full'
+                    />
                 </div>
-                <div className="bg-greyBg rounded-xl p-2 w-10">
-                    <Image width={100} height={100} src={DeleteIcon} alt='Comment Icon' />
+                <div className="absolute bottom-2 glassy-blue px-2 py-4 rounded-xl">
+                    <p className="c">12 June 2030</p>
+                    <p className="c">Aunt May's Wedding</p>
                 </div>
             </div>
+        </div>
+        <div className="flex w-full h-[20%] justify-between pt-1">
+            <Image onClick={() => {
+
+            }} title='Comments' width={100} height={100} className='w-[4rem] h-[3rem]  bg-greyBg  p-2 rounded-xl ' src={CommentIcon} alt='Comment Icon' />
+            <Image title='Delete Album' aria-label='Delete Album' width={100} height={100} className='w-[4rem] h-[3rem]  bg-greyBg  p-2 rounded-xl  ' src={DeleteIcon} alt='Comment Icon' />
         </div>
     </div>
   )
