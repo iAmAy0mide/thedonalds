@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Bahnschrift";
+  src: url("/public/fonts/Bahnschrift.TTF");
+}
+
+@font-face {
+  font-family: "Kage";
+  src: url("/public/fonts/Kage-black.otf");
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -10,6 +20,8 @@ body {
   position: relative;
   background: #303A39;
   min-height: 100dvh;
+  font-family: serif;
+  /* font-family: "Bahnschrift"; */
   /* background: rgb(119, 168, 163, 0.2); */
 }
 
@@ -67,4 +79,9 @@ body {
 
 .input-shadow {
   box-shadow: inset 3px 3px 4px rgba(255,255,255,0.5);
+}
+
+.glassy-blue {
+  background: rgba(27, 54, 83, 0.5);
+  backdrop-filter: blur(6px);
 }
