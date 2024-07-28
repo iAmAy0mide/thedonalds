@@ -16,7 +16,8 @@ const config: Config = {
     },
     colors: {
       mainBg: "rgb(119, 168, 163, 0.2)",
-      red: "#EC032A"
+      red: "#EC032A",
+      actionBg: "#04A998",
     }
   },
   plugins: [],
