@@ -12,7 +12,7 @@ const initialState: AuthState = {
                 ? JSON.parse(localStorage.getItem("isLoggedIn")) 
                 : false,
                 
-    isLoginModalOpen: true
+    isLoginModalOpen: false
 }
 
 export const AuthSlice = createSlice({

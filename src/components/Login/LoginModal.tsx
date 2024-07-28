@@ -4,6 +4,7 @@ import { RootState } from '@/lib/store';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { setIsLoggedIn } from '@/lib/features/auth/authSlice';
 
 const LoginModal = () => {
     const [isCorrectPassword, setIsCorrectPassword] = useState<boolean>(false);
@@ -46,9 +47,9 @@ const LoginModal = () => {
         <button 
           onClick={() => {
             if (password === "d0nalds") {
-
               dispatch(setLoginModalStatus(false));
-              router.push("gallery");
+              dispatch(setIsLoggedIn(true));
+              router.replace("gallery");
               return
             } else {
               alert("Password is incorrect!")

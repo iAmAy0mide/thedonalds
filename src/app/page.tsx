@@ -1,7 +1,17 @@
+"use client";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Star from "/public/Star.svg";
+import { useDispatch, useSelector } from "react-redux";
+const isLoggedInUser = localStorage.getItem("isLoggedIn");
 
 export default function Home() {
+
+  const router = useRouter();
+  if (isLoggedInUser) {
+    router.replace("/");
+  }
+  
   return (
     <main className="mobile px-8 md:px-12 mx-auto bg-mainBg h-[100dvh] relative overflow-hidden">
       

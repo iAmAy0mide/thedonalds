@@ -9,7 +9,18 @@ html {
 body {
   position: relative;
   background: #000;
+  min-height: 100dvh;
   /* background: rgb(119, 168, 163, 0.2); */
+}
+
+body::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgb(119, 168, 163, 0.2);
 }
 
 @media (max-width: 420px) {
