@@ -11,7 +11,7 @@ export default function Home() {
       <div className="absolute -bottom-10 left-40">
         <Image alt=""  width={100} height={100} src={Star}/>
       </div>
-      <div className="absolute left-0">
+      <div className="absolute left-0 rotate">
         <Image alt=""  width={100} height={100} src={Star}/>
       </div>
       <div className="absolute right-0">
@@ -21,7 +21,10 @@ export default function Home() {
       <div className="absolute bottom-0 left-10">
         <Image alt=""  width={100} height={100} src={Star}/>
       </div>
-      <div className="absolute bottom-10 right-[15rem]">
+      <div className="absolute bottom-10 right-[50%]">
+        <Image alt=""  width={100} height={100} src={Star}/>
+      </div>
+      <div className="absolute bottom-10 hidden sm:block left-[50%]">
         <Image alt=""  width={100} height={100} src={Star}/>
       </div>
       <div className="absolute bottom-4 right-[10rem]">
