@@ -16,11 +16,11 @@ const Gallery = () => {
         <Album />
         <Album />
       </div>
-      {/* <div className="absolute left-0 top-[10dvh] z-[600]">  
-        <CommentsModal />
-      </div> */}
       <div className="absolute left-0 top-[10dvh] z-[600]">  
-        <UploadAlbumPhotosModal />
+        <CommentsModal />
+      </div>
+      <div className="absolute left-0 top-[10dvh] z-[600]">  
+        {/* <UploadAlbumPhotosModal /> */}
       </div>
     </main>
   )
