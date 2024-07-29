@@ -27,14 +27,14 @@ const NavBar = () => {
                 onClick={() => {
                     dispatch(setLoginModalStatus(true));
                 }}
-             className={`${isLoginSuccess && "hidden"} bg-red hover:brightness-90  rounded-sm px-4 py-2 text-[#fff]`}>Login</button>
+             className={`${isLoginSuccess && "hidden"} bg-red hover:brightness-90  rounded-xl px-4 py-2 text-[#fff]`}>Login</button>
             <button
                 // aria-label="Increment value"
                 onClick={() => {
                     dispatch(setIsLoggedIn(false));
                     router.replace("/")
                 }}
-             className={`${!isLoginSuccess && "hidden"} bg-red hover:brightness-90  rounded-sm px-4 py-2 text-[#fff]`}>Signout</button>
+             className={`${!isLoginSuccess && "hidden"} bg-red hover:brightness-90  rounded-xl px-4 py-2 text-[#fff]`}>Signout</button>
         </div>
         <div className=" mobile px-8 md:px-16 w-full h-full justify-center  lg:-mt-16 items-end flex flex-col">
             <div className="mx-auto w-[14rem] sm:w-[16rem]">
