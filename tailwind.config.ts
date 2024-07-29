@@ -19,6 +19,7 @@ const config: Config = {
       red: "#EC032A",
       actionBg: "#04A998",
       greyBg: "#D9D9D9",
+      greenBg: "#457D79",
       albumOverlay: "rgba(119, 168, 163, 0.2)",
     }
   },
