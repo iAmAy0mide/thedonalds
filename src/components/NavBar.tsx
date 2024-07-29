@@ -1,13 +1,19 @@
 "use client";
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import Image from "next/image";
 import Logo from "/public/Logo.svg";
 import LoginModal from './Login/LoginModal';
 import { useDispatch, useSelector } from 'react-redux';
+import { usePathname } from 'next/navigation';
 
 import { RootState } from '@/lib/store';
-import { setIsLoggedIn, setLoginModalStatus } from '@/lib/features/auth/authSlice';
+import { setLoginModalStatus, signOut } from '@/lib/features/auth/authSlice';
 import { useRouter } from 'next/navigation';
+
+
+const isLoggedInUser = localStorage.getItem("isLoggedIn");
+
+// const isLoggedInUserBool = JSON.parse(isLoggedInUser)
 
 
 const NavBar = () => {
@@ -16,7 +22,15 @@ const NavBar = () => {
     const dispatch = useDispatch();
     const isModalOpen = useSelector((state: RootState) => state.auth.isLoginModalOpen);
     const isLoginSuccess = useSelector((state: RootState) => state.auth.isLoggedIn);
-    console.log(isLoginSuccess);
+    const pathName = usePathname();
+
+    if (isLoggedInUser !== "true") {
+        router.replace("/");
+    }
+
+    if (isLoggedInUser === "true" && pathName === "/") {
+        router.replace("/gallery");
+    }
     
 
   return (
@@ -27,14 +41,14 @@ const NavBar = () => {
                 onClick={() => {
                     dispatch(setLoginModalStatus(true));
                 }}
-             className={`${isLoginSuccess && "hidden"} bg-red hover:brightness-90  rounded-xl px-4 py-2 text-[#fff]`}>Login</button>
+             className={`${isLoginSuccess && "hidden"} bg-red hover:brightness-90  rounded-xl px-6 py-2 text-[#fff]`}>Login</button>
             <button
                 // aria-label="Increment value"
                 onClick={() => {
-                    dispatch(setIsLoggedIn(false));
-                    router.replace("/")
+                    router.replace("/");
+                    dispatch(signOut());
                 }}
-             className={`${!isLoginSuccess && "hidden"} bg-red hover:brightness-90  rounded-xl px-4 py-2 text-[#fff]`}>Signout</button>
+             className={`${!isLoginSuccess && "hidden"} bg-red hover:brightness-90  rounded-xl px-6 py-2 text-[#fff]`}>Signout</button>
         </div>
         <div className=" mobile px-8 md:px-16 w-full h-full justify-center  lg:-mt-16 items-end flex flex-col">
             <div className="mx-auto w-[14rem] sm:w-[16rem]">
