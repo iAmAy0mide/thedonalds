@@ -2,15 +2,10 @@
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Star from "/public/Star.svg";
-import { useDispatch, useSelector } from "react-redux";
-const isLoggedInUser = localStorage.getItem("isLoggedIn");
 
 export default function Home() {
 
   const router = useRouter();
-  if (isLoggedInUser) {
-    router.replace("/");
-  }
   
   return (
     <main className="mobile px-8 md:px-12 mx-auto h-[100dvh] relative overflow-hidden">
@@ -40,6 +35,9 @@ export default function Home() {
       <div className="absolute bottom-4 right-[10rem]">
         <Image alt=""  width={100} height={100} src={Star}/>
       </div>
+      {/* <div className="absolute bottom-[40%] right-[50%]">
+        <Image alt=""  width={100} height={100} src={Star}/>
+      </div> */}
     </main>
   );
 }
