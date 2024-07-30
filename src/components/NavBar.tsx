@@ -36,7 +36,7 @@ const NavBar = () => {
     
 
   return (
-    <nav className='w-full h-[15rem] flex flex-col border-red border basis-min-content bg-[#303A39] fixed top-0 pt-4 z-50'>
+    <nav className='w-full h-[15rem] flex flex-col bg-[#303A39] fixed top-0 pt-4 z-50'>
         <div className="mobile px-8 md:px-16 flex w-full justify-end">            
             <button
                 // aria-label="Increment value"
@@ -52,7 +52,7 @@ const NavBar = () => {
                 }}
              className={`${!isLoginSuccess && "hidden"} text-sm max-sm:px-4 max-sm:py-1 bg-red hover:brightness-90  rounded-xl px-6 py-2 text-[#fff]`}>Signout</button>
         </div>
-        <div className="border-red border mobile px-8 md:px-16 w-full h-full justify-center  lg:-mt-[2.8rem] -mt-[3rem] items-end flex flex-col">
+        <div className="mobile px-8 md:px-16 w-full h-full justify-center  lg:-mt-[2.8rem] -mt-[3rem] items-end flex flex-col">
             <div className="mx-auto w-[12rem] sm:w-[14rem]">
                 <Image alt='' width={100} height={100} priority src={Logo} className='w-full' />
             </div>
