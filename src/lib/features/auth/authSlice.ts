@@ -7,12 +7,13 @@ export interface AuthState {
 }
 
 const initialState: AuthState = {
+    isLoginModalOpen: false,
     isLoggedIn: localStorage.getItem("isLoggedIn") 
     // @ts-ignore
                 ? JSON.parse(localStorage.getItem("isLoggedIn")) 
                 : false,
                 
-    isLoginModalOpen: false
+   
 }
 
 export const AuthSlice = createSlice({
