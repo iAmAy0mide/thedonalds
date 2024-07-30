@@ -52,7 +52,7 @@ const NavBar = () => {
         </div>
         <div className=" mobile px-8 md:px-16 w-full h-full justify-center  lg:-mt-16 items-end flex flex-col">
             <div className="mx-auto w-[14rem] sm:w-[16rem]">
-                <Image alt='' width={100} height={100} src={Logo} className='w-full' />
+                <Image alt='' width={100} height={100} priority src={Logo} className='w-full' />
             </div>
         </div>
         <div className={`${!isModalOpen && "hidden"} absolute left-[50%] -translate-x-[50%] top-[30dvh] `}>
