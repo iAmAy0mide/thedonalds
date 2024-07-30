@@ -1,11 +1,17 @@
 "use client";
 import { setUploadPhotoModalStatus } from '@/lib/features/modal/modalSlice';
 import Modal from '../Modal';
+import { useDispatch } from 'react-redux';
 
 
 const UploadAlbumPhotosModal = () => {
+  const dispatch = useDispatch();
+
   return (
     <Modal>
+       <button onClick={() => {
+        dispatch(setUploadPhotoModalStatus(false));
+      }} title='Close' aria-label='Close comment modal button' className="close-modal-button">Close</button>
       <div className=" relative z-20 bg-greenBg  h-[85dvh] border-[4px] border-red rounded-xl px-4">
         <div className="sm:max-w-[35rem]  w-full h-full flex justify-center items-center  mx-auto ">
 
