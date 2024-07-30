@@ -93,3 +93,7 @@ body {
 .basis-min-content {
   flex-basis: min-content; 
 }
+
+.clipi {
+  clip-path: inset(115% 20% 5% 0%);
+}
