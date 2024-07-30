@@ -16,20 +16,26 @@ const CommentsModal: React.FC = () => {
   return (
     <div className={`w-[100dvw] px-4 pt-4 mx-auto relative h-[90dvh]`}>
       <div className="absolute inset-0 glassy-green  z-[5]"></div>
-      {/* <Swiper></Swiper> */}
       <div className=" relative z-20 bg-greenBg  h-[85dvh] border-[4px] border-red rounded-xl px-4">
-          {/* <div className="bg-r ed h-[14rem] mt-20 w-[full] justify-center gap-2 rounded-xl flex items-center overflow-x-scroll whitespace-nowrap"> */}
-              <div className="h-[20rem] w-[10rem] flex gap-2 card-wrapper">
-                <div className="card">
-                  <Image width={100} height={100} src={Human} alt='' aria-label='' title='Photo Album Display' className=' w-[10rem]' />
+          <div className="h-full mt- w-full  justify-center items-center gap -2 rounded-xl flex flex-col mx-auto">
+              <div className="bg-red w-full  h-[25%] flex gap-2 bg-re d">
+                <div className="">
+                  <Image width={100} height={100} src={Human} alt='' aria-label='' title='Photo Album Display' className='  w-[10rem]' />
                 </div>
-                <div className="card">
+                <div className="">
                   <Image width={100} height={100} className=' w-[10rem]' src={Human} alt='' aria-label='' title='Photo Album Display' />
                 </div>
               </div>
-            
-          {/* </div> */}
-      </div>     
+              <div className="bg-actionBg rounded-xl h-[50%] sm:max-w-[35rem] md:max-w-[38rem]  w-full mt-2">
+                <h1>hshdjhd sd</h1>
+              </div>  
+              <div className="bg-actionBg rounded-xl h-[20%] w-full mt-2">
+                  <h1>hshdjhd sd</h1>
+              </div>  
+          </div>
+      </div>   
+
+      
     </div>
   )
 }
