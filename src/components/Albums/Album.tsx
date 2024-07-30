@@ -6,7 +6,7 @@ import Human from "/public/human.svg";
 import AlbumFolderIcon from "/public/AlbumFolderIcon.svg";
 import Image from 'next/image';
 import { useDispatch } from 'react-redux';
-import { setCommentModalStatus } from '@/lib/features/modal/modalSlice';
+import { setCommentModalStatus, setUploadPhotoModalStatus } from '@/lib/features/modal/modalSlice';
 
 const Album: React.FC = () => {
     const dispatch = useDispatch()
@@ -35,7 +35,9 @@ const Album: React.FC = () => {
             <Image onClick={() => {
                 dispatch(setCommentModalStatus(true))
             }} title='Comments' width={100} height={100} className='w-[4rem] h-[3rem]  bg-greyBg  p-2 rounded-xl ' src={CommentIcon} alt='Comment Icon' />
-            <Image title='Delete Album' aria-label='Delete Album' width={100} height={100} className='w-[4rem] h-[3rem]  bg-greyBg  p-2 rounded-xl  ' src={DeleteIcon} alt='Comment Icon' />
+            <Image onClick={() => {
+                dispatch(setUploadPhotoModalStatus(true))
+            }} title='Delete Album' aria-label='Delete Album' width={100} height={100} className='w-[4rem] h-[3rem]  bg-greyBg  p-2 rounded-xl  ' src={DeleteIcon} alt='Comment Icon' />
         </div>
     </div>
   )
