@@ -11,7 +11,10 @@ const CommentsModal: React.FC = () => {
 
   return (
     
-    <Modal>        
+    <Modal> 
+      <button onClick={() => {
+        dispatch(setCommentModalStatus(false));
+      }} title='Close' aria-label='Close comment modal button' className="absolute -top-[2.5%] rounded-md hover:brightness-90 px-3 py-1 text-[#fff] text-sm bg-actionBg left-0 z-30">Close</button>       
       <div className=" relative z-20 bg-greenBg  h-[85dvh] border-[4px] border-red rounded-xl px-4">
           <div className="h-full mt- w-full  justify-center items-center gap -2 rounded-xl flex flex-col mx-auto">
               <div className="bg-red w-full  h-[25%] flex gap-2 bg-re d">
@@ -35,7 +38,6 @@ const CommentsModal: React.FC = () => {
   )
 }
 
-{/* </div> */}
 // <div className={`w-[100dvw] px-4 pt-4 mx-auto relative h-[90dvh]`}>
       {/* <div onClick={() => { */}
         // dispatch(setCommentModalStatus(false));
