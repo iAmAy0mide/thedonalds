@@ -36,7 +36,7 @@ const NavBar = () => {
     
 
   return (
-    <nav className='w-full h-[15rem] flex flex-col bg-[#303A39] fixed top-0 pt-4 z-50'>
+    <nav className='w-full h-[15rem]  flex flex-col bg-[#303A39] fixed top-0 pt-4 z-50'>
         <div className="mobile px-8 md:px-16 flex w-full justify-end">            
             <button
                 // aria-label="Increment value"
@@ -57,10 +57,14 @@ const NavBar = () => {
                 <Image alt='' width={100} height={100} priority src={Logo} className='w-full' />
             </div>
         </div>
-        <div className={`${!isLoginSuccess && "hidden"}  mobile px-8 md:px-16 flex w-full justify-end text-[#fff]  rounded-xl`}>
+        {/* <div className={`${!isLoginSuccess && "hidden"}  mobile px-8 md:px-16 flex w-full justify-end text-[#fff]  rounded-xl`}>
             <button onClick={() => {
                 dispatch(setUploadPhotoModalStatus(true));
-            }} className='rounded-xl px-6 py-1 hover:brightness-90 bg-actionBg shadow-sm'>Upload</button></div>
+            }} className='rounded-xl px-6 py-1 hover:brightness-90 bg-actionBg shadow-sm'>Upload</button>
+            <button onClick={() => {
+                dispatch(setUploadPhotoModalStatus(true));
+            }} className='rounded-xl px-6 py-1 hover:brightness-90 bg-[#000] shadow-sm'>Deleted Gallery</button>
+        </div> */}
         <div className={`${!isModalOpen && "hidden"} absolute left-[50%] -translate-x-[50%] top-[30dvh] `}>
 
             <LoginModal />
