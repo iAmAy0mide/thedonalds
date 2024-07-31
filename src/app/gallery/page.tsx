@@ -10,17 +10,19 @@ const Gallery = () => {
   const isUploadAlbumPhotoModalOpen = useSelector((state: RootState) => (state.modal.isUploadPhotoModalOpen));
 
   return (
-    <main className='pt-[50dvh] -z-20 mobile container mx-auto px-8 md:px-16'>
-      <div className="flex gap-4 flex-wrap">
-        <Album />
-        {/* <div className="mx-auto"> */}
-        <Album />
+    <main className='pt-[50dvh] -z-20  relat ive overflow-hidden border border-red'>
+      `<div className="mobile container mx-auto px-8 md:px-16">
+        <div className="flex gap-4 flex-wrap border border-red">
+          <Album />
+          {/* <div className="mx-auto"> */}
+          <Album />
 
-        {/* </div> */}
-        <Album />
-        <Album />
-        <Album />
-      </div>
+          {/* </div> */}
+          <Album />
+          <Album />
+          <Album />
+        </div>
+      </div>`      
       <div className={`${!isCommentModalOpen && "hidden"} absolute left-0 top-[10dvh] z-[600]`}>  
         <CommentsModal />
       </div>
