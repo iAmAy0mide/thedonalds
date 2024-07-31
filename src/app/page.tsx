@@ -8,7 +8,7 @@ export default function Home() {
   const router = useRouter();
   
   return (
-    <main className="mobile px-8 md:px-12 mx-auto h-[100dvh] relative overflow-hidden">
+    <main className="mobile mt-[120dvh] z-10 px-8 md:px-12 mx-auto bord er-[10px] bor der-red h-[100dvh] relative overflow-hi dden">
       
       <div className="absolute bottom-0 right-10">
         <Image alt=""  width={100} height={100} src={Star}/>
