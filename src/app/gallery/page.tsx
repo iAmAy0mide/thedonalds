@@ -1,6 +1,6 @@
 "use client";
 import Album from '@/components/Albums/Album';
-import CommentsModal from "@/components/comments/CommentsModal"
+import CommentsModal from "@/components/comments/CommentsModal";
 import UploadAlbumPhotosModal from "@/components/uploadPhoto/UploadAlbumPhotosModal";
 import { RootState } from '@/lib/store';
 import { useDispatch, useSelector } from 'react-redux';
@@ -26,7 +26,7 @@ const Gallery = () => {
       <div className={`${!isCommentModalOpen && "hidden"} absolute left-0 top-[10dvh] z-[600]`}>  
         <CommentsModal />
       </div>
-      <div className={`${!isUploadAlbumPhotoModalOpen && "hidden"} absolute left-0 top-[10dvh] z-[600]`}>  
+      <div className={`${!isUploadAlbumPhotoModalOpen && "hi dden"} absolute left-0 top-[10dvh] z-[600]`}>  
         <UploadAlbumPhotosModal />
       </div>
     </main>
