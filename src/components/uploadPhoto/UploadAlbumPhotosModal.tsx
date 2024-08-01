@@ -34,8 +34,9 @@ const UploadAlbumPhotosModal = () => {
               </div>
             </div>
             <div className="flex flex-col sm:flex-row  mx-auto ">
-              <div className="rounded-xl flex justify-center items-center w-[18rem] h-[12rem] bg-[#7B85E1]  mb-2 mt-4 sm:mr-6 ">
-                  <p className="text-[#fff] brightness-110 glassy-blu bg-[#1b3653] rounded-3xl px-10 py-1 text-[1.2rem] ">Upload Photo</p>
+              <div className="rounded-xl flex justify-center items-center w-[18rem] h-[12rem] bg-[#7B8 5E1]  upload-container mb-2 mt-4 sm:mr-6 ">
+                  <input hidden type="file" name="upload-image" id="upload-image" />
+                  <label htmlFor='upload-image' className="text-[#fff] cursor-pointer brightness-110 glassy-blu bg-[#1b3 653] text-green rounded-3xl px-10 py-1 text-[1.2rem] ">Upload Photo</label>
               </div>
               <div className="flex flex-col sm:mt-6 ">
                 <p className='text-[#fff] mb -1'>Album Name</p>
