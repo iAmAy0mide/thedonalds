@@ -9,9 +9,9 @@ const UploadAlbumPhotosModal = () => {
 
   return (
     <Modal>
-       {/* <button onClick={() => {
+       <button onClick={() => {
         dispatch(setUploadPhotoModalStatus(false));
-      }} title='Close' aria-label='Close comment modal button' className="close-modal-button">Close</button> */}
+      }} title='Close' aria-label='Close upload modal button' className="close-modal-button">Close</button>
       <div className=" relative z-20 bg-greenBg  h-[85dvh] border-[4px] border-red rounded-xl px-4">
         <div className="sm:max-w-[35rem]  w-full h-full flex justify-center items-center  mx-auto ">
 
