@@ -52,18 +52,16 @@ const NavBar = () => {
         <nav className='w-full h-full  flex flex-col justify-between'>
             <div className="flex w-full justify-end h-[15%]">            
                 <button
-                    // aria-label="Increment value"
                     onClick={() => {
                         dispatch(setLoginModalStatus(true));
                     }}
-                className={`${isLoginSuccess && "hidden"} bg-red hover:brightness-90  rounded-xl px-6 py-2 text-[#fff]`}>Login</button>
+                className={`${isLoginSuccess && "hidden"} auth-button`}>Login</button>
                 <button
-                    // aria-label="Increment value"
                     onClick={() => {
                         router.replace("/");
                         dispatch(signOut());
                     }}
-                className={`${!isLoginSuccess && "hidden"} text-sm max-sm:px-4 max-sm:py-1 bg-red hover:brightness-90  rounded-xl px-6 py-2 text-[#fff]`}>Signout</button>
+                className={`${!isLoginSuccess && "hidden"} auth-button`}>Signout</button>
             </div>
 
             <div className="mx-auto w-[18rem] sm:w-[21rem] mb-4">
@@ -74,7 +72,7 @@ const NavBar = () => {
                 <div onClick={() => {
                     setShowSmallScreenOptions(!showSmallScreenOptions);                    
                 }} 
-                className="w-[4rem] cursor-pointer" title='Menu' aria-label='Menu'>
+                className="w-[4rem] -mr-3 cursor-pointer" title='Menu' aria-label='Menu'>
                     <BsGrid3X3Gap  className='w-full text-actionBg text-[2.3rem]' />
                 </div>
                 <div className={`${!showSmallScreenOptions  && "hidden"} top-[100%] right-0 absolute  glassy-white border border-[#fff] rounded-xl p-2 text-[#fff]  flex  flex-col`}>                  
@@ -87,13 +85,15 @@ const NavBar = () => {
                 </div>
             </div>
 
-            <div className={`${!isLoginSuccess && "hid den"} hidden h-[15%] gap-2 md:flex w-full justify-end text-[#fff]  rounded-xl`}>
-                <button onClick={() => {
-                    dispatch(setUploadPhotoModalStatus(true));
-                }} className='upload-button'>Upload</button>
-                <button onClick={() => {
-                    dispatch(setUploadPhotoModalStatus(true));
-                }} className='deleted-gallery-button'>Deleted Gallery</button>
+            <div className={`${!isLoginSuccess && "hidden"} w-full h-[15%]`}>
+                <div className={` hidden h-full gap-2 md:flex w-full justify-end text-[#fff]  rounded-xl`}>
+                    <button onClick={() => {
+                        dispatch(setUploadPhotoModalStatus(true));
+                    }} className='upload-button'>Upload</button>
+                    <button onClick={() => {
+                        dispatch(setUploadPhotoModalStatus(true));
+                    }} className='deleted-gallery-button'>Deleted Gallery</button>
+                </div>
             </div>
 
             <div className={`${!isModalOpen && "hidden"} absolute left-[50%] -translate-x-[50%] top-[30dvh] `}>
