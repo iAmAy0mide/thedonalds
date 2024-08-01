@@ -20,7 +20,6 @@ html {
 }
 body {
   position: relative;
-  /* overflow: hidden; */
   background: #303A39;
   min-height: 100dvh;
   font-family: "Bahnschrift";
