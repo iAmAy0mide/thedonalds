@@ -32,14 +32,14 @@ const UploadAlbumPhotosModal = () => {
                 <div className="w-[4rem] h-[4rem] bg-actionBg rounded-xl"></div>
                 <div className="w-[4rem] h-[4rem] bg-actionBg rounded-xl"></div>
                 <div className="w-[4rem] h-[4rem] bg-actionBg rounded-xl"></div>
-                <div className="w-[4rem] h-[4rem] bg-actionBg rounded-xl"></div>
-                <div className="w-[4rem] h-[4rem] bg-actionBg rounded-xl"></div>
-                <div className="w-[4rem] h-[4rem] bg-actionBg rounded-xl"></div>
+                <div className="w-[4rem] h-[4rem] bg-[#7B85E1] rounded-xl"></div>
+                <div className="w-[4rem] h-[4rem] bg-[#1b3653] rounded-xl"></div>
+                <div className="w-[4rem] h-[4rem] bg-[#EC032A] rounded-xl"></div>
               </div>
             </div>
             <div className="uploading-cont">
               <div className="rounded-xl flex justify-center items-center w-[18rem] h-[12rem] upload-container mb-2 mt-4 sm:mr-6 basis-mi n-content">
-                <div className={`w-full flex-1  h-full flex justify-center items-center`} onClick={() => {
+                <div className={`w-full flex-1 cursor-pointer  h-full flex justify-center items-center`} onClick={() => {
 
                 }}>
                   <Uploader 
@@ -48,7 +48,7 @@ const UploadAlbumPhotosModal = () => {
                       button: {
                         padding: "13px 4px",
                         marginTop: "5px",
-                        marginBottom: "-30px",
+                        marginBottom: "-36px",
                         backgroundColor: "#04A998"
                       },
                       uploadIcon: {
@@ -58,7 +58,11 @@ const UploadAlbumPhotosModal = () => {
                       },
                       label: {
                         marginTop: "8px",
-                        color: "#04A998"
+                        color: "#04A998",
+                        fontSize: "16px"
+                      },
+                      allowedContent: {
+                        color: "#ccc",
                       }
                     }}
                     endpoint='imageUploader'
@@ -77,7 +81,7 @@ const UploadAlbumPhotosModal = () => {
               <div className="flex flex-col sm:mt-6 ">
                 <p className='text-[#fff] mb -1'>Album Name</p>
                 <input type="text" name="album-name" id="album-name" className='h-8 px-2 w -[10rem] rounded-md outline-none border-0 ' />
-                <button className='bg-actionBg brightness-110 justify-self-start w-[6rem] mt-4 px-2 py-1  text-[#fff] rounded-md text-sm'>Add Album</button>
+                <button className='bg-actionBg green-3d-effect brightness-110 justify-self-start w-[6rem] mt-4 px-2 py-1  text-[#fff] rounded-md text-sm'>Add Album</button>
               </div>
             </div>
           
