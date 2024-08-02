@@ -55,6 +55,10 @@ body {
     @apply text-sm max-sm:px-4 max-sm:py-1 bg-red hover:brightness-90  rounded-xl px-6 py-2 text-[#fff]
   }
 
+  .uploading-cont {
+    @apply flex flex-col sm:flex-row  mx-auto 
+  }
+
   /* .small-screen-menu {
     @apply top-[100%] right-0 absolute  glassy-white border border-[#fff] rounded-xl p-2 text-[#fff]  flex  flex-col
   } */
