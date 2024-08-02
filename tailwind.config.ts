@@ -18,7 +18,8 @@ const config: Config = {
     colors: {
       mainBg: "rgb(119, 168, 163, 0.2)",
       red: "#EC032A",
-      actionBg: "#04A998",
+      actionBg: "#05CBB6",
+      // actionBg: "#04A998",
       greyBg: "#D9D9D9",
       greenBg: "#457D79",
       deepBlue: "#204164",
