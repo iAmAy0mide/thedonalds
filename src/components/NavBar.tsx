@@ -55,13 +55,13 @@ const NavBar = () => {
                     onClick={() => {
                         dispatch(setLoginModalStatus(true));
                     }}
-                className={`${isLoginSuccess && "hidden"} auth-button`}>Login</button>
+                className={`${isLoginSuccess && "hidden"} red-3d-effect auth-button`}>Login</button>
                 <button
                     onClick={() => {
                         router.replace("/");
                         dispatch(signOut());
                     }}
-                className={`${!isLoginSuccess && "hidden"} auth-button`}>Signout</button>
+                className={`${!isLoginSuccess && "hidden"} red-3d-effect auth-button`}>Signout</button>
             </div>
 
             <div className="mx-auto w-[18rem] sm:w-[21rem] mb-4">
