@@ -4,6 +4,7 @@ import "./globals.css";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import StoreProvider from "./StoreProvider";
+import "@uploadthing/react/styles.css";
 
 
 const inter = Inter({ subsets: ["latin"] });
