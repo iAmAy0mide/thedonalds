@@ -22,6 +22,6 @@ const CommentsSchema: Schema = new mongoose.Schema({
         required: true
     }
 });
-const Comment = mongoose.model<IComments>("Comment", CommentsSchema);
+const Comment = mongoose.models.Comment || mongoose.model<IComments>("Comment", CommentsSchema);
 
 export default Comment;
