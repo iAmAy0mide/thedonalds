@@ -11,7 +11,7 @@ const Album: React.FC = () => {
     const dispatch = useDispatch();
 
     return (
-        <div className='relative border border-[#052844] text-[#fff]  flex flex-col  overflow-hidden h-[18rem]  rounded-xl' >
+        <div className='relative border border-deepBlue text-[#fff]  flex flex-col  overflow-hidden h-[18rem]  rounded-xl' >
             <div className="rounded-xl relative  h-[82%]" style={{ backgroundImage: `url(${Human.src})`, backgroundPosition: "center", backgroundSize: "cover" }}>
                 <div className="absolute bg-albumOverlay rounded-xl  inset-0 z-[5] "></div>
                 <div className="flex relative flex-col h-full w-full z-20  p-2">
