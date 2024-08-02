@@ -21,7 +21,7 @@ const config: Config = {
       actionBg: "#04A998",
       greyBg: "#D9D9D9",
       greenBg: "#457D79",
-      deepBlue: "#1b3653",
+      deepBlue: "#204164",
       blueBg: "#7B85E1",
       albumOverlay: "rgba(119, 168, 163, 0.2)",
     }
