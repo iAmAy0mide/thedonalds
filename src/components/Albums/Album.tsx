@@ -26,7 +26,7 @@ const Album: React.FC = () => {
                     </div>
                     <div className="absolute bottom-1 glassy-blue px-2 py-4 rounded-xl">
                         <p className="date">12 June 2030</p>
-                        <p className="c">Aunt May's Wedding</p>
+                        <p className="c">Aunt May&apos;s Wedding</p>
                     </div>
                 </div>
             </div>
