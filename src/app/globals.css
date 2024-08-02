@@ -52,7 +52,7 @@ body {
   }
 
   .auth-button {
-    @apply text-sm max-sm:px-4 max-sm:py-1 bg-red hover:brightness-90  rounded-xl px-6 py-2 text-[#fff]
+    @apply text-sm max-sm:px-4 max-sm:py-1 bg-red hover:brightness-90  rounded-lg px-6 py-2 text-[#fff]
   }
 
   .uploading-cont {
@@ -134,8 +134,24 @@ body {
 }
 
 .upload-container {
-  background: rgb(4, 169, 152, 0.5);
-  backdrop-filter: blur(6px); 
+  background: #1b3653;
+  /* background: #7B85E1; */
+  /* background: rgb(4, 169, 152, 0.5); */
+  backdrop-filter: brightness(200%);  
   /* background: #0fceba; */
   /* background: #04A998; */
+}
+
+.green-3d-effect {
+  box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.332)  inset,
+              -3px -3px 3px rgba(255, 255, 255, 0.332)  inset
+  ;
+}
+.red-3d-effect {
+  box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.332)  inset,
+              -3px -3px 3px rgba(255, 255, 255, 0.332)  inset
+  ;
+}
+.blue-3d-effect {
+
 }
