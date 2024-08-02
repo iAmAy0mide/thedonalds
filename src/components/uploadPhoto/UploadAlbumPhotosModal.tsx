@@ -38,7 +38,7 @@ const UploadAlbumPhotosModal = () => {
               </div>
             </div>
             <div className="uploading-cont">
-              <div className="rounded-xl flex justify-center items-center w-[18rem] h-[12rem] upload-container mb-2 mt-4 sm:mr-6 basis-mi n-content">
+              <div className="rounded-xl flex justify-center items-center w-[18rem] h-[12rem] upload-container mb-2 mt-4 sm:mr-6">
                 <div className={`w-full flex-1 cursor-pointer  h-full flex justify-center items-center`} onClick={() => {
 
                 }}>
@@ -49,7 +49,8 @@ const UploadAlbumPhotosModal = () => {
                         padding: "13px 4px",
                         marginTop: "5px",
                         marginBottom: "-36px",
-                        backgroundColor: "#04A998"
+                        backgroundColor: "#04A998",
+                        boxShadow: "3px 3px 3px rgba(255, 255, 255, 0.332)  inset, -3px -3px 3px rgba(255, 255, 255, 0.332) inset" 
                       },
                       uploadIcon: {
                         width: "6rem",
@@ -78,11 +79,11 @@ const UploadAlbumPhotosModal = () => {
                   {/* <input hidden type="file" name="upload-image" id="upload-image" />
                   <label htmlFor='upload-image' className="text-[#fff] cursor-pointer brightness-110 glassy-blu bg-[#1b3 653] text-green rounded-3xl px-10 py-1 text-[1.2rem] ">Upload Photo</label> */}
               </div>
-              <div className="flex flex-col sm:mt-6 ">
+              <form className="flex flex-col sm:mt-6 ">
                 <p className='text-[#fff] mb -1'>Album Name</p>
                 <input type="text" name="album-name" id="album-name" className='h-8 px-2 w -[10rem] rounded-md outline-none border-0 ' />
-                <button className='bg-actionBg green-3d-effect brightness-110 justify-self-start w-[6rem] mt-4 px-2 py-1  text-[#fff] rounded-md text-sm'>Add Album</button>
-              </div>
+                <button className='bg-actionBg green-3d-effect hover:brightness-95 duration-300 transition-all brightness-110 justify-self-start w-[6rem] mt-3 px-2 py-1  text-[#fff] rounded-md text-sm'>Add Album</button>
+              </form>
             </div>
           
           </div>
