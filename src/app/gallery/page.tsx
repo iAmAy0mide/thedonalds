@@ -1,7 +1,7 @@
 "use client";
 import Album from '@/components/Albums/Album';
 import CommentsModal from "@/components/comments/CommentsModal";
-import UploadAlbumPhotosModal from "@/components/uploadPhoto/UploadAlbumPhotosModal";
+import UploadAlbumPhotosModal from "@/components/uploadAlbumPhoto/UploadAlbumPhotosModal";
 import { RootState } from '@/lib/store';
 import { useDispatch, useSelector } from 'react-redux';
 
