@@ -2,9 +2,13 @@
 import { setUploadPhotoModalStatus } from '@/lib/features/modal/modalSlice';
 import Modal from '../Modal';
 import { useDispatch } from 'react-redux';
+import { Uploader } from '@/utils/uploadthing';
+import { useState } from 'react';
 
 
 const UploadAlbumPhotosModal = () => {
+  const [isMaxUpload, setIsMaxUpload] = useState<boolean>(false);
+  
   const dispatch = useDispatch();
 
   return (
@@ -33,10 +37,42 @@ const UploadAlbumPhotosModal = () => {
                 <div className="w-[4rem] h-[4rem] bg-actionBg rounded-xl"></div>
               </div>
             </div>
-            <div className="flex flex-col sm:flex-row  mx-auto ">
-              <div className="rounded-xl flex justify-center items-center w-[18rem] h-[12rem] bg-[#7B8 5E1]  upload-container mb-2 mt-4 sm:mr-6 ">
-                  <input hidden type="file" name="upload-image" id="upload-image" />
-                  <label htmlFor='upload-image' className="text-[#fff] cursor-pointer brightness-110 glassy-blu bg-[#1b3 653] text-green rounded-3xl px-10 py-1 text-[1.2rem] ">Upload Photo</label>
+            <div className="uploading-cont">
+              <div className="rounded-xl flex justify-center items-center w-[18rem] h-[12rem] upload-container mb-2 mt-4 sm:mr-6 basis-mi n-content">
+                <div className={`w-full flex-1  h-full flex justify-center items-center`} onClick={() => {
+
+                }}>
+                  <Uploader 
+                    className='bg-blu eBg  self-end w-full h-full basis-min-content'
+                    appearance={{
+                      button: {
+                        padding: "13px 4px",
+                        marginTop: "5px",
+                        marginBottom: "-30px",
+                        backgroundColor: "#04A998"
+                      },
+                      uploadIcon: {
+                        width: "6rem",
+                        marginTop: "-50px",
+                        
+                      },
+                      label: {
+                        marginTop: "8px",
+                        color: "#04A998"
+                      }
+                    }}
+                    endpoint='imageUploader'
+                    onClientUploadComplete={(res) => {
+                      console.log("Files", res); 
+                      alert("Upload complete");                    
+                    }}
+                    onUploadError={(error: Error) => {
+                      alert(`ERROR! ${error.message}` );
+                    }}
+                  />
+                </div>
+                  {/* <input hidden type="file" name="upload-image" id="upload-image" />
+                  <label htmlFor='upload-image' className="text-[#fff] cursor-pointer brightness-110 glassy-blu bg-[#1b3 653] text-green rounded-3xl px-10 py-1 text-[1.2rem] ">Upload Photo</label> */}
               </div>
               <div className="flex flex-col sm:mt-6 ">
                 <p className='text-[#fff] mb -1'>Album Name</p>
