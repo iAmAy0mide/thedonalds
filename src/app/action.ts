@@ -9,14 +9,20 @@ import User from "./models/users";
 // }
 
 export const addComment = async (formData: FormData) => {
-    await dbConnect();
+    try {
+        await dbConnect();
     
-    const comment = formData.get("comment");
-    console.log(comment);
+        const comment = formData.get("comment");
+        console.log(comment);
+        
+        const newComment = new Comment({ comment });
     
-    const newComment = new Comment({ comment });
-
-    await newComment.save(); 
+        await newComment.save();
+         
+    } catch (error: any) {
+        return {error: error.message}
+    }
+   
 }
 
 
