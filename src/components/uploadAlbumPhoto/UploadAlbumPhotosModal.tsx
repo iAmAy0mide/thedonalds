@@ -32,10 +32,10 @@ const UploadAlbumPhotosModal = () => {
               <div className="flex flex-wrap  gap-2 w-full">
                 
                {                
-                albumPhotos.map(album => (
-                  album.name && album.url ?
-                  (<div key={album.name} className="w-[4rem] h-[4rem] border-[2px] border-deepBlue rounded-xl">
-                    <Image className='w-full h-full rounded-xl' width={100} height={100} alt={album.name} src={album.url} />
+                albumPhotos.map(photo => (
+                  photo.name && photo.url ?
+                  (<div key={photo.name} className="w-[4rem] h-[4rem] border-[2px] border-deepBlue rounded-xl">
+                    <Image className='w-full h-full rounded-xl' width={100} height={100} alt={photo.name} src={photo.url} />
                   </div>) : null
                 ))
                }
@@ -73,10 +73,8 @@ const UploadAlbumPhotosModal = () => {
                     endpoint='imageUploader'
                     onClientUploadComplete={(res) => {
                       const name = res[0].name;
-                      const url = res[0].url;
-                      // console.log({name}, {url});                      
+                      const url = res[0].url;                   
                       setAlbumPhotos((prevState) => [...prevState, {name, url}]);
-                      console.log("Files", res);                   
                     }}
                     onUploadError={(error: Error) => {
                       alert(`ERROR! ${error.message}` );
@@ -86,7 +84,7 @@ const UploadAlbumPhotosModal = () => {
                   {/* <input hidden type="file" name="upload-image" id="upload-image" />
                   <label htmlFor='upload-image' className="text-[#fff] cursor-pointer brightness-110 glassy-blu bg-[#1b3 653] text-green rounded-3xl px-10 py-1 text-[1.2rem] ">Upload Photo</label> */}
               </div>
-              <UploadAlbumForm setAlbumPhotos={setAlbumPhotos} />
+              <UploadAlbumForm albumPhotos={albumPhotos} setAlbumPhotos={setAlbumPhotos} />
             </div>
           
           </div>
