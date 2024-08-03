@@ -19,3 +19,17 @@ export const addComment = async (formData: FormData) => {
     await newComment.save(); 
 }
 
+
+export async function getComments() {
+    try {
+        await dbConnect();
+
+        const comments = await Comment.find({});
+        console.log(comments);
+        
+        return comments;  
+    } catch (error: any) {
+        return {error: error.message}
+    }
+    
+}
