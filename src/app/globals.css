@@ -60,7 +60,7 @@ body {
   }
 
   .upload-album-button {
-    @apply bg-actionBg green-3d-effect hover:brightness-95 duration-300 transition-all brightness-110 justify-self-start w-[6rem] mt-3 px-3 py-[0.35rem]  text-[#fff] rounded-lg text-sm
+    @apply bg-actionBg green-3d-effect hover:brightness-95 duration-300 transition-all justify-self-start w-[6rem] mt-3 px-3 py-[0.35rem]  text-[#fff] rounded-lg text-sm
   }
 
   /* .small-screen-menu {
@@ -137,10 +137,10 @@ body {
               ;
 }
 
-.upload-container {
+/* .upload-container {
   background: #1b3653;
   filter: brightness(120%);
-}
+} */
 
 .green-3d-effect {
   box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.332)  inset,
