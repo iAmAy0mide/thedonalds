@@ -66,6 +66,18 @@ body {
   .comment-text {
     @apply comment-line-height text-[#fff] text-sm mr-2
   }
+
+  .comment-container-form {
+    @apply bg-[#3f5f82] px-3 py-1 text-[#fff] text-sm relative rounded-xl h-[20%] max-w-[30rem] max-sm:max-w-[25rem] w-full mt-2 blue-3d-effect
+  }
+
+  .comment-form-button {
+    @apply absolute bottom-2 right-2 z-10 bg-actionBg green-3d-effect rounded-lg text-[#fff]  px-2 py-[0.2rem]
+  }
+
+  .comment-form-input {
+    @apply w-full leading-[0.95rem] py-1 resize-none h-full z-10 relative bg-[#3f5f82] border-0 outline-none
+  }
   /* .small-screen-menu {
     @apply top-[100%] right-0 absolute  glassy-white border border-[#fff] rounded-xl p-2 text-[#fff]  flex  flex-col
   } */
