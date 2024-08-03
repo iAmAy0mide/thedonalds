@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { Dispatch, SetStateAction } from 'react';
 
-const UploadAlbumForm = () => {
+const UploadAlbumForm: React.FC<IUProp> = ({setAlbumPhotos}) => {
   
 
   return (
-    <form className="flex flex-col sm:mt-6 ">
+    <form action={} className="flex flex-col sm:mt-6 ">
         <p className='text-[#fff] mb -1'>Album Name</p>
         <input type="text" name="album-name" id="album-name" className='h-9 px-2 rounded-md outline-none border-0 ' />
         <button className='upload-album-button'>Add Album</button>
@@ -12,4 +12,8 @@ const UploadAlbumForm = () => {
   )
 }
 
-export default UploadAlbumForm
+export default UploadAlbumForm;
+
+interface IUProp {
+  setAlbumPhotos: Dispatch<SetStateAction<IUploadedImage[]>>
+}
