@@ -1,7 +1,14 @@
 import mongoose, { Document, Schema } from "mongoose";
 
-export interface IAlbum extends Document {
+type TAlbum = {
+    image: { name: string, url: string, deleted: boolean }    
+}[];
 
+
+export interface IAlbum extends Document {
+    albumName: string;
+    album: TAlbum;
+    deleted?: boolean;
 }
 
 const AlbumSchema: mongoose.Schema = new Schema({
@@ -10,9 +17,20 @@ const AlbumSchema: mongoose.Schema = new Schema({
         required: true,
     },
     
-    albumImages: {
-        type: Array,
+    album: {
+        type: [{            
+            image: { 
+                name: String, url: String, deleted: {
+                    type: Boolean,
+                    default: false,
+                } 
+            }
+            
+        }],
         required: true,
+    },
+    deleted: {
+        type: Boolean,
     }
 });
 
