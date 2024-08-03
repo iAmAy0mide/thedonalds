@@ -1,7 +1,7 @@
 import mongoose, { Document, Schema } from "mongoose";
 
 type TAlbum = {
-    image: { name: string, url: string, deleted: boolean }    
+    image: { url: string, deleted: boolean }    
 }[];
 
 
@@ -31,6 +31,7 @@ const AlbumSchema: mongoose.Schema = new Schema({
     },
     deleted: {
         type: Boolean,
+        default: false
     }
 });
 
