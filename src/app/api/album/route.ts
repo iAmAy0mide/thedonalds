@@ -1,18 +1,31 @@
-import Comment from "@/app/models/comments";
+import Album from "@/app/models/album";
 import dbConnect from "@/lib/db/dbConnect";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 
-export async function POST(album: IUploadedImage) {
+export async function POST(req: NextRequest, res: NextResponse) {
     await dbConnect();
 
     try {
-        const comments = await Comment.find({});
+        const body = await req.json();        
+        const { albumName, album, deleted } = body;
 
-        return NextResponse.json("");
+        if (typeof albumName !== 'string' || !Array.isArray(album)) {
+            return NextResponse.json({ error: 'Invalid request body' }, { status: 400 });
+        }
+
+        const newAlbum = new Album({
+            albumName,
+            album,
+            deleted
+        });       
+
+        await newAlbum.save();
+
+        return NextResponse.json({ message: 'Album created successfully' });
         
     } catch (err: any) {
-        return NextResponse.json({ error: err.message });
+        return NextResponse.json({ error: err.message }, { status: 500 });
     }
 
 }
