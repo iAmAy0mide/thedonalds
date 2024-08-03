@@ -44,11 +44,11 @@ body {
   }
 
   .upload-button {
-    @apply rounded-xl px-6 py-1 hover:brightness-90 bg-actionBg shadow-sm green-3d-effect
+    @apply rounded-lg px-6 py-1 hover:brightness-90 bg-actionBg shadow-sm green-3d-effect
   }
 
   .deleted-gallery-button {
-    @apply rounded-xl px-6 py-1 hover:brightness-90 bg-[#000] shadow-sm black-3d-effect
+    @apply rounded-lg px-6 py-1 hover:brightness-90 bg-[#000] shadow-sm black-3d-effect
   }
 
   .auth-button {
