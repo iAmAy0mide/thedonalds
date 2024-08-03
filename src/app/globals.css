@@ -63,6 +63,9 @@ body {
     @apply bg-actionBg green-3d-effect hover:brightness-95 duration-300 transition-all justify-self-start w-[6rem] mt-3 px-3 py-[0.35rem]  text-[#fff] rounded-lg text-sm
   }
 
+  .comment-text {
+    @apply comment-line-height text-[#fff] text-sm mr-2
+  }
   /* .small-screen-menu {
     @apply top-[100%] right-0 absolute  glassy-white border border-[#fff] rounded-xl p-2 text-[#fff]  flex  flex-col
   } */
@@ -164,4 +167,8 @@ body {
   box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.332)  inset,
               -3px -3px 3px rgba(255, 255, 255, 0.332)  inset
   ;
+}
+
+.comment-line-height {
+  line-height: 1.1rem !important;
 }
