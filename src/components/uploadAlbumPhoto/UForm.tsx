@@ -1,10 +1,10 @@
-import { addAlbum } from '@/app/action'
+// import { addAlbum } from '@/app/action'
 import React from 'react'
 
 const UForm: React.FC<albumData> = ({album, albumName}) => {
     async function addAlbumPhoto() {
         "use server";
-        await addAlbum({album, albumName})
+        // await addAlbum({album, albumName})
     }
 
   return (

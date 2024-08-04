@@ -30,7 +30,7 @@ export async function getComments() {
         await dbConnect();
 
         const comments = await Comment.find({}, { __v: 0 }).sort({ createdAt: -1 });;
-        console.log(comments);
+        // console.log(comments);
 
         // return comments.map(comment => comment.toObject()); 
         return comments.map(comment => {
