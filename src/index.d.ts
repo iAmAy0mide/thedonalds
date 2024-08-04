@@ -16,4 +16,5 @@ declare interface albumData {
 declare interface IComment {
   profilePic: string;
   comment: string;
+  key: string;
 }
