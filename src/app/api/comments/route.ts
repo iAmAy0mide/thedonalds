@@ -1,6 +1,6 @@
 import Comment from "@/app/models/comments";
 import dbConnect from "@/lib/db/dbConnect";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 
 export async function GET() {
@@ -15,4 +15,19 @@ export async function GET() {
         return NextResponse.json({ error: err.message });
     }
 
+}
+
+export async function POST(req: NextRequest, res: NextResponse) {
+    try {
+        await dbConnect();
+
+        const body = await req.json();
+        const comment = body;
+
+        const newComment = new Comment({
+
+        });
+    } catch (error) {
+        
+    }
 }
