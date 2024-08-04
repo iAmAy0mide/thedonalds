@@ -6,13 +6,17 @@ export interface AuthState {
     isLoginModalOpen: boolean;
 }
 
+const getLocalStorageItem = (key: string): boolean => {
+    if (typeof window !== 'undefined') {
+        const item = localStorage.getItem("isLoggedIn");
+        return item ? JSON.parse(item) : false;
+    }
+    return false;
+} 
+
 const initialState: AuthState = {
     isLoginModalOpen: false,
-    isLoggedIn: localStorage.getItem("isLoggedIn") 
-    // @ts-ignore
-                ? JSON.parse(localStorage.getItem("isLoggedIn")) 
-                : false,
-                
+    isLoggedIn: getLocalStorageItem("isLoggedIn")             
    
 }
 
