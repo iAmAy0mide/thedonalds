@@ -20,7 +20,7 @@ const Gallery = () => {
           <Album />
         </div>
       </div>`      
-      <div className={`${!isCommentModalOpen && "hidden"} absolute left-0 top-[10dvh] z-[600]`}>  
+      <div className={`${!isCommentModalOpen && "hid den"} absolute left-0 top-[10dvh] z-[600]`}>  
         <CommentsModal />
       </div>
       <div className={`${!isUploadAlbumPhotoModalOpen && "hidden"} absolute left-0 top-[10dvh] z-[600]`}>  
