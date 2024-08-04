@@ -24,13 +24,19 @@ import { setLoginModalStatus, signOut } from '@/lib/features/auth/authSlice';
 
 
 
-const isLoggedInUser = localStorage.getItem("isLoggedIn");
+const getAuthStatus = (key: string): boolean => {
+    if (typeof window !== 'undefined') {
+        const item = localStorage.getItem("isLoggedIn");
+        return item ? JSON.parse(item) : false;
+    }
+    return false;
+}
 
-// const isLoggedInUserBool = JSON.parse(isLoggedInUser)
+const isLoggedInUser: boolean = getAuthStatus("isLoggedIn");
 
 
 const NavBar = () => {
-    const [isCLicked, setIsClicked] = useState<boolean>(true);
+    
     const router = useRouter()
     const dispatch = useDispatch();
     const isModalOpen = useSelector((state: RootState) => state.auth.isLoginModalOpen);
@@ -38,11 +44,11 @@ const NavBar = () => {
     const [showSmallScreenOptions, setShowSmallScreenOptions] = useState<boolean>(false);
     const pathName = usePathname();
 
-    if (isLoggedInUser !== "true") {
+    if (isLoggedInUser !== true) {
         router.replace("/");
     }
 
-    if (isLoggedInUser === "true" && pathName === "/") {
+    if (isLoggedInUser === true && pathName === "/") {
         router.replace("/gallery");
     }
     
