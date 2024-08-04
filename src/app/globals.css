@@ -36,6 +36,10 @@ body {
   .close-modal-button {
     @apply absolute -top-[2.5%] rounded-md hover:brightness-90 px-3 py-1 text-[#fff] text-sm bg-actionBg left-0 z-30
   }
+
+  .auth-button {
+    @apply text-sm max-sm:px-4 max-sm:py-1 bg-red hover:brightness-90  rounded-lg px-6 py-2 text-[#fff]
+  }
 }
 
 @layer utilities {
@@ -51,9 +55,6 @@ body {
     @apply rounded-lg px-6 py-1 hover:brightness-90 bg-[#000] shadow-sm black-3d-effect
   }
 
-  .auth-button {
-    @apply text-sm max-sm:px-4 max-sm:py-1 bg-red hover:brightness-90  rounded-lg px-6 py-2 text-[#fff]
-  }
 
   .uploading-cont {
     @apply flex flex-col sm:flex-row  mx-auto 
