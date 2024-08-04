@@ -1,11 +1,12 @@
-"use client";
-import { setUploadPhotoModalStatus } from '@/lib/features/modal/modalSlice';
-import Modal from '../Modal';
-import { useDispatch } from 'react-redux';
-import { Uploader } from '@/utils/uploadthing';
 import { useState } from 'react';
-import UploadAlbumForm from './UploadAlbumForm';
 import Image from "next/image";
+
+import Modal from '../Modal';
+import { Uploader } from '@/utils/uploadthing';
+import UploadAlbumForm from './UploadAlbumForm';
+
+import { useDispatch } from 'react-redux';
+import { setUploadPhotoModalStatus } from '@/lib/features/modal/modalSlice';
 
 
 const UploadAlbumPhotosModal = () => {
