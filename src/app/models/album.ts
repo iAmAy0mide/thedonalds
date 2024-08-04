@@ -33,7 +33,7 @@ const AlbumSchema: mongoose.Schema = new Schema({
         type: Boolean,
         default: false
     }
-});
+}, { timestamps: true});
 
 const Album = mongoose.models.Album || mongoose.model<IAlbum>("Album", AlbumSchema);
 
