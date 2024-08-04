@@ -55,6 +55,8 @@ const NavBar = () => {
         }
     });
     
+    console.log(isLoginSuccess);
+    
 
   return (
     <header className="fixed w-full mx-auto z-50 h-[15rem] md:pb-2 top-0 pt-1  bg-[#303A39] mobile px-8 md:px-16">    
@@ -77,14 +79,14 @@ const NavBar = () => {
                 <Image alt='' width={100} height={100} priority src={Logo} className='w-full' />
             </div>
 
-            <div className={`w-full ${!isLoginSuccess && "hidden" }  relative flex justify-end md:hidden`}>
+            <div className={`w-full ${!isLoginSuccess && "hidden" } sm-menu-show-button`}>
                 <div onClick={() => {
                     setShowSmallScreenOptions(!showSmallScreenOptions);                    
                 }} 
                 className="w-[4rem] -mr-3 cursor-pointer" title='Menu' aria-label='Menu'>
                     <BsGrid3X3Gap  className='w-full text-actionBg text-[2.3rem]' />
                 </div>
-                <div className={`${!showSmallScreenOptions  && "hidden"} top-[100%] right-0 absolute  glassy-white border border-[#fff] rounded-xl p-2 text-[#fff]  flex  flex-col`}>                  
+                <div className={`${!showSmallScreenOptions  && "hidden"} sm-menu-option`}>                  
                         <button onClick={() => {
                             dispatch(setUploadPhotoModalStatus(true));
                         }} className='upload-button'>Upload</button>
@@ -94,8 +96,8 @@ const NavBar = () => {
                 </div>
             </div>
 
-            <div className={`${!isLoginSuccess && "hidden"} w-full h-[15%]`}>
-                <div className={` hidden h-full gap-2 md:flex w-full justify-end text-[#fff]  rounded-xl`}>
+            <div className={`${isLoginSuccess && "hidden"} w-full h-[15%]`}>
+                <div className={`md-opt ion h-full gap-2 md:flex w-full justify-end text-[#fff]  rounded-xl`}>
                     <button onClick={() => {
                         dispatch(setUploadPhotoModalStatus(true));
                     }} className='upload-button'>Upload</button>

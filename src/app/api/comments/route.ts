@@ -1,5 +1,6 @@
 import Comment from "@/app/models/comments";
 import dbConnect from "@/lib/db/dbConnect";
+import { revalidatePath } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 
 
@@ -8,14 +9,18 @@ export async function GET(req: NextRequest, res: NextResponse) {
         await dbConnect();
 
         const comments = await Comment.find({}, { __v: 0 }).sort({ createdAt: -1 });
-        console.log(comments);
+        // console.log(comments);
 
         // return comments.map(comment => comment.toObject()); 
-        return comments.map(comment => {
+        const sortedComment = comments.map(comment => {
             const commentObj = comment.toObject();
             commentObj._id = commentObj._id.toString(); // Convert _id to string
             return commentObj;
         });
+
+        revalidatePath("/gallery");
+
+        return NextResponse.json(sortedComment)
     } catch (error: any) {
         return  NextResponse.json({error: error.message})
     }

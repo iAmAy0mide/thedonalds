@@ -40,6 +40,18 @@ body {
   .auth-button {
     @apply text-sm max-sm:px-4 max-sm:py-1 bg-red hover:brightness-90  rounded-lg px-6 py-2 text-[#fff]
   }
+
+  .sm-menu-show-button {
+    @apply   relative flex justify-end md:hidden
+  }
+
+  .sm-menu-option {
+    @apply top-[100%] right-0 absolute  glassy-white border border-[#fff] rounded-xl p-2 text-[#fff]  flex  flex-col
+  }
+
+  .md-option {
+    @apply  hidden h-full gap-2 md:flex w-full justify-end text-[#fff]  rounded-xl
+  }
 }
 
 @layer utilities {

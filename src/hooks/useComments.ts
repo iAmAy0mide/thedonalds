@@ -3,22 +3,32 @@ import { useEffect, useState } from "react";
 
 const useComments = () => {
 
-    const [comments, setComments] = useState< any[] | { error: any; } >([]);
+    const [comments, setComments] = useState< any[] >([]);
+    // const [comments, setComments] = useState< any[] | { error: any; } >([]);
     
     
-    async function getAllComment() {
+    async function getAllComments() {
+      const res = await fetch("/api/comments", { cache: "no-store" });
+
       
-      const Comments = await getComments();
+      const Comments = await res.json();
+      // const Comments = await getComments();
+      console.log("from Hook from hook from hook HHHHHHHHHHOOOOOKKKK");
+      
       setComments(Comments);
 
     }
-    
+
     useEffect(() => {
 
-    getAllComment();
-    }, []);
+      getAllComments();
+    }, []); 
 
-    return { comments, getAllComment }
+    return { comments, getAllComments }
 }
 
 export default useComments;
+
+interface IUseCom {
+  shouldRefetch?: boolean;
+}

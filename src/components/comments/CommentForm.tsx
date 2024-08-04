@@ -1,13 +1,14 @@
 "use client";
 
-import {FormEvent, useState} from 'react';
+import {FormEvent, useState, useActionState} from 'react';
 import { addComment } from '@/app/action';
 import CommentButton from './CommentButton';
 import useComments from '@/hooks/useComments';
 
 
+
 const CommentForm = () => {
-  const { getAllComment } = useComments();
+  const { getAllComments } = useComments();
   const [comment, setComment] = useState<string>("");
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -23,7 +24,7 @@ const CommentForm = () => {
     
     if (res.ok) {
       setComment("");
-      getAllComment();
+      getAllComments();
     }
   }
   return (
