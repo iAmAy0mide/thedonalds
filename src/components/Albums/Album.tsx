@@ -1,9 +1,10 @@
-"use client";
+import Image from 'next/image';
+
+import Human from "/public/human.svg";
 import CommentIcon from "/public/CommentIcon.svg";
 import DeleteIcon from "/public/DeleteIcon.svg";
-import Human from "/public/human.svg";
 import AlbumFolderIcon from "/public/AlbumFolderIcon.svg";
-import Image from 'next/image';
+
 import { useDispatch } from 'react-redux';
 import { setCommentModalStatus, setUploadPhotoModalStatus } from '@/lib/features/modal/modalSlice';
 
