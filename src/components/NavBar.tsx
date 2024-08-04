@@ -1,5 +1,5 @@
 "use client";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Image from "next/image";
 // import Logo from "/public/Logo.svg";
@@ -36,7 +36,7 @@ const isLoggedInUser: boolean = getAuthStatus("isLoggedIn");
 
 
 const NavBar = () => {
-    
+
     const router = useRouter()
     const dispatch = useDispatch();
     const isModalOpen = useSelector((state: RootState) => state.auth.isLoginModalOpen);
@@ -44,13 +44,16 @@ const NavBar = () => {
     const [showSmallScreenOptions, setShowSmallScreenOptions] = useState<boolean>(false);
     const pathName = usePathname();
 
-    if (isLoggedInUser !== true) {
-        router.replace("/");
-    }
+    useEffect(() => {
 
-    if (isLoggedInUser === true && pathName === "/") {
-        router.replace("/gallery");
-    }
+        if (isLoggedInUser !== true) {
+            router.replace("/");
+        }
+    
+        if (isLoggedInUser === true && pathName === "/") {
+            router.replace("/gallery");
+        }
+    });
     
 
   return (
