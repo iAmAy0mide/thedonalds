@@ -9,7 +9,7 @@ const CommentForm = () => {
   function h() {
     setTimeout(() => {
 
-      alert("Time Up");
+      // alert("Time Up");
       
       getAllComment();
     }, 1000);
