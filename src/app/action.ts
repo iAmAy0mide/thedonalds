@@ -13,12 +13,11 @@ export const addComment = async (formData: FormData) => {
         await dbConnect();
     
         const comment = formData.get("comment");
-        console.log(comment);
         
         const newComment = new Comment({ comment });
     
-        await newComment.save();
-         
+        await newComment.save(); 
+        formData.append("comment", "");
     } catch (error: any) {
         return {error: error.message}
     }
@@ -30,10 +29,15 @@ export async function getComments() {
     try {
         await dbConnect();
 
-        const comments = await Comment.find({});
+        const comments = await Comment.find({}, "-_v");
         console.log(comments);
-        
-        return comments;  
+
+        // return comments.map(comment => comment.toObject()); 
+        return comments.map(comment => {
+            const commentObj = comment.toObject();
+            commentObj._id = commentObj._id.toString(); // Convert _id to string
+            return commentObj;
+        });
     } catch (error: any) {
         return {error: error.message}
     }
