@@ -21,13 +21,15 @@ export async function POST(req: NextRequest, res: NextResponse) {
     try {
         await dbConnect();
 
-        const body = await req.json();
-        const comment = body;
+        const comment = await req.json();        
 
         const newComment = new Comment({
-
+            comment
         });
-    } catch (error) {
-        
+
+        await newComment.save();
+        return NextResponse.json({comment});
+    } catch (error: any) {
+        return NextResponse.json({ error: error.message});
     }
 }
