@@ -7,6 +7,7 @@ import UploadAlbumForm from './UploadAlbumForm';
 
 import { useDispatch } from 'react-redux';
 import { setUploadPhotoModalStatus } from '@/lib/features/modal/modalSlice';
+import UploadAlbumPhotoCloseBtn from './UploadAlbumPhotoCloseBtn';
 
 
 const UploadAlbumPhotosModal = () => {
@@ -22,9 +23,7 @@ const UploadAlbumPhotosModal = () => {
 
   return (
     <Modal>
-       <button onClick={() => {
-        dispatch(setUploadPhotoModalStatus(false));
-      }} title='Close' aria-label='Close upload modal button' className="close-modal-button">Close</button>
+      <UploadAlbumPhotoCloseBtn />
       <div className=" relative z-20 bg-greenBg  h-[85dvh] border-[4px] border-red rounded-xl px-4">
         <div className="sm:max-w-[35rem]  w-full h-full flex justify-center items-center  mx-auto ">
 
