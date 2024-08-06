@@ -4,20 +4,20 @@
 
 @font-face {
   font-family: "Bahnschrift";
-  src: url("/public/fonts/Bahnschrift.TTF");
+  src: url("/fonts/Bahnschrift.TTF");
 }
 
 @font-face {
   font-family: "Kage";
-  src: url("/public/fonts/Kage-black.otf");
+  src: url("/fonts/Kage-black.otf");
 }
 
 html {
   scroll-behavior: smooth;
 }
-* {
+/* * {
   font-family: "Bahnschrift";
-}
+} */
 body {
   position: relative;
   background: #303A39;
