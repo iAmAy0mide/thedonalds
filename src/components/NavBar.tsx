@@ -50,7 +50,7 @@ const NavBar = () => {
             router.replace("/");
         }
     
-        if (isLoggedInUser === true && pathName === "/") {
+        if (isLoggedInUser === true && pathName === "/") { 
             router.replace("/gallery");
         }
     });
