@@ -15,7 +15,7 @@ export async function GET(req: NextRequest, res: NextResponse) {
                 const id =  c._id.toString();
                 const comment = c.comment;
                 return (
-                    {_id: id, comment}
+                    {id, comment}
                 );
         })
 
