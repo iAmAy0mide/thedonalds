@@ -15,21 +15,23 @@ export const addComment = async (formData: FormData) => {
         const comment = formData.get("comment");
         
         const newComment = new Comment({ comment });
+        // console.log({newComment});
+        
         await newComment.save(); 
 
-        const savedComment = newComment.map((c: { _id: { toString: () => any; }; comment: any; }) => {
-            const id =  c._id.toString();
-            const comment = c.comment;
-            return (
-                {_id: id, comment}
-             )
-        })    
+        // const savedComment = newComment.map((c: { _id: { toString: () => any; }; comment: any; }) => {
+        //     const id =  c._id.toString();
+        //     const comment = c.comment;
+        //     return (
+        //         {_id: id, comment}
+        //      )
+        // })    
         
 
         revalidatePath("/gallery");
         revalidatePath("/");
         revalidatePath("*");
-        return savedComment;
+        return {success: "ok"};
         // formData.append("comment", "");
     } catch (error: any) {
         return {error: error.message}
