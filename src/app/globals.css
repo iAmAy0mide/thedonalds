@@ -73,7 +73,7 @@ body {
   }
 
   .upload-album-button {
-    @apply bg-actionBg green-3d-effect hover:brightness-95 duration-300 transition-all justify-self-start w-[6rem] mt-3 px-3 py-[0.35rem]  text-[#fff] rounded-lg text-sm
+    @apply bg-actionBg green-3d-effect hover:brightness-95 duration-300 transition-all justify-self-start w-[8rem] mt-3 px-3 py-[0.35rem]  text-[#fff] rounded-lg text-sm
   }
 
   .comment-text {
