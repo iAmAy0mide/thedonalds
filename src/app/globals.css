@@ -147,6 +147,10 @@ body {
   background: rgb(69, 125, 121, 0.5);
   backdrop-filter: blur(6px);
 }
+.glassy-dark {
+  background: rgba(48, 58, 57, 0.5);
+  backdrop-filter: blur(6px);
+}
 
 .glassy-blue-gradient {
   background: #1b3653;
