@@ -5,8 +5,6 @@ import Modal from '../Modal';
 import { Uploader } from '@/utils/uploadthing';
 import UploadAlbumForm from './UploadAlbumForm';
 
-import { useDispatch } from 'react-redux';
-import { setUploadPhotoModalStatus } from '@/lib/features/modal/modalSlice';
 import UploadAlbumPhotoCloseBtn from './UploadAlbumPhotoCloseBtn';
 
 
@@ -17,8 +15,6 @@ const UploadAlbumPhotosModal = () => {
       url: ""
     }
   ]);
-  
-  const dispatch = useDispatch();
   
 
   return (
@@ -92,8 +88,7 @@ const UploadAlbumPhotosModal = () => {
       </div>
    </Modal>
 
-)
+  )
 }
-// </div>
 
 export default UploadAlbumPhotosModal;
