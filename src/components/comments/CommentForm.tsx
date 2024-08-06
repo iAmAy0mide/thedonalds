@@ -1,51 +1,20 @@
 "use client";
-import {FormEvent, useState, useActionState, useRef} from 'react';
+import { useRef } from 'react';
 import { addComment } from '@/app/action';
-import { getComments } from '@/app/action';
-import CommentButton from './CommentButton';
-import useComments from '@/hooks/useComments';
-import { useDispatch } from 'react-redux';
-import { setCommentModalStatus } from '@/lib/features/modal/modalSlice';
 
 
 
-const CommentForm = () => {
+const CommentForm = ({ setFamComments }: IFormProp) => {
   const ref = useRef<HTMLFormElement>(null);
-  const dispatch = useDispatch();
-  // const [state, action, isPending] = useActionState(addComment, null);
-  // const { getAllComments } = useComments();
-  // const [comment, setComment] = useState<string>("");
-
-  // async function handleSubmit(e: FormEvent<HTMLFormElement>) {
-  //   e.preventDefault();
-
-  //   const res = await fetch("/api/comments", {
-  //     method: "POST",
-  //     body: JSON.stringify(comment),
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     }
-  //   });
-    
-  //   if (res.ok) {
-  //     setComment("");
-  //     getAllComments();
-  //   }
-  // }
 
   const handleSubmit = async (formData: FormData) => {
       await addComment(formData);
       ref.current?.reset();
-      setTimeout(async () => {
-        
-        // dispatch(setCommentModalStatus(false));
-        const res = await fetch("/api/comments", { cache: "no-cache"});
-        const parsedRes = await res.json()
-        const data = parsedRes[0]
-        console.log(parsedRes);
-        
-        alert("sub")
-      }, 300)
+
+      const res = await fetch("/api/comments", { cache: "no-cache"});
+      const data = await res.json();
+      console.log(data, "from form"); 
+      setFamComments(() => [...data])
   }
 
   return (
@@ -62,6 +31,9 @@ const CommentForm = () => {
 
 export default CommentForm;
 
-interface IForm {
-  formData: FormData
+interface IFormProp {
+  setFamComments: React.Dispatch<React.SetStateAction<{
+    id: string;
+    comment: string;
+}[]>>
 }
