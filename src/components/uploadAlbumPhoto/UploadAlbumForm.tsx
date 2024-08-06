@@ -41,7 +41,7 @@ const UploadAlbumForm: any = ({setAlbumPhotos, albumPhotos}) => {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col sm:mt-6 ">
-        <p className='text-[#fff] mb -1'>Album Name</p>
+        <p className='text-[#fff] text-lg -mb-1'>Album Name</p>
         <input type="text" value={albumName} onChange={(e) => setAlbumName(e.target.value)} required name="albumName" id="albumName" className='h-9 px-2 rounded-md outline-none border-0 ' />
         <button className='upload-album-button'>Create Album</button>
     </form>
