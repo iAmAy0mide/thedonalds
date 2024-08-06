@@ -3,12 +3,12 @@ import useComments from '@/hooks/useComments';
 import React from 'react'
 
 const CommentButton = () => {
-    const { comments, getAllComment } = useComments();
+    // const { comments, getAllComment } = useComments();
 
   return (
     <button onClick={() => {
-        alert("CLicked");
-        getAllComment();
+        // alert("CLicked");
+        // getAllComment();
         
     }} className='comment-form-button'>Comment</button>
   )
