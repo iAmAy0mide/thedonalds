@@ -59,7 +59,7 @@ const NavBar = () => {
     
 
   return (
-    <header className="fixed w-full mx-auto z-50 h-[15rem] md:pb-2 top-0 pt-1  bg-[#303A39] mobile px-8 md:px-16">    
+    <header className="fixed w-full mx-auto z-50 h-[15rem] md:pb-2 top-0 pt-1  bg-[#303 A39] glassy-dark mobile px-8 md:px-16">    
         <nav className='w-full h-full  flex flex-col justify-between max-w-[1440px] mx-auto duration-300 transition-all'>
             <div className="flex w-full justify-end h-[15%]">            
                 <button
