@@ -76,7 +76,7 @@ const NavBar = () => {
         <nav className='w-full h-full relative flex justify-end max-w-[1440px] mx-a uto duration-300 transition-all'>
             
 
-            <div className="mx-auto w-[18rem] absolute left-[50%] -translate-x-[50%] top-[24%] lg:top-[20%] sm:w-[21rem] mb-4">
+            <div className="mx-auto w-[18rem] absolute left-[50%] -translate-x-[50%] top-[24%] lg:top-[28%] sm:w-[21rem] mb-4">
             {/* <div className="mx-auto w-[18rem] sm:w-[21rem] mb-4"> */}
                 <Image alt='' width={100} height={100} priority src={Logo} className='w-full' />
             </div>
