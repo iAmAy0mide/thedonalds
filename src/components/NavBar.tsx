@@ -44,35 +44,109 @@ const NavBar = () => {
     const [showSmallScreenOptions, setShowSmallScreenOptions] = useState<boolean>(false);
     const pathName = usePathname();
 
-    useEffect(() => {
 
-        if (isLoggedInUser !== true) {
+    
+    // useEffect(() => {
+
+    //     if (isLoginSuccess !== true) {
+    //         router.replace("/");
+    //     }
+    
+    //     if (isLoginSuccess === true && pathName === "/") { 
+    //         router.replace("/gallery");
+    //     } 
+    // }, [isLoginSuccess, isLoggedInUser]);
+    if (typeof window !== "undefined") {
+
+        if (isLoginSuccess !== true) {
             router.replace("/");
         }
     
-        if (isLoggedInUser === true && pathName === "/") { 
+        if (isLoginSuccess === true && pathName === "/") { 
             router.replace("/gallery");
         }
-    });
+    }
     
-    console.log(isLoginSuccess);
+    
+    console.log({isLoginSuccess});
     
 
   return (
-    <header className="fixed w-full mx-auto z-50 h-[15rem] md:pb-2 top-0 pt-1  bg-[#303 A39] glassy-dark mobile px-8 md:px-16">    
+    <header className="fixed w-full mx-auto z-50 h-[11rem] md:h-[12rem] lg:h-[14rem] md:pb-2 top-0 pt-1  bg-[#303 A39] glassy-dark mobile px-8 md:px-16">    
+        <nav className='w-full h-full relative flex justify-end max-w-[1440px] mx-a uto duration-300 transition-all'>
+            
+
+            <div className="mx-auto w-[18rem] absolute left-[50%] -translate-x-[50%] top-[24%] lg:top-[20%] sm:w-[21rem] mb-4">
+            {/* <div className="mx-auto w-[18rem] sm:w-[21rem] mb-4"> */}
+                <Image alt='' width={100} height={100} priority src={Logo} className='w-full' />
+            </div>
+            <div className="flex  h-[2.22rem] lg:-order-1">            
+            {/* <div className="flex w-full justify-end h-[15%]">             */}
+                <button
+                    onClick={() => {
+                        dispatch(setLoginModalStatus(true));
+                    }}
+                className={`${isLoggedInUser && "hidden"} red-3d-effect auth-button`}>Login</button>
+                <button
+                    onClick={() => {
+                        router.replace("/");
+                        dispatch(signOut());
+                    }}
+                className={`${!isLoggedInUser && "hidden"} red-3d-effect auth-button`}>Signout</button>
+            </div>
+            <div className={`w-f ull ${!isLoginSuccess && "hid den" } sm-menu-show-button`}>
+                <div onClick={() => {
+                        setShowSmallScreenOptions(!showSmallScreenOptions);                    
+                    }} 
+                className="w-[4rem] -mr-3 cursor-pointer" title='Menu' aria-label='Menu'>
+                    <BsGrid3X3Gap  className='w-full text-actionBg text-[2.3rem]' />
+                </div>
+                <div className={`${!showSmallScreenOptions  && "hidden"} sm-menu-option`}>               
+                        <button onClick={() => {
+                            dispatch(setUploadPhotoModalStatus(true));
+                        }} className='upload-button'>Upload</button>
+                        <button onClick={() => {
+                            dispatch(setUploadPhotoModalStatus(true));
+                        }} className='deleted-gallery-button mt-4'>Deleted Gallery</button>
+                </div>
+            </div>
+
+            <div className={`${isLoginSuccess && "hid den"} blk h-[23%]`}>
+                <div className={`md-opt ion h-full gap-2 md:flex w-full justify-end text-[#fff]  rounded-xl`}>
+                    <button onClick={() => {
+                        dispatch(setUploadPhotoModalStatus(true));
+                    }} className='upload-button'>Upload</button>
+                    <button onClick={() => {
+                        dispatch(setUploadPhotoModalStatus(true));
+                    }} className='deleted-gallery-button'>Deleted Gallery</button>
+                </div>
+            </div>
+
+            <div className={`${!isModalOpen && "hidden"} absolute left-[50%] -translate-x-[50%] top-[30dvh] `}>
+                <LoginModal />
+            </div>
+            
+        </nav>
+    </header>
+  )
+}
+
+export default NavBar;
+
+{/* <header className="fixed w-full mx-auto z-50 h-[15rem] md:pb-2 top-0 pt-1  bg-[#303 A39] glassy-dark mobile px-8 md:px-16">    
         <nav className='w-full h-full  flex flex-col justify-between max-w-[1440px] mx-auto duration-300 transition-all'>
             <div className="flex w-full justify-end h-[15%]">            
                 <button
                     onClick={() => {
                         dispatch(setLoginModalStatus(true));
                     }}
-                className={`${isLoginSuccess && "hidden"} red-3d-effect auth-button`}>Login</button>
+                className={`${isLoggedInUser && "hidden"} red-3d-effect auth-button`}>Login</button>
                 <button
                     onClick={() => {
                         router.replace("/");
                         dispatch(signOut());
                     }}
-                className={`${!isLoginSuccess && "hidden"} red-3d-effect auth-button`}>Signout</button>
+                className={`${!isLoggedInUser && "hidden"} red-3d-effect auth-button`}>Signout</button>
             </div>
 
             <div className="mx-auto w-[18rem] sm:w-[21rem] mb-4">
@@ -112,46 +186,4 @@ const NavBar = () => {
             </div>
             
         </nav>
-    </header>
-  )
-}
-
-export default NavBar
-
-
-// <div className="mobile px-8 md:px-16 flex w-full justify-end">            
-//             <button
-//                 // aria-label="Increment value"
-//                 onClick={() => {
-//                     dispatch(setLoginModalStatus(true));
-//                 }}
-//              className={`${isLoginSuccess && "hid den"} bg-red hover:brightness-90  rounded-xl px-6 py-2 text-[#fff]`}>Login</button>
-//             <button
-//                 // aria-label="Increment value"
-//                 onClick={() => {
-//                     router.replace("/");
-//                     dispatch(signOut());
-//                 }}
-//              className={`${!isLoginSuccess && "hid den"} text-sm max-sm:px-4 max-sm:py-1 bg-red hover:brightness-90  rounded-xl px-6 py-2 text-[#fff]`}>Signout</button>
-//         </div>
-
-
-// 2
-{/* <div className="mx-auto w-[12rem] sm:w-[14rem]">
-                <Image alt='' width={100} height={100} priority src={Logo} className='w-full' />
-            </div> */}
-
-            // 3
-
-{/* <div className={`${!isLoginSuccess && "hidden"}  mobile px-8 md:px-16 flex w-full justify-end text-[#fff]  rounded-xl`}>
-    <button onClick={() => {
-        dispatch(setUploadPhotoModalStatus(true));
-    }} className='rounded-xl px-6 py-1 hover:brightness-90 bg-actionBg shadow-sm'>Upload</button>
-    <button onClick={() => {
-        dispatch(setUploadPhotoModalStatus(true));
-    }} className='rounded-xl px-6 py-1 hover:brightness-90 bg-[#000] shadow-sm'>Deleted Gallery</button>
-</div> */}
-{/* <div className={`${!isModalOpen && "hidden"} absolute left-[50%] -translate-x-[50%] top-[30dvh] `}>
-
-    <LoginModal />
-</div> */}
+    </header> */}
