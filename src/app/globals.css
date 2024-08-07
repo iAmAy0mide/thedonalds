@@ -42,15 +42,19 @@ body {
   }
 
   .sm-menu-show-button {
-    @apply   relative flex justify-end md:hidden
+    @apply   relative flex justify-end lg:hidden
   }
 
   .sm-menu-option {
-    @apply top-[100%] right-0 absolute  glassy-white border border-[#fff] rounded-xl p-2 text-[#fff]  flex  flex-col
+    @apply top-[30%] right-0 absolute w-[11rem]  glassy-white glassy-white border brightness-110 border-[#fff] rounded-xl p-2 text-[#fff]  flex  flex-col
   }
 
   .md-option {
     @apply  hidden h-full gap-2 md:flex w-full justify-end text-[#fff]  rounded-xl
+  }
+
+  .blk {
+    @apply hidden lg:block lg:order-1
   }
 }
 
@@ -60,11 +64,11 @@ body {
   }
 
   .upload-button {
-    @apply rounded-lg px-6 py-1 hover:brightness-90 bg-actionBg shadow-sm green-3d-effect
+    @apply rounded-lg px-6 py-1 hover:brightness-90 bg-actionBg shadow-sm green-3d-effect h-[2.22rem]
   }
 
   .deleted-gallery-button {
-    @apply rounded-lg px-6 py-1 hover:brightness-90 bg-[#000] shadow-sm black-3d-effect
+    @apply rounded-lg px-6 py-1 hover:brightness-90 bg-[#000] shadow-sm black-3d-effect h-[2.22rem]
   }
 
 
