@@ -13,9 +13,10 @@ const CommentForm = ({ setFamComments }: IFormProp) => {
 
       const res = await fetch("/api/comments", { cache: "no-cache"});
       const data = await res.json();
-      console.log(data, "from form"); 
+      // console.log(data, "from form"); 
       if (data.error) {
-        alert("Sorry, An error occured. Please try again.");
+        alert(data.error);
+        // alert("Sorry, An error occured. Please try again.");
       } else {
         setFamComments(() => [...data]);
       }

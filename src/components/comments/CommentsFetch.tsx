@@ -7,7 +7,7 @@ const CommentsFetch = async () => {
 
     const res = await fetch(`${URL}/api/comments`, { cache: "no-cache"});
     const comments = await res.json();
-    console.log(comments, "from commentPage");  
+    // console.log(comments, "from commentPage");  
     
 
   return (
