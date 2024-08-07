@@ -25,7 +25,7 @@ const Comments: React.FC<ICom> = ({ comments }) => {
             <div className=" h-[4rem] w-[4rem] rounded-lg float-left mr-2">
             <Image width={100} height={100} src={Human} alt='' aria-label='' title='Photo Album Display' className='w-full rounded-lg float-left' />
             </div>
-            <p className="comment-text">{c.comment}</p>
+            <p className="comment-text overflow-clip">{c.comment}</p>
           </div>
           ))
         }
