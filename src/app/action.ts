@@ -8,7 +8,7 @@ import { NextResponse } from "next/server";
 
 
 export const addComment = async (formData: FormData) => {
-// export const addComment = async (previousState: any ,formData: FormData) => {
+    
     try {
         await dbConnect();
     
@@ -28,11 +28,7 @@ export const addComment = async (formData: FormData) => {
         // })    
         
 
-        revalidatePath("/gallery");
-        revalidatePath("/");
-        revalidatePath("*");
         return {success: "ok"};
-        // formData.append("comment", "");
     } catch (error: any) {
         return {error: error.message}
     }
