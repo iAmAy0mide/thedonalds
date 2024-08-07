@@ -1,6 +1,7 @@
 "use server";
 import Comment from "@/app/models/comments";
 import dbConnect from "@/lib/db/dbConnect";
+import FakeUserAuthStatus from "./models/fakeUserAuth";
 import Album from "./models/album";
 import User from "./models/users";
 import { revalidatePath } from "next/cache";
@@ -8,11 +9,13 @@ import { NextResponse } from "next/server";
 
 
 export const addComment = async (formData: FormData) => {
-    
+
     try {
         await dbConnect();
     
         const comment = formData.get("comment");
+     
+        
         
         const newComment = new Comment({ comment });
         // console.log({newComment});
@@ -40,7 +43,7 @@ interface IComment {
 }
 
 export async function getComments() {
-    // try {
+    try {
         await dbConnect();
 
         const comments = await Comment.find({}, { __v: 0, createdAt: 0, updatedAt: 0 }).sort({ createdAt: -1 });
@@ -50,14 +53,24 @@ export async function getComments() {
                 const id =  c._id.toString();
                 const comment = c.comment;
                 return (
-                    {_id: id, comment}
+                    {id, comment}
                 );
         })
 
         return convertedComments;    
         // return comments as {_id: string, comment: string}[];   
-    // } catch (error: any) {
-    //     return [{error: error.message}]
-    // }
+    } catch (error: any) {
+        return {error: error.message}
+    }
     
+}
+
+
+
+export async function getFakeAuth() {
+    
+}
+
+export async function postFakeAuth() {
+
 }
