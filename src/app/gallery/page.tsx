@@ -1,5 +1,5 @@
 import CommentsModal from "@/components/comments/CommentsModal";
-import GalleryPage from './GalleryPage';
+import GalleryPage from '../../components/Gallery/GalleryPage';
 
 const Gallery = () => {
 
