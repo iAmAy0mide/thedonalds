@@ -1,7 +1,5 @@
-"use client";
 import { useRef } from 'react';
 import { addComment } from '@/app/action';
-
 
 
 const CommentForm = ({ setFamComments }: IFormProp) => {
