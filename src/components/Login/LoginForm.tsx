@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useDispatch, useSelector } from 'react-redux';
-import { setIsLoggedIn } from '@/lib/features/auth/authSlice';
-import { setLoginModalStatus } from '@/lib/features/auth/authSlice';
+import { setIsLoggedIn } from '@/lib/features/store/auth/authSlice';
+import { setLoginModalStatus } from '@/lib/features/store/auth/authSlice';
 
     
 const LoginForm = () => {

@@ -20,7 +20,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { RootState } from '@/lib/store';
 import { setUploadPhotoModalStatus } from '@/lib/features/modal/modalSlice';
-import { setLoginModalStatus, signOut } from '@/lib/features/auth/authSlice';
+import { setLoginModalStatus, signOut } from '@/lib/features/store/auth/authSlice';
 
 
 
