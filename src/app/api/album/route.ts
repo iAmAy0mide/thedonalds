@@ -29,3 +29,17 @@ export async function POST(req: NextRequest, res: NextResponse) {
     }
 
 }
+
+export async function GET() {
+
+    try {
+        await dbConnect();
+
+        const albumPhotos = await Album.find({}, { __v: 0,  updatedAt: 0, comments: 0 });  
+        console.log(Array.isArray(albumPhotos), "from server");
+        return NextResponse.json(albumPhotos)
+    } catch (error: any) {
+        NextResponse.json({ error: error.message });
+    }
+
+}
