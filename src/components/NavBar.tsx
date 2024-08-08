@@ -18,8 +18,8 @@ import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { RootState } from '@/lib/store';
-import { setUploadPhotoModalStatus } from '@/lib/features/modal/modalSlice';
+import { RootState } from '@/lib/features/store';
+import { setUploadPhotoModalStatus } from '@/lib/features/store/modal/modalSlice';
 import { setLoginModalStatus, signOut } from '@/lib/features/store/auth/authSlice';
 
 
