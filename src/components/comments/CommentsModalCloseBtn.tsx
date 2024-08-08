@@ -1,5 +1,5 @@
 "use client"
-import { setCommentModalStatus } from '@/lib/features/modal/modalSlice';
+import { setCommentModalStatus } from '@/lib/features/store/modal/modalSlice';
 import React from 'react'
 import { useDispatch } from 'react-redux';
 

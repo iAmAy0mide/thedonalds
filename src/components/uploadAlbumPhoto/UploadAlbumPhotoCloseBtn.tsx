@@ -1,6 +1,6 @@
 "use client";
 
-import { setUploadPhotoModalStatus } from "@/lib/features/modal/modalSlice";
+import { setUploadPhotoModalStatus } from "@/lib/features/store/modal/modalSlice";
 import { useDispatch } from "react-redux";
 
 const UploadAlbumPhotoCloseBtn = () => {

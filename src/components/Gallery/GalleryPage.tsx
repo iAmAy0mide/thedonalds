@@ -1,7 +1,7 @@
 "use client";
 import Album from '@/components/Albums/Album';
 import UploadAlbumPhotosModal from "@/components/uploadAlbumPhoto/UploadAlbumPhotosModal";
-import { RootState } from '@/lib/store';
+import { RootState } from '@/lib/features/store';
 import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, AwaitedReactNode } from 'react';
 import { useSelector } from 'react-redux';
 import Albums from '../Albums/Albums';

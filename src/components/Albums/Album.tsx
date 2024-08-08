@@ -6,7 +6,7 @@ import DeleteIcon from "/public/DeleteIcon.svg";
 import AlbumFolderIcon from "/public/AlbumFolderIcon.svg";
 
 import { useDispatch } from 'react-redux';
-import { setCommentModalStatus, setUploadPhotoModalStatus } from '@/lib/features/modal/modalSlice';
+import { setCommentModalStatus, setUploadPhotoModalStatus } from '@/lib/features/store/modal/modalSlice';
 
 interface IAlbumProps {
     albumId: String;
