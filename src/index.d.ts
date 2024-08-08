@@ -17,4 +17,16 @@ declare interface IComment {
   profilePic: string;
   comment: string;
   key: string;
+} 
+
+declare interface IAlbumData {
+  _id: Key | null | undefined;
+  albumId: string;
+  albumName: string;
+  album: { image: { url: string } }[];
+  createdAt: string;
+}
+
+declare interface IAlbumsProps {
+  albums: IAlbumData[];
 }
