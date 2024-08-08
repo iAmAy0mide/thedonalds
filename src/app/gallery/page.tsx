@@ -1,11 +1,23 @@
 import CommentsModal from "@/components/comments/CommentsModal";
 import GalleryPage from '../../components/Gallery/GalleryPage';
 
-const Gallery = () => {
+const Gallery = async () => {
+
+  async function ser() {
+    "use server"
+  }
+  
+  const res = await fetch("http://localhost:3000/api/album", { cache: "no-cache" }) 
+  const album = await res.json();
+
+  console.log(album);
+  console.log(Array.isArray(album), "client");
+  // const albumPhoto
+  
 
   return (
     <>
-      <GalleryPage >
+      <GalleryPage album={album}> 
         <CommentsModal />
       </GalleryPage>
     </> 
