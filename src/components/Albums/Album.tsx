@@ -8,12 +8,19 @@ import AlbumFolderIcon from "/public/AlbumFolderIcon.svg";
 import { useDispatch } from 'react-redux';
 import { setCommentModalStatus, setUploadPhotoModalStatus } from '@/lib/features/modal/modalSlice';
 
-const Album: React.FC = () => {
+interface IAlbumProps {
+    albumId: String;
+    albumName: string;
+    createdAt: string;
+    coverImage: string
+}
+
+const Album: React.FC<IAlbumProps> = ({ albumName, createdAt, coverImage, albumId }) => {
     const dispatch = useDispatch();
 
     return (
         <div className='relative border bg-[#394c4c] border-deepBlue text-[#fff]  flex flex-col  overflow-hidden h-[18rem]  rounded-xl' >
-            <div className="rounded-xl relative  h-[82%]" style={{ backgroundImage: `url(${Human.src})`, backgroundPosition: "center", backgroundSize: "cover" }}>
+            <div className="rounded-xl relative  h-[82%]" style={{ backgroundImage: `url(${coverImage})`, backgroundPosition: "center", backgroundSize: "cover" }}>
                 <div className="absolute bg-albumOverlay rounded-xl  inset-0 z-[5] "></div>
                 <div className="flex relative flex-col h-full w-full z-20  p-2">
                     <div className="w-[17em] ">
@@ -26,8 +33,8 @@ const Album: React.FC = () => {
                         />
                     </div>
                     <div className="absolute bottom-1 glassy-blue px-2 py-4 rounded-xl">
-                        <p className="date">12 June 2030</p>
-                        <p className="c">Aunt May&apos;s Wedding</p>
+                        <p className="date">{createdAt}</p>
+                        <p className="c">{albumName}</p>
                     </div>
                 </div>
             </div>
