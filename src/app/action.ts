@@ -1,9 +1,9 @@
 "use server";
-import Comment from "@/app/models/comments";
+import Comment from "@/lib/models/comments";
 import dbConnect from "@/lib/db/dbConnect";
-import FakeUserAuthStatus from "./models/fakeUserAuth";
-import Album from "./models/album";
-import User from "./models/users";
+import FakeUserAuthStatus from "../lib/models/fakeUserAuth";
+import Album from "../lib/models/album";
+import User from "../lib/models/users";
 import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 
@@ -18,6 +18,14 @@ export const addComment = async (formData: FormData) => {
         
         
         const newComment = new Comment({ comment });
+
+        const albumId = "66b439e0d334115a065fe92b"
+        const newCommen = await Album.findByIdAndUpdate(
+            albumId, 
+            { $push: { comments: { comment }}},
+            { new: true }
+        )
+        // console.log({newCommen});
         // console.log({newComment});
         
         await newComment.save(); 

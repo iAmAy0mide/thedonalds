@@ -34,10 +34,10 @@ const Album: React.FC = () => {
             <div className="flex w-full h-[28%] mb-1 justify-between pt-1">
                 <Image onClick={() => {
                     dispatch(setCommentModalStatus(true))
-                }} title='Comments' width={100} height={100} className='w-[4rem] h-[3rem] bl-3d-effect hover:brightness-105 duration-300 transition-all bg-greyBg  p-2 rounded-xl ' src={CommentIcon} alt='Comment Icon' />
+                }} title='Comments' width={100} height={100} className='w-[4rem] h-[3rem] bl-3d-effect hover:brightness-105 duration-300 transition-all cursor-pointer bg-greyBg  p-2 rounded-xl ' src={CommentIcon} alt='Comment Icon' />
                 <Image onClick={() => {
                     dispatch(setUploadPhotoModalStatus(true))
-                }} title='Delete Album' aria-label='Delete Album' width={100} height={100} className='w-[4rem] h-[3rem] bl-3d-effect hover:brightness-105 duration-300 transition-all  bg-greyBg  p-2 rounded-xl  ' src={DeleteIcon} alt='Comment Icon' />
+                }} title='Delete Album' aria-label='Delete Album' width={100} height={100} className='w-[4rem] h-[3rem] bl-3d-effect hover:brightness-105 duration-300 transition-all cursor-pointer bg-greyBg  p-2 rounded-xl  ' src={DeleteIcon} alt='Comment Icon' />
             </div>
         </div>
     )

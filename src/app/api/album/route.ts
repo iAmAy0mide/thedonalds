@@ -1,4 +1,4 @@
-import Album from "@/app/models/album";
+import Album from "@/lib/models/album";
 import dbConnect from "@/lib/db/dbConnect";
 import { NextRequest, NextResponse } from "next/server";
 

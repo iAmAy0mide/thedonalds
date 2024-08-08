@@ -38,7 +38,7 @@ export default CommentForm;
 
 interface IFormProp {
   setFamComments: React.Dispatch<React.SetStateAction<{
-    id: string;
+    _id: string;
     comment: string;
 }[]>>
 }
