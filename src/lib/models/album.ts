@@ -21,7 +21,8 @@ const AlbumSchema: mongoose.Schema = new Schema({
     album: {
         type: [{            
             image: { 
-                name: String, url: String, deleted: {
+                url: String, 
+                deleted: {
                     type: Boolean,
                     default: false,
                 } 
