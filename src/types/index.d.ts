@@ -30,3 +30,9 @@ declare interface IAlbumData {
 declare interface IAlbumsProps {
   albums: IAlbumData[];
 }
+
+declare interface IModal {
+  isCommentModalOpen: boolean;
+  isUploadPhotoModalOpen: boolean;
+  isDisplayAlbumPhotosOpen: boolean;
+}
