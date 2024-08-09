@@ -46,7 +46,7 @@ body {
   }
 
   .sm-menu-option {
-    @apply top-[30%] right-0 absolute w-[11rem]  glassy-white glassy-white border brightness-110 border-[#fff] rounded-xl p-2 text-[#fff]  flex  flex-col
+    @apply top-[30%] right-0 absolute w-[11rem] text-sm  glassy-white glassy-white border brightness-110 border-[#fff] rounded-xl p-2 text-[#fff]  flex  flex-col
   }
 
   .md-option {
