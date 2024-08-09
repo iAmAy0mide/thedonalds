@@ -5,7 +5,7 @@ import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import StoreProvider from "./StoreProvider";
 import "@uploadthing/react/styles.css";
-
+import SessionWrapper from "@/components/SessionWrapper/SessionWrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,14 +20,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <StoreProvider>          
-          <NavBar />
-          {children}
-          <Footer />
-        </StoreProvider>
-      </body>
-    </html>
+    <SessionWrapper>
+      <html lang="en">
+        <body className={inter.className}>
+            <StoreProvider>          
+              <NavBar />
+              {children}
+              <Footer />
+            </StoreProvider>
+        </body>
+      </html>
+    </SessionWrapper>
   );
 }
