@@ -3,6 +3,7 @@ import { useRouter } from 'next/navigation';
 import { useDispatch, useSelector } from 'react-redux';
 import { setIsLoggedIn } from '@/lib/features/store/auth/authSlice';
 import { setLoginModalStatus } from '@/lib/features/store/auth/authSlice';
+import { signIn } from 'next-auth/react';
 
     
 const LoginForm = () => {
@@ -40,7 +41,7 @@ const LoginForm = () => {
          />
       </div>
       <div className="flex w-full justify-end mt-4">
-        <button 
+        {/* <button 
           onClick={() => {
             if (password === "d0nalds") {
               dispatch(setLoginModalStatus(false));
@@ -55,6 +56,16 @@ const LoginForm = () => {
           type="submit" 
           className='px-8 py-3 action text-[#fff] rounded-xl shadow-inner '>
           Login
+        </button> */}
+        <button 
+          onClick={() => {
+              dispatch(setLoginModalStatus(false));
+              signIn("google")
+            
+          }} 
+          type="submit" 
+          className='px-8 py-3 action text-[#fff] rounded-xl shadow-inner '>
+          Login with Google
         </button>
       </div>
       

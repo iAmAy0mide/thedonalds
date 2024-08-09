@@ -2,12 +2,8 @@
 import { useState, useEffect } from 'react';
 
 import Image from "next/image";
-// import Logo from "/public/Logo.svg";
-import LogoTwo from "/public/Logo2.svg";
 import Logo from "/public/Logo.svg";
 import LoginModal from './Login/LoginModal';
-import OptionIcon from "/public/options-icon.svg";
-import Menu from "/public/menu2.png";
 
 import { FiMoreVertical, FiMenu, FiTool  } from 'react-icons/fi';
 import { FaTh, FaGripHorizontal } from 'react-icons/fa';
@@ -20,7 +16,10 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { RootState } from '@/lib/features/store';
 import { setUploadPhotoModalStatus } from '@/lib/features/store/modal/modalSlice';
-import { setLoginModalStatus, signOut } from '@/lib/features/store/auth/authSlice';
+import { setLoginModalStatus } from '@/lib/features/store/auth/authSlice';
+
+import { useSession } from 'next-auth/react';
+import { signOut } from 'next-auth/react';
 
 
 
@@ -36,13 +35,19 @@ const isLoggedInUser: boolean = getAuthStatus("isLoggedIn");
 
 
 const NavBar = () => {
+    const { data: session } = useSession()
 
     const router = useRouter()
     const dispatch = useDispatch();
     const isModalOpen = useSelector((state: RootState) => state.auth.isLoginModalOpen);
-    const isLoginSuccess = useSelector((state: RootState) => state.auth.isLoggedIn);
+    const isLoginSuccess = session ? true : false;
+    // const isLoginSuccess = useSelector((state: RootState) => state.auth.isLoggedIn);
     const [showSmallScreenOptions, setShowSmallScreenOptions] = useState<boolean>(false);
     const pathName = usePathname();
+
+    useEffect(() => {
+        session ? router.replace("/gallery") : router.replace("/");
+    }, [session]);
 
 
     
@@ -56,19 +61,16 @@ const NavBar = () => {
     //         router.replace("/gallery");
     //     } 
     // }, [isLoginSuccess, isLoggedInUser]);
-    if (typeof window !== "undefined") {
+    // if (typeof window !== "undefined") {
 
-        if (isLoginSuccess !== true) {
-            router.replace("/");
-        }
+    //     if (isLoginSuccess !== true) {
+    //         router.replace("/");
+    //     }
     
-        if (isLoginSuccess === true && pathName === "/") { 
-            router.replace("/gallery");
-        }
-    }
-    
-    
-    console.log({isLoginSuccess});
+    //     if (isLoginSuccess === true && pathName === "/") { 
+    //         router.replace("/gallery");
+    //     }
+    // }
     
 
   return (
@@ -77,24 +79,23 @@ const NavBar = () => {
             
 
             <div className="mx-auto w-[18rem] absolute left-[50%] -translate-x-[50%] top-[24%] lg:top-[28%] sm:w-[21rem] mb-4">
-            {/* <div className="mx-auto w-[18rem] sm:w-[21rem] mb-4"> */}
                 <Image alt='' width={100} height={100} priority src={Logo} className='w-full' />
             </div>
             <div className="flex  h-[2.22rem] lg:-order-1">            
-            {/* <div className="flex w-full justify-end h-[15%]">             */}
                 <button
                     onClick={() => {
                         dispatch(setLoginModalStatus(true));
                     }}
-                className={`${isLoggedInUser && "hidden"} red-3d-effect auth-button`}>Login</button>
+                className={`${isLoginSuccess && "hidden"} red-3d-effect auth-button`}>Login</button>
                 <button
                     onClick={() => {
                         router.replace("/");
-                        dispatch(signOut());
+                        // dispatch(signOut());
+                        signOut()
                     }}
-                className={`${!isLoggedInUser && "hidden"} red-3d-effect auth-button`}>Signout</button>
+                className={`${!isLoginSuccess && "hidden"} red-3d-effect auth-button`}>Signout</button>
             </div>
-            <div className={`w-f ull ${!isLoginSuccess && "hid den" } sm-menu-show-button`}>
+            <div className={`w-f ull ${!isLoginSuccess && "hidden" } sm-menu-show-button`}>
                 <div onClick={() => {
                         setShowSmallScreenOptions(!showSmallScreenOptions);                    
                     }} 
