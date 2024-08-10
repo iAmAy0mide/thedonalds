@@ -8,11 +8,11 @@ const CommentForm = ({ setFamComments }: IFormProp) => {
   const { currentAlbumId } = useAlbumContext();
 
   const handleSubmit = async (formData: FormData) => {
-      await addComment(formData);
+      const data = await addComment(formData);
       ref.current?.reset();
 
-      const res = await fetch("/api/comments", { cache: "no-cache"});
-      const data = await res.json();
+      // const res = await fetch(`/api/comments/commentId?commentId=${currentAlbumId}`, { cache: "no-cache"});
+      // const data = await res.json();
       // console.log(data, "from form"); 
       if (data.error) {
         alert(data.error);
