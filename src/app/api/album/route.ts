@@ -1,6 +1,7 @@
 import Album from "@/lib/models/album";
 import dbConnect from "@/lib/db/dbConnect";
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 
 
 export async function POST(req: NextRequest, res: NextResponse) {
@@ -35,11 +36,26 @@ export async function GET() {
     try {
         await dbConnect();
 
-        const albumPhotos = await Album.find({}, { __v: 0,  updatedAt: 0, comments: 0 });  
-        console.log(Array.isArray(albumPhotos), "from server");
+        const albumPhotos = await Album.find({deleted: false}, { __v: 0,  updatedAt: 0, comments: 0,  });  
+
         return NextResponse.json(albumPhotos)
     } catch (error: any) {
         NextResponse.json({ error: error.message });
     }
 
+}
+
+export async function DELETE() {
+    try {
+        await dbConnect();
+
+        const permanentlyDeletedAlbum =  await Album.findByIdAndDelete({}, {
+            new: true
+        });
+
+        return NextResponse.json(permanentlyDeletedAlbum);
+    } catch (error: any) {
+        return NextResponse.json({ error: error. message });
+        
+    }
 }
