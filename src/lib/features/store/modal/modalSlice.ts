@@ -1,11 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-interface IModal {
-    isCommentModalOpen: boolean;
-    isUploadPhotoModalOpen: boolean;
-    isDisplayAlbumPhotosOpen: boolean;
-}
-
 const initialState: IModal = {
     isCommentModalOpen: false,
     isUploadPhotoModalOpen: false,
