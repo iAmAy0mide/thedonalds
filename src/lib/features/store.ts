@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "./store/auth/authSlice";
 import modalReducer from "./store/modal/modalSlice";
+import commentIdReducer from "./store/commentId/commentId"
 import { apiSlice } from "./api/apiSlice";
 
 export const makeStore = () => {
@@ -9,7 +10,9 @@ export const makeStore = () => {
                 [apiSlice.reducerPath]: apiSlice.reducer,
                 auth: authReducer,
                 modal: modalReducer,
-            }
+                comment: commentIdReducer,
+            },
+            middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(apiSlice.middleware),
         })
 }
 
