@@ -1,5 +1,6 @@
 import CommentsModal from "@/components/comments/CommentsModal";
 import GalleryPage from '../../components/Gallery/GalleryPage';
+import CommentSection from "@/components/comments/CommentSection";
 
 const Gallery = async () => {
 
@@ -10,8 +11,8 @@ const Gallery = async () => {
   const res = await fetch("http://localhost:3000/api/album", { cache: "no-cache" }) 
   const album = await res.json();
 
-  console.log(album);
-  console.log(Array.isArray(album), "client");
+  // console.log(album);
+  // console.log(Array.isArray(album), "client");
   // const albumPhoto
   
 
@@ -19,6 +20,7 @@ const Gallery = async () => {
     <>
       <GalleryPage album={album}> 
         <CommentsModal />
+        {/* <CommentsModal children={<CommentSection currentAlbumId={""} />} />  */}
       </GalleryPage>
     </> 
   )
