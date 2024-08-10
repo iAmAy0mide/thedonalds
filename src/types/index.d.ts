@@ -36,3 +36,10 @@ declare interface IModal {
   isUploadPhotoModalOpen: boolean;
   isDisplayAlbumPhotosOpen: boolean;
 }
+
+declare interface IComments {
+  comments: {
+    _id: string;
+    comment: string;
+  }[]
+}
