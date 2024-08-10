@@ -1,5 +1,5 @@
 "use server";
-import Comment from "@/lib/models/comments";
+// import Comment from "@/lib/models/comments";
 import dbConnect from "@/lib/db/dbConnect";
 import FakeUserAuthStatus from "../lib/models/fakeUserAuth";
 import Album from "../lib/models/album";
@@ -18,18 +18,17 @@ export const addComment = async (formData: FormData) => {
      
         
         
-        const newComment = new Comment({ comment });
+        // const newComment = new Comment({ comment });
 
-        const albumId = "66b439e0d334115a065fe92b"
+        // const albumId = "66b439e0d334115a065fe92b"
         const newCommen = await Album.findByIdAndUpdate(
             currentAlbumId, 
             { $push: { comments: { comment }}},
             { new: true }
         )
-        // console.log({newCommen});
-        // console.log({newComment});
+        console.log(newCommen["comments"]);
         
-        await newComment.save(); 
+        // await newComment.save(); 
 
         // const savedComment = newComment.map((c: { _id: { toString: () => any; }; comment: any; }) => {
         //     const id =  c._id.toString();
@@ -39,8 +38,19 @@ export const addComment = async (formData: FormData) => {
         //      )
         // })    
         
+        const comments = newCommen["comments"];
+        const convertedComments = comments.map((c: { _id: { toString: () => any; }; comment: any; }) => {
+            const _id = c._id.toString();
+            const comment = c.comment;
+            return {
+                 comment, _id,
+            }
+        })
+        console.log(convertedComments)
 
-        return {success: "ok"};
+        return convertedComments.reverse();
+        // return NextResponse.json({convertedComments});
+        // return {success: "ok"};
     } catch (error: any) {
         return {error: error.message}
     }
@@ -55,18 +65,18 @@ export async function getComments() {
     try {
         await dbConnect();
 
-        const comments = await Comment.find({}, { __v: 0, createdAt: 0, updatedAt: 0 }).sort({ createdAt: -1 });
+        // const comments = await Comment.find({}, { __v: 0, createdAt: 0, updatedAt: 0 }).sort({ createdAt: -1 });
         // console.log(comments);
 
-        const convertedComments = comments.map(c => {
-                const id =  c._id.toString();
-                const comment = c.comment;
-                return (
-                    {id, comment}
-                );
-        })
+        // const convertedComments = comments.map(c => {
+        //         const id =  c._id.toString();
+        //         const comment = c.comment;
+        //         return (
+        //             {id, comment}
+        //         );
+        // })
 
-        return convertedComments;    
+        // return convertedComments;    
         // return comments as {_id: string, comment: string}[];   
     } catch (error: any) {
         return {error: error.message}
