@@ -1,17 +1,30 @@
 "use client";
-import Album from '@/components/Albums/Album';
-import UploadAlbumPhotosModal from "@/components/uploadAlbumPhoto/UploadAlbumPhotosModal";
-import { RootState } from '@/lib/features/store';
-import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, AwaitedReactNode } from 'react';
+
+
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
+
 import Albums from '../Albums/Albums';
+import { RootState } from '@/lib/features/store';
+import UploadAlbumPhotosModal from "@/components/uploadAlbumPhoto/UploadAlbumPhotosModal";
 
 
 const GalleryPage = (props: { album: any; children: React.ReactNode; }) => {
   const isCommentModalOpen = useSelector((state: RootState) => (state.modal.isCommentModalOpen));
   const isUploadAlbumPhotoModalOpen = useSelector((state: RootState) => (state.modal.isUploadPhotoModalOpen));
 
-  console.log(props.album, "from Gallery")
+  // const currentAlbumId: string = useSelector((state: RootState) => state.comment.commentId);
+  // console.log({currentAlbumId}, "from gall")
+
+  useEffect(() => {
+
+    isCommentModalOpen || isUploadAlbumPhotoModalOpen
+    ? (document.documentElement.style.overflow = 'hidden')
+    : (document.documentElement.style.overflow = 'auto'); 
+    
+  }, [ isCommentModalOpen, isUploadAlbumPhotoModalOpen ]);
+
+
   return (
     <main className='pt-[12rem] md:pt-[13rem] lg:pt-[14rem] rela tive overflow-hidden -z-20 min-h-screen'>
       `<div className="mobile container mx-auto px-8 md:px-16">
@@ -29,7 +42,5 @@ const GalleryPage = (props: { album: any; children: React.ReactNode; }) => {
   )
 }
 
-// { children }: Readonly<{ children: React.ReactNode }>
 
 export default GalleryPage;
-
