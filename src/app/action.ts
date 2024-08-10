@@ -14,6 +14,7 @@ export const addComment = async (formData: FormData) => {
         await dbConnect();
     
         const comment = formData.get("comment");
+        const currentAlbumId = formData.get("currentAlbumId");
      
         
         
@@ -21,7 +22,7 @@ export const addComment = async (formData: FormData) => {
 
         const albumId = "66b439e0d334115a065fe92b"
         const newCommen = await Album.findByIdAndUpdate(
-            albumId, 
+            currentAlbumId, 
             { $push: { comments: { comment }}},
             { new: true }
         )
