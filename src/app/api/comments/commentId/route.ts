@@ -8,7 +8,7 @@ interface Params {
 
 export async function GET(req: NextRequest, res: NextResponse ) {
     const commentId = req.nextUrl.searchParams.get("commentId");
-    console.log(commentId, "from server here")
+    // console.log(commentId, "from server here")
 
     try {
         

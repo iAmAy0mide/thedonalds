@@ -7,6 +7,7 @@ import AlbumFolderIcon from "/public/AlbumFolderIcon.svg";
 
 import { useDispatch } from 'react-redux';
 import { setCommentModalStatus, setUploadPhotoModalStatus } from '@/lib/features/store/modal/modalSlice';
+import { updateCurrentAlbumCommentId } from '@/lib/features/store/commentId/commentId';
 
 interface IAlbumProps {
     albumId: String;
@@ -40,7 +41,8 @@ const Album: React.FC<IAlbumProps> = ({ albumName, createdAt, coverImage, albumI
             </div>
             <div className="flex w-full h-[28%] mb-1 justify-between pt-1">
                 <Image onClick={() => {
-                    dispatch(setCommentModalStatus(true))
+                    dispatch(setCommentModalStatus(true));
+                    dispatch(updateCurrentAlbumCommentId(albumId));
                 }} title='Comments' width={100} height={100} className='w-[4rem] h-[3rem] bl-3d-effect hover:brightness-105 duration-300 transition-all cursor-pointer bg-greyBg  p-2 rounded-xl ' src={CommentIcon} alt='Comment Icon' />
                 <Image onClick={() => {
                     dispatch(setUploadPhotoModalStatus(true))
