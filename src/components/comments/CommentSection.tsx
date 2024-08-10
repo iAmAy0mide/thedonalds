@@ -1,13 +1,18 @@
-import Comments from './CommentsFetch';
+import CommentsFetch from './CommentsFetch';
 import CommentForm from './CommentForm';
+import React from 'react';
 
-const CommentSection = () => {
+const CommentSection: React.FC = () => {
   return (
     <>
-      <Comments />
+      <CommentsFetch />
       {/* <CommentForm /> */}
     </>
   )
 }
 
 export default CommentSection;
+
+interface IT {
+  currentAlbumId: string
+}
