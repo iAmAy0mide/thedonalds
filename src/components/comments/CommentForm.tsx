@@ -1,9 +1,11 @@
 import { useRef } from 'react';
 import { addComment } from '@/app/action';
+import { useAlbumContext } from '@/hooks/AlbumContext';
 
 
 const CommentForm = ({ setFamComments }: IFormProp) => {
   const ref = useRef<HTMLFormElement>(null);
+  const { currentAlbumId } = useAlbumContext();
 
   const handleSubmit = async (formData: FormData) => {
       await addComment(formData);
@@ -27,6 +29,7 @@ const CommentForm = ({ setFamComments }: IFormProp) => {
           required id="comment" 
           className='comment-form-input' />
         <div className="absolute border-red border-[2px] rounded-lg inset-1 -z-5"></div>
+        <input name="currentAlbumId" id='currentAlbumId' value={currentAlbumId} className="hidden"></input>
         <button className={`comment-form-button`}>Comment</button>
     </form>  
   )
