@@ -1,9 +1,15 @@
 "use client";
+import { RootState } from '@/lib/features/store';
+import { updateAlbumPage } from '@/lib/features/store/newAlbum/newAlbum';
 import React, { Dispatch, FormEvent, SetStateAction, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 const UploadAlbumForm: React.FC<UploadAlbumForm> = ({setAlbumPhotos, albumPhotos}) => {
   const [albumName, setAlbumName] = useState<string>("");
+  
+  const dispatch = useDispatch();
+
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -17,7 +23,11 @@ const UploadAlbumForm: React.FC<UploadAlbumForm> = ({setAlbumPhotos, albumPhotos
         .map((photo: IUploadedImage) => ({ image: { url: photo.url } }))    
     }
 
-    console.log(albumData.album);
+    // console.log(albumData.album[1]);
+    if (!albumData.album[1]) {
+      alert("Please added more images")
+      return;
+    }
     try {
       const res = await fetch("/api/album", {
         method: "POST",
@@ -26,6 +36,11 @@ const UploadAlbumForm: React.FC<UploadAlbumForm> = ({setAlbumPhotos, albumPhotos
           "Content-Type": "application/json"
         }
       });
+
+      const newAlbum = await res.json();
+      dispatch(updateAlbumPage(newAlbum));
+
+      // console.log({newAlbum});
 
       setAlbumPhotos([{
         name: "",
