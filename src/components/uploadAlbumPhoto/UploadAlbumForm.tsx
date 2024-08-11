@@ -1,8 +1,8 @@
 "use client";
 import React, { Dispatch, FormEvent, SetStateAction, useState } from 'react';
 
-// @ts-ignore
-const UploadAlbumForm: any = ({setAlbumPhotos, albumPhotos}) => {
+
+const UploadAlbumForm: React.FC<UploadAlbumForm> = ({setAlbumPhotos, albumPhotos}) => {
   const [albumName, setAlbumName] = useState<string>("");
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
