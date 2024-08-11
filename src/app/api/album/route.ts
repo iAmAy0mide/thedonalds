@@ -22,8 +22,11 @@ export async function POST(req: NextRequest, res: NextResponse) {
         });       
 
         await newAlbum.save();
+        revalidatePath("/gallery")
+        // console.log([newAlbum])
+        const na = [newAlbum]
 
-        return NextResponse.json({ message: 'Album created successfully' });
+        return NextResponse.json(na);
         
     } catch (err: any) {
         return NextResponse.json({ error: err.message }, { status: 500 });
@@ -36,7 +39,7 @@ export async function GET() {
     try {
         await dbConnect();
 
-        const albumPhotos = await Album.find({deleted: false}, { __v: 0,  updatedAt: 0, comments: 0,  });  
+        const albumPhotos = (await Album.find({deleted: false}, { __v: 0,  updatedAt: 0, comments: 0,  }).sort({ createdAt: -1 }));  
 
         return NextResponse.json(albumPhotos)
     } catch (error: any) {
