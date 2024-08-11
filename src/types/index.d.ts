@@ -43,3 +43,8 @@ declare interface IComments {
     comment: string;
   }[]
 }
+
+declare interface UploadAlbumForm {
+  setAlbumPhotos: Dispatch<SetStateAction<IUploadedImage[]>>;
+  albumPhotos: IUploadedImage[];
+}
