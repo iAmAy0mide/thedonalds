@@ -5,7 +5,7 @@ const initialState: ICommentID = {
 }
 
 interface ICommentID {
-    commentId: string
+    commentId: string;
 }
 
 const CommentIdSlice = createSlice({
@@ -14,7 +14,6 @@ const CommentIdSlice = createSlice({
     reducers: {
         updateCurrentAlbumCommentId: (state, action) => {
             state.commentId = action.payload;
-            console.log(action, "from cmm")
         },
     }
 });
