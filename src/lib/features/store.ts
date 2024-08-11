@@ -1,7 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "./store/auth/authSlice";
 import modalReducer from "./store/modal/modalSlice";
-import commentIdReducer from "./store/commentId/commentId"
+import commentIdReducer from "./store/commentId/commentId";
+import newAlbumReducer from "./store/newAlbum/newAlbum";
 import { apiSlice } from "./api/apiSlice";
 
 export const makeStore = () => {
@@ -11,6 +12,7 @@ export const makeStore = () => {
                 auth: authReducer,
                 modal: modalReducer,
                 comment: commentIdReducer,
+                newAlbum: newAlbumReducer,
             },
             middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(apiSlice.middleware),
         })
