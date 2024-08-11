@@ -26,7 +26,7 @@ const CommentsFetch: React.FC= () => {
     const { currentAlbumId } = useAlbumContext();
 
     // console.log({currentAlbumId}, "from cfetch")
-    const { data } = useGetCommentsByIdQuery(currentAlbumId);
+    const { data } = useGetCommentsByIdQuery(currentAlbumId, {refetchOnMountOrArgChange: true,});
     const comments = data as unknown as  {
       _id: string;
       comment: string;
