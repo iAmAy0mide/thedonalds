@@ -46,7 +46,7 @@ body {
   }
 
   .sm-menu-option {
-    @apply top-[30%] right-0 absolute w-[11rem] text-sm  glassy-white glassy-white border brightness-110 border-[#fff] rounded-xl p-2 text-[#fff]  flex  flex-col
+    @apply top-[30%] right-0 absolute w-[11rem] text-sm  glassy-white-sm-menu glassy-white-sm-menu border backdrop-brightness-105 border-[#fff] rounded-xl p-2 text-[#fff]  flex  flex-col
   }
 
   .md-option {
@@ -121,9 +121,14 @@ body {
 }
 
 .glassy-white {
-  background: rgb(255, 255, 255, 0.8);
+  /* background: rgb(255, 255, 255, 0.2); */
   backdrop-filter: blur(6px);
   background-color: rgba(119, 168, 163, 0.2);
+}
+
+.glassy-white-sm-menu {
+  background: rgb(255, 255, 255, 0.8);
+  backdrop-filter: blur(6px);
 }
 
 .action {
@@ -140,7 +145,15 @@ body {
 }
 
 .input-shadow {
-  box-shadow: inset 3px 3px 4px rgba(255,255,255,0.5);
+  box-shadow: inset 4px 4px 50px rgba(255,255,255,0.5),
+              -3px -3px 4px rgba(0, 0, 0, 0.181),
+              inset 5px 3px 4px rgba(0, 0, 0, 0.25),
+               -4px -3px 4px rgba(255,255,255,0.5),
+               inset -4px -4px 4px rgba(255,255,255,0.5),
+               3px 3px 4px rgba(0, 0, 0, 0.181),
+               inset -5px -3px 4px rgba(0, 0, 0, 0.25),
+                4px 3px 4px rgba(255,255,255,0.5)
+               ;
 }
 
 .glassy-blue {
@@ -154,7 +167,7 @@ body {
 .glassy-dark {
   background: rgba(48, 58, 57, 0.5);
   background: #303a3980;
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(1.8rem);
 }
 
 .glassy-blue-gradient {
