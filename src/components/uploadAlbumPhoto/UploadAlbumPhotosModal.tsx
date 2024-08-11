@@ -77,8 +77,6 @@ const UploadAlbumPhotosModal = () => {
                     }}
                   />
                 </div>
-                  {/* <input hidden type="file" name="upload-image" id="upload-image" />
-                  <label htmlFor='upload-image' className="text-[#fff] cursor-pointer brightness-110 glassy-blu bg-[#1b3 653] text-green rounded-3xl px-10 py-1 text-[1.2rem] ">Upload Photo</label> */}
               </div>
               <UploadAlbumForm albumPhotos={albumPhotos} setAlbumPhotos={setAlbumPhotos} />
             </div>
