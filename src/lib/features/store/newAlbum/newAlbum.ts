@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-interface U {
-    newAlbum: IAlbumData[]
+interface UpdatedAlbumsData {
+    updatedAlbums: IAlbumData[]
 }
 
-const initialState: U = {
-    newAlbum: [],
+const initialState: UpdatedAlbumsData = {
+    updatedAlbums: [],
 }
 
 const NewAlbumSlice = createSlice({
@@ -13,7 +13,7 @@ const NewAlbumSlice = createSlice({
     initialState,
     reducers: {
         updateAlbumPage: (state, action) => {
-            state.newAlbum = action.payload;
+            state.updatedAlbums = action.payload;
         }
     }
 });
