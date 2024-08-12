@@ -15,30 +15,22 @@ export const addComment = async (formData: FormData) => {
     
         const comment = formData.get("comment");
         const currentAlbumId = formData.get("currentAlbumId");
-     
-        
-        
-        // const newComment = new Comment({ comment });
-
-        // const albumId = "66b439e0d334115a065fe92b"
-        const newCommen = await Album.findByIdAndUpdate(
+        if (!comment || !currentAlbumId) {
+            return {error: "Both comment and currentId are required!"}
+        }
+        const newComment = await Album.findByIdAndUpdate(
             currentAlbumId, 
             { $push: { comments: { comment }}},
             { new: true }
         )
-        console.log(newCommen["comments"]);
-        
-        // await newComment.save(); 
 
-        // const savedComment = newComment.map((c: { _id: { toString: () => any; }; comment: any; }) => {
-        //     const id =  c._id.toString();
-        //     const comment = c.comment;
-        //     return (
-        //         {_id: id, comment}
-        //      )
-        // })    
+        if (!newComment) {
+            return { error: "The provided albumId does not exist"}
+        }
+
+        console.log(newComment["comments"]);
         
-        const comments = newCommen["comments"];
+        const comments = newComment["comments"];
         const convertedComments = comments.map((c: { _id: { toString: () => any; }; comment: any; }) => {
             const _id = c._id.toString();
             const comment = c.comment;
@@ -46,11 +38,11 @@ export const addComment = async (formData: FormData) => {
                  comment, _id,
             }
         })
+
         console.log(convertedComments)
 
         return convertedComments.reverse();
-        // return NextResponse.json({convertedComments});
-        // return {success: "ok"};
+
     } catch (error: any) {
         return {error: error.message}
     }
