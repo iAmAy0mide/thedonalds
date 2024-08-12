@@ -30,7 +30,7 @@ const UploadAlbumPhotosModal = () => {
                {                
                 albumPhotos.map(photo => (
                   photo.name && photo.url ?
-                  (<div key={photo.name} className="w-[4rem] h-[4rem] border-[2px] border-deepBlue rounded-xl">
+                  (<div key={photo.url} className="w-[4rem] h-[4rem] border-[2px] border-deepBlue rounded-xl">
                     <Image className='w-full h-full rounded-xl' width={100} height={100} alt={photo.name} src={photo.url} />
                   </div>) : null
                 ))
