@@ -4,6 +4,7 @@ import modalReducer from "./store/modal/modalSlice";
 import commentIdReducer from "./store/commentId/commentId";
 import newAlbumReducer from "./store/newAlbum/newAlbum";
 import { apiSlice } from "./api/apiSlice";
+import randomStrgReducer from "./store/randomStrg/randomStrg";
 
 export const makeStore = () => {
     return configureStore({
@@ -12,7 +13,8 @@ export const makeStore = () => {
                 auth: authReducer,
                 modal: modalReducer,
                 comment: commentIdReducer,
-                newAlbum: newAlbumReducer,
+                updatedAlbums: newAlbumReducer,
+                randomStrg: randomStrgReducer,
             },
             middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(apiSlice.middleware),
         })
