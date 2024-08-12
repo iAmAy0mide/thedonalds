@@ -63,13 +63,13 @@ const NavBar = () => {
                         dispatch(setLoginModalStatus(true));
                         // signIn("google")
                     }}
-                className={`${isLoginSuccess && "hidden"} red-3d-effect auth-button`}>Login</button>
+                className={`${isLoginSuccess && "hidden"} T3d-effect auth-button`}>Login</button>
                 <button
                     onClick={() => {
                         router.replace("/");
                         signOut()
                     }}
-                className={`${!isLoginSuccess && "hidden"} red-3d-effect auth-button`}>Signout</button>
+                className={`${!isLoginSuccess && "hidden"} T3d-effect auth-button`}>Signout</button>
             </div>
             <div className={`w-f ull ${!isLoginSuccess && "hidden" } sm-menu-show-button`}>
                 <div onClick={() => {
@@ -83,8 +83,8 @@ const NavBar = () => {
                             dispatch(setUploadPhotoModalStatus(true));
                         }} className='upload-button'>Upload</button>
                         <button onClick={() => {
-                            dispatch(setUploadPhotoModalStatus(true));
-                        }} className='deleted-gallery-button mt-4'>Deleted Gallery</button>
+                            router.push("/deleted-album")
+                        }} className='deleted-gallery-button mt-4'>Deleted Album</button>
                 </div>
             </div>
 
@@ -94,8 +94,8 @@ const NavBar = () => {
                         dispatch(setUploadPhotoModalStatus(true));
                     }} className='upload-button'>Upload</button>
                     <button onClick={() => {
-                        dispatch(setUploadPhotoModalStatus(true));
-                    }} className='deleted-gallery-button'>Deleted Gallery</button>
+                         router.push("/deleted-album")
+                    }} className='deleted-gallery-button'>Deleted Album</button>
                 </div>
             </div>
 

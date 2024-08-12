@@ -6,7 +6,7 @@ import { updateCurrentAlbumCommentId } from "@/lib/features/store/commentId/comm
 import { getComments } from "@/app/action";
 import Comments from "./Comments";
 import { RootState } from "@/lib/features/store";
-import { useGetCommentsByIdMMutation, useGetCommentsByIdQuery } from "@/lib/features/api/commentsApiSlice";
+import { useGetCommentsByIdQuery } from "@/lib/features/api/commentsApiSlice";
 import { useEffect } from "react";
 import { useAlbumContext } from "@/hooks/AlbumContext";
 
