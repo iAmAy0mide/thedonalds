@@ -8,7 +8,7 @@ const AlbumApiSlice = apiSlice.injectEndpoints({
             query: () => ({
                 url: "http://localhost:3000/api/album"
             }),
-            providesTags: ['Album'],
+            // providesTags: ['Album'],
         }),
         deleteAlbum: builder.mutation({
             query: (albumId) => ({
@@ -16,24 +16,24 @@ const AlbumApiSlice = apiSlice.injectEndpoints({
                 method: "DELETE"
             }),
 
-            async onQueryStarted(albumId, { dispatch, queryFulfilled }) {
-                // Optimistically update the cache by removing the deleted album
-                const patchResult = dispatch(
-                    AlbumApiSlice.util.updateQueryData('getAlbums', undefined, (draft) => {
-                        console.log("Delete workeddd 1")
-                    return draft.filter(album => album._id !== albumId);
-                  })
-                );
+            // async onQueryStarted(albumId, { dispatch, queryFulfilled }) {
+            //     // Optimistically update the cache by removing the deleted album
+            //     const patchResult = dispatch(
+            //         AlbumApiSlice.util.updateQueryData('getAlbums', undefined, (draft) => {
+            //             console.log("Delete workeddd 1")
+            //         return draft.filter(album => album._id !== albumId);
+            //       })
+            //     );
         
-                try {
-                    console.log("Delete workeddd2 ")
-                  await queryFulfilled;
-                } catch {
-                  // If the query fails, undo the optimistic update
-                  patchResult.undo();
-                }
-              },
-              invalidatesTags: ['Album'],
+            //     try {
+            //         console.log("Delete workeddd2 ")
+            //       await queryFulfilled;
+            //     } catch {
+            //       // If the query fails, undo the optimistic update
+            //       patchResult.undo();
+            //     }
+            //   },
+            //   invalidatesTags: ['Album'],
 
         }),
 
@@ -43,28 +43,28 @@ const AlbumApiSlice = apiSlice.injectEndpoints({
               method: 'PATCH',
             }),
            
-            async onQueryStarted(albumId, { dispatch, queryFulfilled }) {
-                // Optimistically update the cache by adding the restored album
-                const patchResult = dispatch(
-                  AlbumApiSlice.util.updateQueryData('getAlbums', undefined, (draft) => {
-                    const album = draft.find((album) => album._id === albumId);
-                    if (album) {
-                        album.deleted = false;
-                    }
-                    console.log(album, "from OnQuery")
-                    console.log("Restore workeddd 1")
-                  })
-                );
+            // async onQueryStarted(albumId, { dispatch, queryFulfilled }) {
+            //     // Optimistically update the cache by adding the restored album
+            //     const patchResult = dispatch(
+            //       AlbumApiSlice.util.updateQueryData('getAlbums', undefined, (draft) => {
+            //         const album = draft.find((album) => album._id === albumId);
+            //         if (album) {
+            //             album.deleted = false;
+            //         }
+            //         console.log(album, "from OnQuery")
+            //         console.log("Restore workeddd 1")
+            //       })
+            //     );
         
-                try {
-                    console.log("Restore workeddd 2")
-                  await queryFulfilled;
-                } catch {
-                  // If the query fails, undo the optimistic update
-                  patchResult.undo();
-                }
-              },
-              invalidatesTags: ['Album'],
+            //     try {
+            //         console.log("Restore workeddd 2")
+            //       await queryFulfilled;
+            //     } catch {
+            //       // If the query fails, undo the optimistic update
+            //       patchResult.undo();
+            //     }
+            //   },
+            //   invalidatesTags: ['Album'],
 
         }),
 
@@ -74,28 +74,28 @@ const AlbumApiSlice = apiSlice.injectEndpoints({
                 method: "PATCH"
             }),
 
-            async onQueryStarted(albumId, { dispatch, queryFulfilled }) {
-                const patchResult = dispatch(
-                    AlbumApiSlice.util.updateQueryData("getAlbums", undefined, (draft) => {
-                        const album = draft.find(album => album._id === albumId);
-                        if (album) {
-                            album.deleted = true
-                        }
-                        console.log(album, "from OnQuery")
-                        console.log("Moved workeddd 1")
-                    })
+            // async onQueryStarted(albumId, { dispatch, queryFulfilled }) {
+            //     const patchResult = dispatch(
+            //         AlbumApiSlice.util.updateQueryData("getAlbums", undefined, (draft) => {
+            //             const album = draft.find(album => album._id === albumId);
+            //             if (album) {
+            //                 album.deleted = true
+            //             }
+            //             console.log(album, "from OnQuery")
+            //             console.log("Moved workeddd 1")
+            //         })
 
-                )
+            //     )
 
-                try {
-                    console.log("Moved workeddd 2")
-                    await queryFulfilled;
-                } catch (error) {
-                    patchResult.undo();
-                }
-            },
+            //     try {
+            //         console.log("Moved workeddd 2")
+            //         await queryFulfilled;
+            //     } catch (error) {
+            //         patchResult.undo();
+            //     }
+            // },
 
-            invalidatesTags: ['Album'],
+            // invalidatesTags: ['Album'],
         }),
 
         getDeletedAlbum: builder.query<IAlbumData[], string>({
