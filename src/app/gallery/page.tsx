@@ -1,30 +1,29 @@
+"use client"
+
 import CommentsModal from "@/components/comments/CommentsModal";
 import GalleryPage from '../../components/Gallery/GalleryPage';
-import CommentSection from "@/components/comments/CommentSection";
+import { useGetAlbumsQuery } from "@/lib/features/api/albumApiSlice";
+import { useEffect } from "react";
 
-const Gallery = async () => {
-
-  async function ser() {
-    "use server"
-  }
+const Gallery =  () => {
   
-  const res = await fetch("http://localhost:3000/api/album", { cache: "no-cache" }) 
-  const album = await res.json();
+  // const res = await fetch("http://localhost:3000/api/album", { cache: "no-cache" }) 
+  // const albums = await res.json();
 
-  // console.log(album);
-  // console.log(Array.isArray(album), "client");
-  // const albumPhoto
+  const { data: albums, refetch } = useGetAlbumsQuery(undefined, { refetchOnMountOrArgChange: true });
+
+  console.log(albums, "from rtk gal");
   
 
   return (
-    <>
-      <GalleryPage album={album}> 
+    <>{albums && (
+      <GalleryPage albums={albums}> 
         <CommentsModal />
-        {/* <CommentsModal children={<CommentSection currentAlbumId={""} />} />  */}
       </GalleryPage>
+     )}
     </> 
   )
 }
 
 export default Gallery;
-
+export const dynamic = "force-dynamic";
