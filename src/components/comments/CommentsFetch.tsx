@@ -20,13 +20,13 @@ interface IT {
 //   }[]
 // }
 
-const CommentsFetch: React.FC= () => {
+const CommentsFetch: React.FC = () => {
     // const comments = await getComments();
     // const currentAlbumId: string = useSelector((state: RootState) => (state.comment.commentId));
     const { currentAlbumId } = useAlbumContext();
 
     // console.log({currentAlbumId}, "from cfetch")
-    const { data } = useGetCommentsByIdQuery(currentAlbumId, {refetchOnMountOrArgChange: true,});
+    const { data } = useGetCommentsByIdQuery(currentAlbumId, {refetchOnMountOrArgChange: true });
     const comments = data as unknown as  {
       _id: string;
       comment: string;
