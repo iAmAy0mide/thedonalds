@@ -48,11 +48,15 @@ export async function GET() {
 
 }
 
-export async function DELETE() {
+export async function DELETE(req: NextRequest, res: NextResponse ) {
+
+    const albumId = req.nextUrl.searchParams.get("albumId");
+
+    console.log({albumId}, "from delete");
     try {
         await dbConnect();
 
-        const permanentlyDeletedAlbum =  await Album.findByIdAndDelete({}, {
+        const permanentlyDeletedAlbum =  await Album.findByIdAndDelete({ _id: albumId }, {
             new: true
         });
 
