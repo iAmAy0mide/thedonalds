@@ -25,11 +25,16 @@ declare interface IAlbumData {
   albumName: string;
   album: { image: { url: string } }[];
   createdAt: string;
+  deleted?: boolean;
 }
 
 declare interface IAlbumsProps {
   albums: IAlbumData[];
+  renderButtons: (albumId: string) => ReactNode;
 }
+// renderButtons: (albumId: string, refetch?: () => QueryActionCreatorResult<QueryDefinition<any, BaseQueryFn<string | FetchArgs, unknown, FetchBaseQueryError, {}, FetchBaseQueryMeta>, never, any, "api">>) => ReactNode
+// renderButtons: (albumId: string, refetch:  () => QueryActionCreatorResult<QueryDefinition<any, BaseQueryFn<string | FetchArgs, unknown, FetchBaseQueryError, {}, FetchBaseQueryMeta>, never, any, "api">>) => ReactNode;
+// refetch: () => QueryActionCreatorResult<QueryDefinition<any, BaseQueryFn<string | FetchArgs, unknown, FetchBaseQueryError, {}, FetchBaseQueryMeta>, never, any, "api">>;
 
 declare interface IModal {
   isCommentModalOpen: boolean;
