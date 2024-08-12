@@ -11,12 +11,14 @@ const CommentForm = ({ setFamComments }: IFormProp) => {
       const data = await addComment(formData);
       ref.current?.reset();
 
+      console.log(data, "clicked form")
+
       // const res = await fetch(`/api/comments/commentId?commentId=${currentAlbumId}`, { cache: "no-cache"});
       // const data = await res.json();
       // console.log(data, "from form"); 
       if (data.error) {
         alert(data.error);
-        // alert("Sorry, An error occured. Please try again.");
+      //   // alert("Sorry, An error occured. Please try again.");
       } else {
         setFamComments(() => [...data]);
       }

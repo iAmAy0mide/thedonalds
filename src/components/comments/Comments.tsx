@@ -16,7 +16,7 @@ interface Icom {
 
 
 const Comments: React.FC<IComments> = ({ comments }) => {
-  const [famComments, setFamComments] = useState<Icom[]>(comments || []);
+  const [famComments, setFamComments] = useState<Icom[]>(comments);
   // console.log(famComments, "from famComments");
   // console.log(comments, "from famComments - comments");
 
@@ -35,11 +35,11 @@ const Comments: React.FC<IComments> = ({ comments }) => {
 
         {
 
-          !famComments ? (
-            <div className="mx-auto w-[3.4rem]">
-              <Image width={100} height={100} alt="Loading spinner" src={Spinner} />
-            </div>
-           ) :
+          // !famComments ? (
+          //   <div className="mx-auto w-[3.4rem]">
+          //     <Image width={100} height={100} alt="Loading spinner" src={Spinner} />
+          //   </div>
+          //  ) :
           famComments?.map((c: { _id: React.Key; comment: string; }) => (
           <div key={c._id} className="rounded-lg relative self-start  mx-auto w-full sm:w-[70%] p-1 bg-deepBlue">
             <div className=" h-[4rem] w-[4rem] rounded-lg float-left mr-2">
