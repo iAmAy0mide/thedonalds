@@ -4,7 +4,7 @@ const Modal = ({ children }: Readonly <{
     children: React.ReactNode
 }>) => {
   return (
-    <div className={`min-w-[100dvw] fixed -translate-x-[50%] left-[50%] px-4 pt-4 mx-auto glassy-green  h-[90dvh]`}>
+    <div className={`min-w-[100dvw] fixed  -translate-x-[50%] left-[50%] px-4 pt-4 mx-auto glassy-green  h-[90dvh]`}>
         {children}
     </div>
   )
