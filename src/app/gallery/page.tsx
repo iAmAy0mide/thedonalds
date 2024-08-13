@@ -1,22 +1,20 @@
 "use client"
 
-import CommentsModal from "@/components/comments/CommentsModal";
-import GalleryPage from '../../components/Gallery/GalleryPage';
-import { useGetAlbumsQuery } from "@/lib/features/api/albumApiSlice";
-import { useEffect, useState } from "react";
-import Spinner from "/public/spinner.gif";
-import Image from "next/image";
+import { useEffect } from "react";
 import { RootState } from "@/lib/features/store";
 import { useDispatch, useSelector } from "react-redux";
+
+import GalleryPage from '../../components/Gallery/GalleryPage';
+import CommentsModal from "@/components/comments/CommentsModal";
+import { useGetAlbumsQuery } from "@/lib/features/api/albumApiSlice";
+
+import LoadingSpinner from "@/components/UI/LoadingSpinner";
 import { updateAlbumPage } from "@/lib/features/store/newAlbum/newAlbum";
 
 const Gallery =  () => {
-  
-  // const res = await fetch("http://localhost:3000/api/album", { cache: "no-cache" }) 
-  // const albums = await res.json();
-  
+
   const updatedAlbums = useSelector((state: RootState) => state.updatedAlbums.updatedAlbums);
-  const { data: albums, refetch } = useGetAlbumsQuery(undefined, { refetchOnMountOrArgChange: true });
+  const { data: albums } = useGetAlbumsQuery(undefined, { refetchOnMountOrArgChange: true });
   const dispatch = useDispatch();
   const shouldUpdate = useSelector((state: RootState) => state.updatedAlbums.shouldUpdate);
   
@@ -36,16 +34,8 @@ const Gallery =  () => {
 
   return (
     <>{!albums ? (
-      <div className="mx-auto mt-[14rem] sm:mt-[18rem] w-[2rem]">
-        <Image
-          unoptimized
-          src={Spinner}
-          width={100}
-          height={100}
-          alt="Loading Spinner"
-          className="w-full"
-        />
-      </div>) : (
+        <LoadingSpinner />
+      ) : !albums[0] ? <h1 className='mx-auto text-[2rem] mt-[10rem] text-actionBg'>Currently empty</h1> : (
       <GalleryPage albums={albums}> 
         <CommentsModal />
       </GalleryPage>
