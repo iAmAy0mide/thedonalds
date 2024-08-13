@@ -35,19 +35,25 @@ const Comments: React.FC<IComments> = ({ comments }) => {
 
         {
 
-          // !famComments ? (
-          //   <div className="mx-auto w-[3.4rem]">
-          //     <Image width={100} height={100} alt="Loading spinner" src={Spinner} />
-          //   </div>
-          //  ) :
+          !famComments ? (
+          <div className="mx-auto mt-[14rem] sm:mt-[18rem] w-[2rem]">
+            <Image
+              src={Spinner}
+              width={100}
+              height={100}
+              alt="Loading Spinner"
+              className="w-full"
+            />
+          </div>)  :
           famComments?.map((c: { _id: React.Key; comment: string; }) => (
-          <div key={c._id} className="rounded-lg relative self-start  mx-auto w-full sm:w-[70%] p-1 bg-deepBlue">
-            <div className=" h-[4rem] w-[4rem] rounded-lg float-left mr-2">
-            <Image width={100} height={100} src={Human} alt='' aria-label='' title='Photo Album Display' className='w-full rounded-lg float-left' />
+            <div key={c._id} className="rounded-lg relative self-start  mx-auto w-full sm:w-[70%] p-1 bg-deepBlue">
+              <div className=" h-[4rem] w-[4rem] rounded-lg float-left mr-2">
+              <Image width={100} height={100} src={Human} alt='' aria-label='' title='Photo Album Display' className='w-full rounded-lg float-left' />
+              </div>
+              <p className="comment-text overflow-clip">{c.comment}</p>
             </div>
-            <p className="comment-text overflow-clip">{c.comment}</p>
-          </div>
           ))
+          
         }
       </div>
       <CommentForm setFamComments={setFamComments} />
