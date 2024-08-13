@@ -29,7 +29,7 @@ const Gallery =  () => {
     console.log({shouldUpdate}, "above")
     if (shouldUpdate) {
       console.log({shouldUpdate}, "inside")
-      dispatch(updateAlbumPage({albums, deleteClicked: false, albumId: ""}));
+      dispatch(updateAlbumPage(albums));
     }
   }, [albums]);
 
@@ -38,6 +38,7 @@ const Gallery =  () => {
     <>{!albums ? (
       <div className="mx-auto mt-[14rem] sm:mt-[18rem] w-[2rem]">
         <Image
+          unoptimized
           src={Spinner}
           width={100}
           height={100}
