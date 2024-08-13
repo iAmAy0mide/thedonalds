@@ -6,19 +6,24 @@ import CommentIcon from "/public/CommentIcon.svg";
 import DeleteIcon from "/public/DeleteIcon.svg";
 
 import { useDeleteAlbumMutation, useGetDeletedAlbumQuery, useRestoreAlbumMutation } from '@/lib/features/api/albumApiSlice';
+import { useDispatch } from 'react-redux';
+import { updateDeletedAlbumsFromBtn, updateShouldUpdateDeletedPageBol } from '@/lib/features/store/newAlbum/newAlbum';
 // import { BaseQueryFn, FetchArgs, FetchBaseQueryError, FetchBaseQueryMeta, QueryActionCreatorResult, QueryDefinition } from '@reduxjs/toolkit/query/react';
 
 const DeletedGalleryPageBtn = (albumId: string) => {
     const [ deleteAlbum ] = useDeleteAlbumMutation();
     const [ restoreAlbum ] = useRestoreAlbumMutation();
-    const {data, refetch} = useGetDeletedAlbumQuery(albumId, { refetchOnMountOrArgChange: true });
+    const dispatch = useDispatch();
+    // const {data, refetch} = useGetDeletedAlbumQuery(albumId, { refetchOnMountOrArgChange: true });
 
   return (
     <>
       <div className="flex w-full h-[28%] mb-1 justify-between pt-1">
                   <div 
                     onClick={() => {
-                      console.log("restored", albumId)
+                      console.log("restored", albumId);
+                      dispatch(updateShouldUpdateDeletedPageBol(false));
+                      dispatch(updateDeletedAlbumsFromBtn(albumId));
                       restoreAlbum(albumId);
                       // refetch();
                     }} 
@@ -40,6 +45,8 @@ const DeletedGalleryPageBtn = (albumId: string) => {
                         // });
                         // const data = await res.json();
                         // console.log(data, "from ")
+                      dispatch(updateShouldUpdateDeletedPageBol(false));
+                      dispatch(updateDeletedAlbumsFromBtn(albumId))
                       const deletedAlbum = await deleteAlbum(albumId).unwrap();
                       console.log(deletedAlbum, "from del btn")
                       // setTimeout(() => {
