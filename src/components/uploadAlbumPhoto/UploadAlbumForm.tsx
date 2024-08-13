@@ -1,12 +1,13 @@
 "use client";
 import { RootState } from '@/lib/features/store';
-import { updateAlbumPage } from '@/lib/features/store/newAlbum/newAlbum';
+import { updateAlbumPage, updateAlbumPageFromForm, updateShouldUpdateBol } from '@/lib/features/store/newAlbum/newAlbum';
 import React, { Dispatch, FormEvent, SetStateAction, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 
 const UploadAlbumForm: React.FC<UploadAlbumForm> = ({setAlbumPhotos, albumPhotos}) => {
   const [albumName, setAlbumName] = useState<string>("");
+  // const shouldUpdate = useSelector((state: RootState) => state.updatedAlbums.shouldUpdate);
   
   const dispatch = useDispatch();
 
@@ -38,7 +39,8 @@ const UploadAlbumForm: React.FC<UploadAlbumForm> = ({setAlbumPhotos, albumPhotos
       });
 
       const newAlbum = await res.json();
-      dispatch(updateAlbumPage(newAlbum));
+      dispatch(updateAlbumPageFromForm(newAlbum)); 
+      dispatch(updateShouldUpdateBol(true));
 
       // console.log({newAlbum});
 
