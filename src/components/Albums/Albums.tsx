@@ -12,21 +12,15 @@ import { RootState } from '@/lib/features/store';
 
 const Albums: React.FC<IAlbumsProps> = ({ albums, renderButtons }) => {
   const [aAlbum, setAalbum] = useState<IAlbumData[]>(albums);
-  // const updatedAlbums = useSelector((state: RootState) => state.updatedAlbums.updatedAlbums);
+  // const updatedDeletedAlbums = useSelector((state: RootState) => state.updatedAlbums.updatedDeletedAlbums);
 
-  console.log(albums, "from alubum")
+  // console.log(albums, "from alubum")
   // console.log(updatedAlbums, "from ups alubum")
 
   useEffect(() => {
-    setAalbum(albums)
-  }, [aAlbum, albums])
+    setAalbum(albums);
+  }, [aAlbum, albums]);
 
-  // // Handle when data is 'undefined' . Re-renders when available
-  // useEffect(()=> {
-
-  // }, [aAlbum, albums]);
-  
-  // if (!albums) return;
   
   return (
     <>
@@ -47,17 +41,5 @@ const Albums: React.FC<IAlbumsProps> = ({ albums, renderButtons }) => {
 }
 
 export default Albums;
+
 export const dynamic = "force-dynamic";
-
-
-// useEffect(() => {
-
-//   (async function fert() {
-//     const res = await fetch("http://localhost:3000/api/album", { cache: "no-cache" }) 
-//     const album = await res.json();
-//     console.log(album, "from update");
-    
-//     setAalbum(album);
-//   })
-//   console.log("albums updated...")
-// }, [aAlbum])
