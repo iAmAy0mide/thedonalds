@@ -4,7 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setLoginModalStatus } from '@/lib/features/store/auth/authSlice';
 import { signIn } from 'next-auth/react';
 import Image from "next/image";
-import Star from "/public/Star.svg"
+import Star from "/public/Star.svg";
+import GoogleLogo from "/public/google-logo.webp"
 
     
 const LoginForm = () => {
@@ -16,7 +17,7 @@ const LoginForm = () => {
     <div className='glassy-white-sm-menu glassy-whit e-sm-menu backdrop-brightness-105 border-[2px] relative border-[#ccc] max -w-[25rem] min-w-[20rem] sm:min-w-[25rem] rounded-xl p-4 flex flex-col'>
    
       <div className="flex w-full flex-col justify-center items-center ">
-        <div 
+        {/* <div 
           onClick={() => {
               dispatch(setLoginModalStatus(false));
               signIn("google")
@@ -32,20 +33,20 @@ const LoginForm = () => {
               className=''
             />
           </div> <p>Google</p> 
-        </div>
+        </div> */}
         <div 
           onClick={() => {
               dispatch(setLoginModalStatus(false));
-              signIn("github")
+              signIn("google")
             
           }} 
-          className='px-8 py-3 flex action justify-between w-f text-[#fff] rounded-xl shadow-inner '>
-          <div className="w-[2rem]">
+          className='px-8 py-3 flex action justify-between w-f text-[#fff] rounded-xl'>
+          <div className="w-[4rem] mr-4">
             <Image
               width={100}
               height={100}
               alt=''
-              src={Star}
+              src={GoogleLogo}
               className=''
             />
           </div> <p>Github</p> 

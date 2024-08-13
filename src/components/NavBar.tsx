@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from 'react';
 
+import GoogleLogo from "/public/google-logo.webp"
 import Image from "next/image";
 import Logo from "/public/Logo.svg";
 import LoginModal from './Login/LoginModal';
