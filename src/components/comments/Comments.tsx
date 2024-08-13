@@ -22,10 +22,8 @@ const Comments: React.FC<IComments> = ({ comments }) => {
 
   useEffect(() => {
     if (Array.isArray(comments)) {
-      console.log("comments change 2")
       setFamComments(comments);
     }
-    console.log("comments change 1")
   }, [comments]);
   
 
