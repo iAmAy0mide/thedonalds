@@ -5,6 +5,7 @@ import Image from "next/image";
 import Logo from "/public/Logo.svg";
 import LoginModal from './Login/LoginModal';
 
+
 import { FiMoreVertical, FiMenu, FiTool  } from 'react-icons/fi';
 import { FaTh, FaGripHorizontal } from 'react-icons/fa';
 import { MdApps } from 'react-icons/md';
@@ -89,7 +90,7 @@ const NavBar = () => {
                 </div>
             </div>
 
-            <div className={`${!isModalOpen && "hidden"} absolute left-[50%] -translate-x-[50%] top-[30dvh] `}>
+            <div className={`${!isModalOpen && "hid den"} absolute left-[50%] -translate-x-[50%] top-[30dvh] `}>
                 <LoginModal />
             </div>
             
