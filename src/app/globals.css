@@ -152,6 +152,14 @@ body {
   background: rgb(69, 125, 121, 0.5);
   backdrop-filter: blur(6px);
 }
+
+.login {
+  color: rgba(48, 58, 57, 0.5);
+}
+.login-h {
+  color: rgba(48, 58, 57, 0.873);
+}
+
 .glassy-dark {
   background: rgba(48, 58, 57, 0.5);
   background: #303a3980;
@@ -169,7 +177,7 @@ body {
 
 .text-green {
   background: #04A998;
-  box-shadow: 3px 3px 3px rgb(4, 169, 152, 0.6) inset,
+  text-shadow: 3px 3px 3px rgb(4, 169, 152, 0.6) inset,
               -1px -1px 3px rgb(0, 0, 0, 0.3) inset,
               -2px -2px 3px rgb(4, 169, 152, 0.5) inset
               ;
@@ -179,6 +187,14 @@ body {
   box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.332)  inset,
               -3px -3px 3px rgba(255, 255, 255, 0.332) inset
   ;
+
+
+}
+
+.glassy-green-login {
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(14px);
+  border: 2px solid rgba(48, 58, 57, 0.5);;
 }
 
 .restore-btn {

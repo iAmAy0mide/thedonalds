@@ -82,7 +82,8 @@ const NavBar = () => {
 
             <div className={`${!isLoginSuccess && "hidden"} ml-[0.57rem] blk h-[23%]`}>
                 <div className={`md-opt ion h-full gap-2 md:flex w-full justify-end text-[#fff]  rounded-xl`}>
-                    <button onClick={() => {
+                    <button onClick={() => { 
+                        console.log("clicked")
                         dispatch(setUploadPhotoModalStatus(true));
                     }} className='upload-button'>Upload</button>
                     <button onClick={() => {

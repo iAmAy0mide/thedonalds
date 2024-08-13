@@ -5,7 +5,8 @@ import { setLoginModalStatus } from '@/lib/features/store/auth/authSlice';
 import { signIn } from 'next-auth/react';
 import Image from "next/image";
 import Star from "/public/Star.svg";
-import GoogleLogo from "/public/google-logo.webp"
+import GoogleLogo from "/public/google-logo.webp";
+import GoogleLogo2 from "/public/logo_google.svg";
 
     
 const LoginForm = () => {
@@ -14,7 +15,7 @@ const LoginForm = () => {
     const dispatch = useDispatch();
 
   return (
-    <div className='glassy-white-sm-menu glassy-whit e-sm-menu backdrop-brightness-105 border-[2px] relative border-[#ccc] max -w-[25rem] min-w-[20rem] sm:min-w-[25rem] rounded-xl p-4 flex flex-col'>
+    <div className='glassy-white-sm-menu glassy-whit e-sm-menu backdrop-brightness-110 border-[2px] relative border-[#ccc] max -w-[25rem] min-w-[20rem] sm:min-w-[25rem] rounded-xl p-4 flex flex-col'>
    
       <div className="flex w-full flex-col justify-center items-center ">
         {/* <div 
@@ -34,22 +35,23 @@ const LoginForm = () => {
             />
           </div> <p>Google</p> 
         </div> */}
+        <p className='text-[2rem] font-bold mb-8 place-self-start login-h'>Login</p>
         <div 
           onClick={() => {
               dispatch(setLoginModalStatus(false));
               signIn("google")
             
           }} 
-          className='px-8 py-3 flex action justify-between w-f text-[#fff] rounded-xl'>
-          <div className="w-[4rem] mr-4">
+          className='px-16 py-3 flex cursor-pointer glassy-green-login justify-between items-center w-f text-[#fff] rounded-xl '>
+          <div className="w-[3.3rem]">
             <Image
               width={100}
               height={100}
               alt=''
-              src={GoogleLogo}
+              src={GoogleLogo2}
               className=''
             />
-          </div> <p>Github</p> 
+          </div> <p className='text-xl login font-extrabold'>Google</p> 
         </div>
       </div>
       
