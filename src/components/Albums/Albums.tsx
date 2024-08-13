@@ -7,15 +7,19 @@ import Album from './Album';
 
 import GalleryHomeBtns from "./GalleryHomeBtns";
 import { formattedDate } from '@/utils/uploadthing';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/lib/features/store';
 
 const Albums: React.FC<IAlbumsProps> = ({ albums, renderButtons }) => {
-  const [aAlbum, setAalbum] = useState<IAlbumData[]>(albums)
+  const [aAlbum, setAalbum] = useState<IAlbumData[]>(albums);
+  // const updatedAlbums = useSelector((state: RootState) => state.updatedAlbums.updatedAlbums);
 
   console.log(albums, "from alubum")
+  // console.log(updatedAlbums, "from ups alubum")
 
-  // useEffect(() => {
-  //   setAalbum(albums)
-  // }, [aAlbum, albums])
+  useEffect(() => {
+    setAalbum(albums)
+  }, [aAlbum, albums])
 
   // // Handle when data is 'undefined' . Re-renders when available
   // useEffect(()=> {
@@ -43,7 +47,7 @@ const Albums: React.FC<IAlbumsProps> = ({ albums, renderButtons }) => {
 }
 
 export default Albums;
-
+export const dynamic = "force-dynamic";
 
 
 // useEffect(() => {
