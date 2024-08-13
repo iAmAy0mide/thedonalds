@@ -21,12 +21,9 @@ const Gallery =  () => {
   // console.log(albums, "from rtk gal");
 
   useEffect(()=> {
-    console.log("update worked!");
-    console.log(updatedAlbums);
-    // refetch();
-    console.log({shouldUpdate}, "above")
+
     if (shouldUpdate) {
-      console.log({shouldUpdate}, "inside")
+      
       dispatch(updateAlbumPage(albums));
     }
   }, [albums]);
@@ -35,7 +32,7 @@ const Gallery =  () => {
   return (
     <>{!albums ? (
         <LoadingSpinner />
-      ) : !albums[0] ? <h1 className='mx-auto text-[2rem] mt-[10rem] text-actionBg'>Currently empty</h1> : (
+      ) : (
       <GalleryPage albums={albums}> 
         <CommentsModal />
       </GalleryPage>
