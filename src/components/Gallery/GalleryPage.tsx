@@ -8,25 +8,16 @@ import Albums from '../Albums/Albums';
 import { RootState } from '@/lib/features/store';
 import UploadAlbumPhotosModal from "@/components/uploadAlbumPhoto/UploadAlbumPhotosModal";
 import GalleryHomeBtns from '../Albums/GalleryHomeBtns';
-import { updateAlbumPage } from '@/lib/features/store/newAlbum/newAlbum';
+// import { updateAlbumPage } from '@/lib/features/store/newAlbum/newAlbum';
 
 
 const GalleryPage = (props: { albums: IAlbumData[]; children: React.ReactNode; }) => {
-  const [albums, setAlbums] = useState<IAlbumData[]>(props.albums);
+  // const [albums, setAlbums] = useState<IAlbumData[]>(props.albums);
 
   const updatedAlbums = useSelector((state: RootState) => state.updatedAlbums.updatedAlbums);
 
   const isCommentModalOpen = useSelector((state: RootState) => (state.modal.isCommentModalOpen));
   const isUploadAlbumPhotoModalOpen = useSelector((state: RootState) => (state.modal.isUploadPhotoModalOpen));
-  // const dispatch = useDispatch();
-
-  // console.log(updatedAlbums, 'from GPage');
-
-
-  // useEffect(()=> {
-  //   console.log("update worked!")
-  // }, [randomString]);
- 
 
 
   useEffect(() => {
@@ -37,19 +28,8 @@ const GalleryPage = (props: { albums: IAlbumData[]; children: React.ReactNode; }
     
   }, [ isCommentModalOpen, isUploadAlbumPhotoModalOpen ]); 
 
-  // useEffect(()=> {
-  //   console.log("update worked!");
-  //   console.log(updatedAlbums);
-  //   dispatch(updateAlbumPage(albums));
-  // }, [albums, updatedAlbums, dispatch]);
+  console.log(isUploadAlbumPhotoModalOpen, "from gal")
 
-  // if (albums && albums.length > 0) {
-  //   dispatch(updateAlbumPage(albums));
-  // }
-
-  // useEffect(() => {
-  //   dispatch(updateAlbumPage(albums));
-  // }, [dispatch, albums]);
 
   return (
     <main className='pt-[12rem] md:pt-[13rem] lg:pt-[14rem]  overflow-hidden -z-20 min-h-screen'>
