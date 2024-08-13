@@ -20,13 +20,11 @@ const NewAlbumSlice = createSlice({
     reducers: {
         updateAlbumPage: (state, action) => {
             state.updatedAlbums = action.payload;
-            console.log("This didn't clicked delete button instead");       
         },
 
         updateAlbumPageFromForm: (state, action) => {
             const updatedFForm = state.updatedAlbums = [ ...action.payload, ...state.updatedAlbums ]
 
-            console.log(updatedFForm, "from updatedFForm");
         },
 
         updateShouldUpdateBol: (state, action) => {
@@ -34,12 +32,8 @@ const NewAlbumSlice = createSlice({
         },
 
         updateAlbumPageFromDeleteBtn: (state, action) => {
-            // if (action.payload.deleteClicked === true) {
                 const albums = state.updatedAlbums.filter((album: IAlbumData) => album._id !== action.payload.albumId);
                 state.updatedAlbums = albums;
-                console.log(albums, "update store");
-                console.log("clicked delete button");
-            // }
         },
 
         updateDeletedAlbums: (state, action) => {
@@ -49,9 +43,6 @@ const NewAlbumSlice = createSlice({
         updateDeletedAlbumsFromBtn: (state, action) => {
             const albums = state.updatedDeletedAlbums.filter((album: IAlbumData) => album._id !== action.payload );
                 state.updatedDeletedAlbums = albums;
-                console.log(albums, "update del store");
-                console.log("clicked restore or perm button");
-            // state.updatedDeletedAlbums = state.updatedDeletedAlbums.filter((album: IAlbumData) => album._id !== action.payload.albumId);
         },
 
         updateShouldUpdateDeletedPageBol: (state, action) => {
