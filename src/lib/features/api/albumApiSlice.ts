@@ -98,8 +98,8 @@ const AlbumApiSlice = apiSlice.injectEndpoints({
             // invalidatesTags: ['Album'],
         }),
 
-        getDeletedAlbum: builder.query<IAlbumData[], string>({
-            query: (albumId) => ({
+        getDeletedAlbum: builder.query<IAlbumData[], void>({
+            query: () => ({
                 url: "http://localhost:3000/api/album/deleted-album",
                 method: "GET",
             })
