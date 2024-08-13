@@ -22,32 +22,22 @@ import { useSession } from 'next-auth/react';
 import { signOut, signIn } from 'next-auth/react';
 
 
-
-// const getAuthStatus = (key: string): boolean => {
-//     if (typeof window !== 'undefined') {
-//         const item = localStorage.getItem("isLoggedIn");
-//         return item ? JSON.parse(item) : false;
-//     }
-//     return false;
-// }
-
-// const isLoggedInUser: boolean = getAuthStatus("isLoggedIn");
-
-
 const NavBar = () => {
-    const { data: session } = useSession()
+    const { data: session } = useSession();
 
-    const router = useRouter()
-    const dispatch = useDispatch();
-    const isModalOpen = useSelector((state: RootState) => state.auth.isLoginModalOpen);
-    const isLoginSuccess = session ? true : false;
-    const [showSmallScreenOptions, setShowSmallScreenOptions] = useState<boolean>(false);
+    const router = useRouter();
     const pathName = usePathname();
+    const dispatch = useDispatch();
+    const isLoginSuccess = session ? true : false;
+    const isModalOpen = useSelector((state: RootState) => state.auth.isLoginModalOpen);
+    const [showSmallScreenOptions, setShowSmallScreenOptions] = useState<boolean>(false);
 
     useEffect(() => {
         session ? router.replace("/gallery") : router.replace("/");
     }, [session]);
- 
+
+    const cBtnName = pathName === "/gallery" ? "Deleted Album" : "Gallery";
+    const redirectTo = cBtnName === "Deleted Album" ? "/deleted-album" : "/gallery";
 
   return (
     <header className="fixed w-full mx-auto z-50 h-[11rem] md:h-[12rem] lg:h-[14rem] md:pb-2 top-0 pt-1  bg-[#303 A39] glassy-dark mobile px-8 md:px-16">    
@@ -83,8 +73,8 @@ const NavBar = () => {
                             dispatch(setUploadPhotoModalStatus(true));
                         }} className='upload-button'>Upload</button>
                         <button onClick={() => {
-                            router.push("/deleted-album")
-                        }} className='deleted-gallery-button mt-4'>Deleted Album</button>
+                            router.push(redirectTo)
+                        }} className='deleted-gallery-button mt-4'>{cBtnName}</button>
                 </div>
             </div>
 
@@ -94,8 +84,8 @@ const NavBar = () => {
                         dispatch(setUploadPhotoModalStatus(true));
                     }} className='upload-button'>Upload</button>
                     <button onClick={() => {
-                         router.push("/deleted-album")
-                    }} className='deleted-gallery-button'>Deleted Album</button>
+                         router.push(redirectTo)
+                    }} className='deleted-gallery-button'>{cBtnName}</button>
                 </div>
             </div>
 
