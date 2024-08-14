@@ -12,7 +12,6 @@ import GalleryHomeBtns from '../Albums/GalleryHomeBtns';
 
 
 const GalleryPage = (props: { albums: IAlbumData[]; children: React.ReactNode; }) => {
-  // const [albums, setAlbums] = useState<IAlbumData[]>(props.albums);
 
   const updatedAlbums = useSelector((state: RootState) => state.updatedAlbums.updatedAlbums);
 
@@ -26,9 +25,7 @@ const GalleryPage = (props: { albums: IAlbumData[]; children: React.ReactNode; }
     ? (document.documentElement.style.overflow = 'hidden')
     : (document.documentElement.style.overflow = 'auto'); 
     
-  }, [ isCommentModalOpen, isUploadAlbumPhotoModalOpen ]); 
-
-  console.log(isUploadAlbumPhotoModalOpen, "from gal")
+  }, [ isCommentModalOpen, isUploadAlbumPhotoModalOpen ]);
 
 
   return (
