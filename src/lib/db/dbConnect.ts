@@ -4,7 +4,7 @@ const connection: { isConnected?: number } = {};
 
 const dbConnect = async () => {
     if (connection.isConnected) {
-        console.log("Database connected");
+        console.log("Database already connected");
         return;
     }
 
