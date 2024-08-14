@@ -29,7 +29,7 @@ const GalleryPage = (props: { albums: IAlbumData[]; children: React.ReactNode; }
 
 
   return (
-    <main className='pt-[12rem] md:pt-[13rem] lg:pt-[14rem]  overflow-hidden -z-20 min-h-screen'>
+    <main className='pt-[12rem] md:pt-[13rem] lg:pt-[14rem] pb-10  overflow-hidden -z-20 min-h-screen'>
       `<div className="mobile container relative mx-auto px-8 md:px-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-2 max-w-[1440px]  w-full justify-center">
           <Albums albums={updatedAlbums} renderButtons={GalleryHomeBtns} />
