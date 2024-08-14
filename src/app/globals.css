@@ -224,3 +224,51 @@ body {
   background: #e2c3c7;
   /* background: #EC032A; */
 }
+
+.fly-right {
+  animation: fly-right 10s infinite linear;
+}
+
+@keyframes fly-right {
+  to {
+    transform: translateX(120vw);
+  }
+}
+
+.fly-right2 {
+  animation: fly-right2 12s infinite linear;
+}
+
+@keyframes fly-right2 {
+  to {
+    transform: translateX(115vw);
+  }
+}
+.fly-right3 {
+  animation: fly-right3 10s infinite linear;
+}
+
+@keyframes fly-right3 {
+  to {
+    transform: translateX(120vw);
+  }
+}
+.fly-right4 {
+  animation: fly-right4 14s infinite linear;
+}
+
+@keyframes fly-right4 {
+  to {
+    transform: translateX(130vw);
+  }
+}
+
+.fly-right5 {
+  animation: fly-right5 14s infinite linear;
+}
+
+@keyframes fly-right5 {
+  to {
+    transform: translateX(130vw);
+  }
+}
