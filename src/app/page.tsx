@@ -1,40 +1,62 @@
 import Image from "next/image";
-import Star from "/public/Star.svg";
+import Star from "/public/Star.svg"; 
+import Building from "/public/Building.svg";
+import FBird from "/public/ZHug.gif";
+import Link from "next/link";
+
 
 export default function Home() {
 
   
   return (
-    <main className="mobile pt-[50dvh] z-10 px-8 md:px-12 mx-auto bord er-[10px] bor der-red h-[100dvh] relative overflow-hi dden">
-      
-      <div className="absolute bottom-0 right-10">
-        <Image alt=""  width={100} height={100} src={Star}/>
-      </div>
-      <div className="absolute -bottom-10 left-40">
-        <Image alt=""  width={100} height={100} src={Star}/>
-      </div>
-      <div className="absolute left-0 rotate">
-        <Image alt=""  width={100} height={100} src={Star}/>
-      </div>
-      <div className="absolute right-0">
-        <Image alt=""  width={100} height={100} src={Star}/>
-      </div>
-
-      <div className="absolute bottom-0 left-10">
-        <Image alt=""  width={100} height={100} src={Star}/>
-      </div>
-      <div className="absolute bottom-10 right-[50%]">
-        <Image alt=""  width={100} height={100} src={Star}/>
-      </div>
-      <div className="absolute bottom-10 hidden sm:block left-[50%]">
-        <Image alt=""  width={100} height={100} src={Star}/>
-      </div>
-      <div className="absolute bottom-4 right-[10rem]">
-        <Image alt=""  width={100} height={100} src={Star}/>
-      </div>
-      {/* <div className="absolute bottom-[40%] right-[50%]">
-        <Image alt=""  width={100} height={100} src={Star}/>
-      </div> */}
+    <main  className="mobile pt-[11rem] md:pt-[12rem] lg:pt-[14rem] z-10 mx-auto  relative overflow-hidden h-[100dvh] ">
+      <section style={{ backgroundImage: `url(${Building.src})`, backgroundPosition: "bottom" }} className="w-full relative h-full max-w-[1440px] bg-repeat-x posi">
+        <div className="absolute fly-right -translate-x-[1rem]  top-24 w-[5rem]"> 
+          <Image 
+            alt=""
+            width={100}
+            height={100}
+            src={FBird}
+            className="w-full"
+          />
+        </div>
+        <div className="absolute top-20 fly-right -translate-x-[60rem] w-[4.5rem]"> 
+          <Image 
+            alt=""
+            width={100}
+            height={100}
+            src={FBird}
+            className="w-full"
+          />
+        </div>
+        <div className="absolute top-20 fly-right3 -translate-x-[16rem] w-[4.5rem]"> 
+          <Image 
+            alt=""
+            width={100}
+            height={100}
+            src={FBird}
+            className="w-full"
+          />
+        </div>
+        <div className="absolute top-20 fly-right5 -translate-x-[50rem] w-[4.5rem]"> 
+          <Image 
+            alt=""
+            width={100}
+            height={100}
+            src={FBird}
+            className="w-full"
+          />
+        </div>
+        <div className="absolute top-16 fly-right4 -translate-x-[25rem] w-[4.5rem]"> 
+          <Image 
+            alt=""
+            width={100}
+            height={100}
+            src={FBird}
+            className="w-full"
+          />
+        </div>
+      </section>
     </main>
   );
 }
