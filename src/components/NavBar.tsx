@@ -92,7 +92,7 @@ const NavBar = () => {
                 </div>
             </div>
 
-            <div className={`${!isModalOpen && "hid den"} absolute left-[50%] -translate-x-[50%] top-[30dvh] `}>
+            <div className={`${!isModalOpen && "hidden"} absolute left-[50%] -translate-x-[50%] top-[30dvh] `}>
                 <LoginModal />
             </div>
             
