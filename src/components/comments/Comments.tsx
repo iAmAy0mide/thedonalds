@@ -34,7 +34,7 @@ const Comments: React.FC<IComments> = ({ comments }) => {
         {
 
           !famComments ? (
-          <div className="mx-auto mt-[14rem] sm:mt-[18rem] w-[2rem]">
+          <div className="mx-auto w-[2rem]">
             <Image
               src={Spinner}
               width={100}
