@@ -23,10 +23,10 @@ body {
   font-family: "Bahnschrift";
 }
 
-@media (max-width: 420px) {
-  .mobile {
-    padding-left: 1rem;
-    padding-right: 1rem;
+@media (max-width: 345px) {
+  .album-resp-mobile {
+    max-width: 18rem !important;
+    /* background: #1b3653; */
   }
 }
 
@@ -102,11 +102,26 @@ body {
   font-family: "Kage";
 }
 
-.rotate {
-  animation: rotate 2s 0s linear infinite both both;
-  transform-origin: center;
-  animation-play-state: running;
-}
+/* .swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+} */
+
+/* .swiper-slide { */
+  /* background-position: center; */
+  /* background-size: contain; */
+  /* width: 300px;
+  height: 300px; */
+  /* height: 10rem; */
+  /* width: 16rem; */
+/* } */
+
+/* .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+} */
 
 .glassy-white {
   /* background: rgb(255, 255, 255, 0.2); */
@@ -123,13 +138,6 @@ body {
   background-color: #303A39;
   box-shadow: inset 3px 3px 3px rgba(255,255,255,0.5),
               inset -3px -3px 3px  rgba(255,255,255,0.5);
-  
-/* box-shadow: 
-            inset -5px -5px 5px rgba(255,255,255,0.5),
-            inset 5px 5px 5px rgba(0,0,0,0.05),
-            -5px -5px 5px rgba(255,255,255,0.5),
-            5px 5px 5px rgba(0,0,0,0.05)            ; */
-  /* background-color: #212f2d; */
 }
 
 .input-shadow {
