@@ -1,20 +1,19 @@
 "use client";
+
 import Modal from '../Modal';
-import AlbumPhotoCarousel from '../Albums/AlbumPhotoCarousel';
-import CommentsModalCloseBtn from './CommentsModalCloseBtn';
 import CommentSection from './CommentSection';
-import { RootState } from '@/lib/features/store';
+import AlbumPhotoCarousel from '../Albums/AlbumPhotoCarousel';
+
 import { useSelector } from 'react-redux';
+import { RootState } from '@/lib/features/store';
 import { AlbumContextProvider } from '@/hooks/AlbumContext';
-// import CommentSection fro./Commentsion';
-// import CommentSection from './CommentSection';
+import CommentsModalCloseBtn from './CommentsModalCloseBtn';
 
 
 const CommentsModal = () => {
 
   const currentAlbumId: string = useSelector((state: RootState) => (state.comment.commentId));
 
-  // console.log({currentAlbumId}, "from modal")
   
   return (
     
