@@ -6,7 +6,6 @@ import { Uploader } from '@/utils/uploadthing';
 import UploadAlbumForm from './UploadAlbumForm';
 
 import UploadAlbumPhotoCloseBtn from './UploadAlbumPhotoCloseBtn';
-import { useDispatch } from 'react-redux';
 
 
 const UploadAlbumPhotosModal = () => {
@@ -16,12 +15,11 @@ const UploadAlbumPhotosModal = () => {
       url: ""
     }
   ]);
-  const dispatch = useDispatch();
   
 
   return (
     <Modal>
-      <UploadAlbumPhotoCloseBtn />
+      <UploadAlbumPhotoCloseBtn /> 
       <div className=" relative z- 20 bg-greenBg z-[1000]  h-[85dvh] border-[4px] border-red rounded-xl px-4">
         <div className="sm:max-w-[35rem] relative  w-full h-full flex justify-center items-center  mx-auto ">
           <div className="flex flex-col basis-min-content transition-all duration-500 sm:flex-r ow gap-0 items-center">
