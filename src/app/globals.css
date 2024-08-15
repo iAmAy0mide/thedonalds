@@ -23,16 +23,23 @@ body {
   font-family: "Bahnschrift";
 }
 
-@media (max-width: 345px) {
+@media (max-width: 560px) {
   .album-resp-mobile {
-    max-width: 18rem !important;
+    max-width:  25rem  !important;
     /* background: #1b3653; */
+  }
+
+  @media (max-width: 345px) {
+    .album-resp-mobile {
+      max-width: 18rem !important;
+      /* background: #1b3653; */
+    }
   }
 }
 
 @layer components {
   .close-modal-button {
-    @apply absolute -top-[2.5%] rounded-md hover:brightness-90 px-3 py-1 text-[#fff] text-sm bg-actionBg left-0 z-30
+    @apply absolute top-[1%] z-50 rounded-full border hover:rotate-90  transition-all duration-500  hover:brightness-110  text-[#fff] text-sm  left-1 w-[2rem]
   }
 
   .auth-button {
@@ -108,14 +115,18 @@ body {
   padding-bottom: 50px;
 } */
 
-/* .swiper-slide { */
+.swiper-slide {
   /* background-position: center; */
   /* background-size: contain; */
   /* width: 300px;
   height: 300px; */
   /* height: 10rem; */
-  /* width: 16rem; */
-/* } */
+  /* width: 16rem !important; */
+}
+
+.s-slide {
+  width: 100% !important;
+}
 
 /* .swiper-slide img {
   display: block;

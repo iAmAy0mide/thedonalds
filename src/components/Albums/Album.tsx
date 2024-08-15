@@ -19,9 +19,7 @@ const Album: React.FC<IAlbumProps> = ({ albumName, createdAt, coverImage, render
 
     return (
         <div className='relative border bg-[#394c4c] border-deepBlue text-[#fff]  flex flex-col  overflow-hidden h-[18rem]  rounded-xl' >
-            <div onClick={() => {
-                if (pathName === "/gallery")  dispatch(setCommentModalStatus(true));
-            }} className="rounded-xl relative  h-[82%]" style={{ backgroundImage: `url(${coverImage})`, backgroundPosition: "center", backgroundSize: "cover" }}>
+            <div className="rounded-xl relative  h-[82%]" style={{ backgroundImage: `url(${coverImage})`, backgroundPosition: "center", backgroundSize: "cover" }}>
                 <div className="absolute bg-albumOverlay rounded-xl  inset-0 z-[5] "></div>
                 <div className="flex relative flex-col h-full w-full z-20  p-2">
                     <div className="w-[17em] ">
