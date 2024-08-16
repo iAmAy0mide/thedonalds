@@ -48,6 +48,7 @@ body {
       max-width: 23em !important;
     }
   }
+  /* SPW = 2 && centerd = false */
   @media (max-width: 435px) {
     .album-resp-mobile {
       max-width: 21em !important;
@@ -58,19 +59,21 @@ body {
       max-width: 20em !important;
     }
   }
-  @media (max-width: 371px) {
+
+  /* centeredSlides = true && SPW = 2 */
+  @media (max-width: 388px) {
     .album-resp-mobile {
       max-width: 19em !important;
     }
   }
-  @media (max-width: 390px) {
+  @media (max-width: 370px) {
     .album-resp-mobile {
       /* padding: 0 0.25rem !important; */
-      /* max-width: 18em !important; */
-    }
+      max-width: 18em !important;
   }
 
   @media (max-width: 345px) {
+    }
     .album-resp-mobile {
       /* max-width: 18rem !important; */
       /* background: #1b3653; */ 
