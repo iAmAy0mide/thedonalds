@@ -15,14 +15,35 @@ import { useGetAlbumPhotosQuery } from "@/lib/features/api/albumApiSlice";
 import LoadingSpinner from "../UI/LoadingSpinner";
 
 const AlbumPhotoCarousel = () => {
-    const [slidesPerView, setSlidePerview] = useState<number>(2);
+    const [slidesPerView, setSlidePerview] = useState<number>(3);
+    const [centeredSlides, SetCenteredSlides] = useState<boolean>(true);
     const { currentAlbumId } = useAlbumContext();
     const { data: albumPhotos } = useGetAlbumPhotosQuery(currentAlbumId, {refetchOnMountOrArgChange: true });
 
-    console.log(albumPhotos, "from albums components")
-    // useEffect(() => {
-    //   const sw = window.document
-    // }, []);
+
+    const currentScreenWidth = screen.width;
+
+
+    useEffect(() => {
+      // console.log(currentScreenWidth, "width"); 
+
+      if (currentScreenWidth <= 435) {
+
+        console.log(slidesPerView, "in check 435");
+        setSlidePerview(2);
+        SetCenteredSlides(false);
+        return
+      }
+      
+      if (currentScreenWidth <= 388) {
+        setSlidePerview(2);
+        SetCenteredSlides(true);
+        return
+      } 
+        setSlidePerview(3);
+        SetCenteredSlides(true);
+      
+    }, [currentScreenWidth]);
 
 
   return (
@@ -30,10 +51,10 @@ const AlbumPhotoCarousel = () => {
       <Swiper
         effect={'coverflow'}
         grabCursor={true}
-        centeredSlides={false}
-        // slidesPerView={slidesPerView} 
+        centeredSlides={centeredSlides}
+        slidesPerView={slidesPerView} 
         // slidesPerView={2}
-        slidesPerView={"auto"}
+        // slidesPerView={"auto"}
         coverflowEffect={{
           rotate: 90,
           stretch: 2,
