@@ -52,15 +52,11 @@ const AlbumPhotoCarousel = () => {
         effect={'coverflow'}
         grabCursor={true}
         centeredSlides={centeredSlides}
-        slidesPerView={slidesPerView} 
-        // slidesPerView={2}
-        // slidesPerView={"auto"}
+        slidesPerView={slidesPerView}
         coverflowEffect={{
           rotate: 90,
           stretch: 2,
-          // stretch: 0,
           depth: 10,
-          // depth: 100,
           modifier: 20,
           slideShadows: true,
         }}
@@ -69,7 +65,7 @@ const AlbumPhotoCarousel = () => {
         className="mySw iper w-full bg-deep Blue" 
       >
 
-        {/* {
+        {
           !albumPhotos ? (<LoadingSpinner />) : 
             Array.isArray(albumPhotos) && (
               albumPhotos.map((a) => (
@@ -78,22 +74,7 @@ const AlbumPhotoCarousel = () => {
                 </SwiperSlide>
               ))
             )          
-        } */}
-        <SwiperSlide className="bg-ac tionBg">
-            <Image width={100} height={100} alt={""} src={Human} className="w-full max-sm:h-full" />
-        </SwiperSlide>
-        <SwiperSlide className="bg-ac tionBg">
-            <Image width={100} height={100} alt={""} src={Human} className="w-full " />
-        </SwiperSlide>
-        <SwiperSlide className=" bg-ac tionBg">
-            <Image width={100} height={100} alt={""} src={Human} className="w-full " />
-        </SwiperSlide>
-        <SwiperSlide className="bg-ac tionBg">
-            <Image width={100} height={100} alt={""} src={Human} className="w-full  " />
-        </SwiperSlide>
-        <SwiperSlide className=" bg-ac tionBg">
-            <Image width={100} height={100} alt={""} src={Human} className="w-full " />
-        </SwiperSlide>
+        }
 
       </Swiper>
     </div>
@@ -101,3 +82,19 @@ const AlbumPhotoCarousel = () => {
 }
 
 export default AlbumPhotoCarousel;
+
+{/* <SwiperSlide className="bg-ac tionBg">
+    <Image width={100} height={100} alt={""} src={Human} className="w-full max-sm:h-full" />
+</SwiperSlide>
+<SwiperSlide className="bg-ac tionBg">
+    <Image width={100} height={100} alt={""} src={Human} className="w-full " />
+</SwiperSlide>
+<SwiperSlide className=" bg-ac tionBg">
+    <Image width={100} height={100} alt={""} src={Human} className="w-full " />
+</SwiperSlide>
+<SwiperSlide className="bg-ac tionBg">
+    <Image width={100} height={100} alt={""} src={Human} className="w-full  " />
+</SwiperSlide>
+<SwiperSlide className=" bg-ac tionBg">
+    <Image width={100} height={100} alt={""} src={Human} className="w-full " />
+</SwiperSlide> */}
