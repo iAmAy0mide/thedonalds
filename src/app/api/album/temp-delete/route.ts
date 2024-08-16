@@ -13,7 +13,7 @@ export async function PATCH(req: NextRequest ) {
             deleted: true
         });
 
-        console.log({movedAlbum}, "from server")
+        // console.log({movedAlbum}, "from server")
         return NextResponse.json(movedAlbum);
     } catch (error: any) {
         return NextResponse.json({ error: error.message });
