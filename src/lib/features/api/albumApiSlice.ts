@@ -10,6 +10,12 @@ const AlbumApiSlice = apiSlice.injectEndpoints({
             }),
         }),
 
+        getAlbumPhotos: builder.query<any, string>({
+            query: (albumId) => ({
+                url: `${BASE_URL()}/api/album/album-photos?albumId=${albumId}`
+            }),
+        }),
+
         deleteAlbum: builder.mutation({
             query: (albumId) => ({
                 url: `${BASE_URL()}/api/album/delete?albumId=${albumId}`,
@@ -24,29 +30,6 @@ const AlbumApiSlice = apiSlice.injectEndpoints({
               method: 'PATCH',
             }),
            
-            // async onQueryStarted(albumId, { dispatch, queryFulfilled }) {
-            //     // Optimistically update the cache by adding the restored album
-            //     const patchResult = dispatch(
-            //       AlbumApiSlice.util.updateQueryData('getAlbums', undefined, (draft) => {
-            //         const album = draft.find((album) => album._id === albumId);
-            //         if (album) {
-            //             album.deleted = false;
-            //         }
-            //         console.log(album, "from OnQuery")
-            //         console.log("Restore workeddd 1")
-            //       })
-            //     );
-        
-            //     try {
-            //         console.log("Restore workeddd 2")
-            //       await queryFulfilled;
-            //     } catch {
-            //       // If the query fails, undo the optimistic update
-            //       patchResult.undo();
-            //     }
-            //   },
-            //   invalidatesTags: ['Album'],
-
         }),
 
         moveAlbumToDeleted: builder.mutation({
@@ -55,28 +38,6 @@ const AlbumApiSlice = apiSlice.injectEndpoints({
                 method: "PATCH"
             }),
 
-            // async onQueryStarted(albumId, { dispatch, queryFulfilled }) {
-            //     const patchResult = dispatch(
-            //         AlbumApiSlice.util.updateQueryData("getAlbums", undefined, (draft) => {
-            //             const album = draft.find(album => album._id === albumId);
-            //             if (album) {
-            //                 album.deleted = true
-            //             }
-            //             console.log(album, "from OnQuery")
-            //             console.log("Moved workeddd 1")
-            //         })
-
-            //     )
-
-            //     try {
-            //         console.log("Moved workeddd 2")
-            //         await queryFulfilled;
-            //     } catch (error) {
-            //         patchResult.undo();
-            //     }
-            // },
-
-            // invalidatesTags: ['Album'],
         }),
 
         getDeletedAlbum: builder.query<IAlbumData[], void>({
@@ -95,4 +56,5 @@ export const {
     useGetDeletedAlbumQuery, 
     useMoveAlbumToDeletedMutation, 
     useGetAlbumsQuery,
+    useGetAlbumPhotosQuery,
  } = AlbumApiSlice;
