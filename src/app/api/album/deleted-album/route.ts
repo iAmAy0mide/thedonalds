@@ -9,7 +9,7 @@ export async function GET() {
 
         const deletedAlbums = await Album.find({ deleted: true }, { __v: 0, updatedAt: 0, comments: 0 }).sort({ createdAt: -1 });
 
-        console.log({deletedAlbums});
+        // console.log({deletedAlbums});
 
         revalidatePath("/gallery");
 

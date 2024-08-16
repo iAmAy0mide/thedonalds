@@ -7,13 +7,16 @@ export async function DELETE(req: NextRequest, res: NextResponse ) {
 
     const albumId = req.nextUrl.searchParams.get("albumId");
 
-    console.log({albumId}, "from delete");
+    if (!albumId) {
+        return NextResponse.json({ error: "albumId is required!" }, { status: 400 });
+    }
+    
     try {
         await dbConnect();
 
         const permanentlyDeletedAlbum =  await Album.findByIdAndDelete({ _id: albumId });
 
-        console.log({permanentlyDeletedAlbum}, "from server")
+        // console.log({permanentlyDeletedAlbum}, "from server")
         return NextResponse.json(permanentlyDeletedAlbum);
     } catch (error: any) {
         return NextResponse.json({ error: error. message });

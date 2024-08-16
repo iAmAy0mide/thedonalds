@@ -14,7 +14,7 @@ export async function PATCH(req: NextRequest, res: NextResponse ) {
 
 
         revalidatePath("/gallery");
-        console.log(restoredAlbum);
+        // console.log(restoredAlbum);
 
         return NextResponse.json(restoredAlbum);
 
