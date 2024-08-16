@@ -10,13 +10,19 @@ import "swiper/css/navigation";
 
 import { EffectCoverflow, Pagination, Navigation } from "swiper/modules";
 import Human from "/public/human.svg";
+import { useAlbumContext } from "@/hooks/AlbumContext";
+import { useGetAlbumPhotosQuery } from "@/lib/features/api/albumApiSlice";
+import LoadingSpinner from "../UI/LoadingSpinner";
 
 const AlbumPhotoCarousel = () => {
-    const [slidesPerView, setSlidePerview] = useState<number>(3);
+    const [slidesPerView, setSlidePerview] = useState<number>(2);
+    const { currentAlbumId } = useAlbumContext();
+    const { data: albumPhotos } = useGetAlbumPhotosQuery(currentAlbumId, {refetchOnMountOrArgChange: true });
 
-    useEffect(() => {
-      const sw = window.document
-    }, []);
+    console.log(albumPhotos, "from albums components")
+    // useEffect(() => {
+    //   const sw = window.document
+    // }, []);
 
 
   return (
@@ -25,9 +31,9 @@ const AlbumPhotoCarousel = () => {
         effect={'coverflow'}
         grabCursor={true}
         centeredSlides={false}
-        slidesPerView={2}
+        // slidesPerView={slidesPerView} 
         // slidesPerView={2}
-        // slidesPerView={"auto"}
+        slidesPerView={"auto"}
         coverflowEffect={{
           rotate: 90,
           stretch: 2,
@@ -41,19 +47,30 @@ const AlbumPhotoCarousel = () => {
         modules={[EffectCoverflow, Pagination]}
         className="mySw iper w-full bg-deep Blue" 
       >
-        <SwiperSlide className="bg-actionBg">
+
+        {/* {
+          !albumPhotos ? (<LoadingSpinner />) : 
+            Array.isArray(albumPhotos) && (
+              albumPhotos.map((a) => (
+                <SwiperSlide key={a.image.url} className=" bg-ac tionBg">
+                    <Image width={100} height={100} alt={""} src={a.image.url} className="w-full " />
+                </SwiperSlide>
+              ))
+            )          
+        } */}
+        <SwiperSlide className="bg-ac tionBg">
             <Image width={100} height={100} alt={""} src={Human} className="w-full max-sm:h-full" />
         </SwiperSlide>
-        <SwiperSlide className="bg-actionBg">
+        <SwiperSlide className="bg-ac tionBg">
             <Image width={100} height={100} alt={""} src={Human} className="w-full " />
         </SwiperSlide>
-        <SwiperSlide className=" bg-actionBg">
+        <SwiperSlide className=" bg-ac tionBg">
             <Image width={100} height={100} alt={""} src={Human} className="w-full " />
         </SwiperSlide>
-        <SwiperSlide className="bg-actionBg">
+        <SwiperSlide className="bg-ac tionBg">
             <Image width={100} height={100} alt={""} src={Human} className="w-full  " />
         </SwiperSlide>
-        <SwiperSlide className=" bg-actionBg">
+        <SwiperSlide className=" bg-ac tionBg">
             <Image width={100} height={100} alt={""} src={Human} className="w-full " />
         </SwiperSlide>
 
