@@ -25,14 +25,55 @@ body {
 
 @media (max-width: 560px) {
   .album-resp-mobile {
-    max-width:  25rem  !important;
+    /* max-width:  28rem  !important; */
+    max-width:  28em  !important;
     /* background: #1b3653; */
+  }
+
+  @media (max-width: 530px) {
+    .album-resp-mobile {
+      align-items: center;
+      max-width: 27em !important;
+      /* padding: 0 0.25rem !important; */
+    }
+  }
+  @media (max-width: 500px) {
+    .album-resp-mobile {
+      padding: 0 0.25rem !important;
+      max-width: 25em !important;
+    }
+  }
+  @media (max-width: 465px) {
+    .album-resp-mobile {
+      max-width: 23em !important;
+    }
+  }
+  @media (max-width: 435px) {
+    .album-resp-mobile {
+      max-width: 21em !important;
+    }
+  }
+  @media (max-width: 406px) {
+    .album-resp-mobile {
+      max-width: 20em !important;
+    }
+  }
+  @media (max-width: 371px) {
+    .album-resp-mobile {
+      max-width: 19em !important;
+    }
+  }
+  @media (max-width: 390px) {
+    .album-resp-mobile {
+      /* padding: 0 0.25rem !important; */
+      /* max-width: 18em !important; */
+    }
   }
 
   @media (max-width: 345px) {
     .album-resp-mobile {
-      max-width: 18rem !important;
-      /* background: #1b3653; */
+      /* max-width: 18rem !important; */
+      /* background: #1b3653; */ 
     }
   }
 }
