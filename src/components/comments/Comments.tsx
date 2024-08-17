@@ -41,6 +41,7 @@ const Comments: React.FC<IComments> = ({ comments }) => {
               height={100}
               alt="Loading Spinner"
               className="w-full"
+              unoptimized
             />
           </div>)  : (
 

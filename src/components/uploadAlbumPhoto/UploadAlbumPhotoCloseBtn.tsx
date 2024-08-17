@@ -17,7 +17,7 @@ const UploadAlbumPhotoCloseBtn = () => {
         height={100}
         src={Close}
         alt="Icon to close modal"
-        className='w-full rounded-full  bg-actionBg  p-1'
+        className='w-full rounded-full  h-full bg-actionBg  p-1'
       />
     </button>
   )

@@ -2,6 +2,13 @@ import Image from "next/image";
 import { useEffect, useState } from "react"
 
 import { Swiper, SwiperSlide}  from "swiper/react";
+import Wedding from "/public/wedding-e.jpg";
+import Wedding2 from "/public/wedding-d.jpg";
+import Wedding3 from "/public/wedding-e.jpg";
+import Wedding4 from "/public/wedding-s.jpg";
+import Wedding5 from "/public/wedding-sh.jpg";
+import Wedding6 from "/public/wedding-v.jpg";
+import Wedding7 from "/public/wedding-f.jpg";
 
 import "swiper/css";
 import "swiper/css/effect-coverflow";
@@ -21,33 +28,45 @@ const AlbumPhotoCarousel = () => {
     const { data: albumPhotos } = useGetAlbumPhotosQuery(currentAlbumId, {refetchOnMountOrArgChange: true });
 
 
-    const currentScreenWidth = screen.width;
-
-
+    
+    
     useEffect(() => {
-      // console.log(currentScreenWidth, "width"); 
 
-      if (currentScreenWidth <= 435) {
+      const handleResize = () => {
 
-        console.log(slidesPerView, "in check 435");
-        setSlidePerview(2);
-        SetCenteredSlides(false);
-        return
+        const screenWidth = window.innerWidth;
+        console.log(screenWidth)
+  
+        if (screenWidth <= 435) {
+  
+          console.log(slidesPerView, "in check 435");
+          setSlidePerview(2);
+          SetCenteredSlides(false);
+          return
+        }
+        
+        if (screenWidth <= 388) {
+          setSlidePerview(2);
+          SetCenteredSlides(true);
+          return
+        }
+  
+          setSlidePerview(3);
+          SetCenteredSlides(true);
+     
       }
+
+    handleResize();
+       
+     window.addEventListener("resize", handleResize);
+
+     return () => window.removeEventListener("resize", handleResize);
       
-      if (currentScreenWidth <= 388) {
-        setSlidePerview(2);
-        SetCenteredSlides(true);
-        return
-      } 
-        setSlidePerview(3);
-        SetCenteredSlides(true);
-      
-    }, [currentScreenWidth]);
+    }, []);
 
 
   return (
-    <div className="mx-auto  bg-red rounded-xl flex justify-center  album-resp-mobile  md: px- 16 max-w-[30rem] max-sm:max-w-[2 5rem] w-full h-[10rem]  p-1">
+    <div className="mx-auto  bg-red rounded-xl flex justify-center  album-resp-mobile items-center  md: px- 16 max-w-[30rem] max-sm:max-w-[2 5rem] w-full h-[10rem]  p-1">
       <Swiper
         effect={'coverflow'}
         grabCursor={true}
@@ -62,20 +81,34 @@ const AlbumPhotoCarousel = () => {
         }}
         // pagination={true}
         modules={[EffectCoverflow, Pagination]}
-        className="mySw iper w-full bg-deep Blue" 
+        className="w-full bg-deep Blue" 
       >
 
-        {
+        {/* {
           !albumPhotos ? (<LoadingSpinner />) : 
             Array.isArray(albumPhotos) && (
               albumPhotos.map((a) => (
                 <SwiperSlide key={a.image.url} className=" bg-ac tionBg">
-                    <Image width={100} height={100} alt={""} src={a.image.url} className="w-full " />
+                    <Image priority width={100} height={100} alt={""} src={a.image.url} className="w-full " />
                 </SwiperSlide>
-              ))
+              )) [0.2rem]
             )          
-        }
-
+        } */}
+<SwiperSlide className="bg-ac tionBg">
+    <Image width={100} height={100} alt={""} src={Human} className="w-full max-sm:h-full" />
+</SwiperSlide>
+<SwiperSlide className="bg-ac tionBg">
+    <Image width={100} height={100} alt={""} src={Human} className="w-full  " />
+</SwiperSlide>
+<SwiperSlide className="bg-ac tionBg">
+    <Image width={100} height={100} alt={""} src={Human} className="w-full  " />
+</SwiperSlide>
+<SwiperSlide className="bg-ac tionBg">
+    <Image width={100} height={100} alt={""} src={Human} className="w-full  " />
+</SwiperSlide>
+<SwiperSlide className=" bg-ac tionBg">
+    <Image width={100} height={100} alt={""} src={Human} className="w-full " />
+</SwiperSlide>
       </Swiper>
     </div>
   )
