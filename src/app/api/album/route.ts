@@ -35,15 +35,17 @@ export async function POST(req: NextRequest, res: NextResponse) {
 }
 
 export async function GET() {
+    
+    try { 
 
-    try {
-        await dbConnect();
+        const dbRes = await dbConnect();
+        
+        const albums = (await Album.find({deleted: false}, { __v: 0,  updatedAt: 0, comments: 0,  }).sort({ createdAt: -1 }));
 
-        const albumPhotos = (await Album.find({deleted: false}, { __v: 0,  updatedAt: 0, comments: 0,  }).sort({ createdAt: -1 }));  
+        return NextResponse.json(albums);
 
-        return NextResponse.json(albumPhotos)
     } catch (error: any) {
-        NextResponse.json({ error: error.message });
+        return NextResponse.json({ error: error.message });
     }
 
 }

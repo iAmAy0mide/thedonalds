@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useEffect } from "react";
 import { RootState } from "@/lib/features/store";
@@ -10,30 +10,31 @@ import { useGetAlbumsQuery } from "@/lib/features/api/albumApiSlice";
 
 import LoadingSpinner from "@/components/UI/LoadingSpinner";
 import { updateAlbumPage } from "@/lib/features/store/newAlbum/newAlbum";
+import ErrorComponent from "@/components/ErrorComponent";
 
 const Gallery =  () => {
 
   const updatedAlbums = useSelector((state: RootState) => state.updatedAlbums.updatedAlbums);
   const { data: albums } = useGetAlbumsQuery(undefined, { refetchOnMountOrArgChange: true });
-  const dispatch = useDispatch();
   const shouldUpdate = useSelector((state: RootState) => state.updatedAlbums.shouldUpdate);
+  const dispatch = useDispatch();
   
-  // console.log(albums, "from rtk gal");
 
   useEffect(()=> {
-
+    if (!Array.isArray(albums)) return;
     if (shouldUpdate) {
       
       dispatch(updateAlbumPage(albums));
     }
   }, [albums]);
 
+  if (!Array.isArray(albums)) return <ErrorComponent />
 
   return (
     <>{!albums ? (
         <LoadingSpinner />
       ) : (
-      <GalleryPage albums={albums}> 
+      <GalleryPage albums={albums}>
         <CommentsModal />
       </GalleryPage>
      )}

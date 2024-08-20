@@ -1,8 +1,5 @@
 import Image from 'next/image';
 import AlbumFolderIcon from "/public/AlbumFolderIcon.svg";
-import { usePathname } from 'next/navigation';
-import { useDispatch } from 'react-redux';
-import { setCommentModalStatus } from '@/lib/features/store/modal/modalSlice';
 
 interface IAlbumProps {
     albumId: String;
@@ -13,9 +10,6 @@ interface IAlbumProps {
 }
 
 const Album: React.FC<IAlbumProps> = ({ albumName, createdAt, coverImage, renderButtons }) => {
-
-    const dispatch = useDispatch();
-    const pathName = usePathname();
 
     return (
         <div className='relative border bg-[#394c4c] border-deepBlue text-[#fff]  flex flex-col  overflow-hidden h-[18rem]  rounded-xl' >
@@ -28,6 +22,7 @@ const Album: React.FC<IAlbumProps> = ({ albumName, createdAt, coverImage, render
                             height={100}
                             src={AlbumFolderIcon}
                             alt='Album Folder Icon'
+                            priority
                             className='w-full'
                         />
                     </div>

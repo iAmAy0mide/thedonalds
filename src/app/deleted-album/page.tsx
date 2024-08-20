@@ -7,10 +7,8 @@ import { RootState } from '@/lib/features/store';
 import { updateDeletedAlbums } from '@/lib/features/store/newAlbum/newAlbum';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Spinner from "/public/spinner.gif";
-import Image from "next/image";
 import LoadingSpinner from '@/components/UI/LoadingSpinner';
-// import React, { useEffect } from 'react';
+import ErrorComponent from "@/components/ErrorComponent";
 
 
 const DeletedGallery =  () => {
@@ -19,13 +17,18 @@ const DeletedGallery =  () => {
     const shouldUpdate = useSelector((state: RootState) => state.updatedAlbums.shouldUpdateDeletedPage);
     const dispatch = useDispatch();
 
-    useEffect(() => {
+    
 
+    useEffect(() => {
+      if (!Array.isArray(deletedAlbums)) return;
+      
       if (shouldUpdate) {
         dispatch(updateDeletedAlbums(deletedAlbums));
       }
     }, [deletedAlbums]);
     
+    if (!Array.isArray(deletedAlbums)) return <ErrorComponent />
+
   return (
     <>
       {

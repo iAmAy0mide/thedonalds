@@ -1,18 +1,20 @@
-import CommentsFetch from './CommentsFetch';
-import CommentForm from './CommentForm';
-import React from 'react';
+import Comments from "./Comments";
+import { useGetCommentsByIdQuery } from "@/lib/features/api/commentsApiSlice";
+import { useAlbumContext } from "@/hooks/AlbumContext";
 
 const CommentSection: React.FC = () => {
-  return (
-    <>
-      <CommentsFetch />
-      {/* <CommentForm /> */}
-    </>
-  )
+  const { currentAlbumId } = useAlbumContext();
+
+  const { data } = useGetCommentsByIdQuery(currentAlbumId, {refetchOnMountOrArgChange: true });
+  const comments = data as unknown as  {
+      _id: string;
+      comment: string;
+  }[];    
+
+  return <Comments comments={comments} />      
+
 }
 
 export default CommentSection;
 
-interface IT {
-  currentAlbumId: string
-}
+export const dynamic = "force-dynamic";
