@@ -61,7 +61,7 @@ const Comments: React.FC<IComments> = ({ comments }) => {
             </div>
           ))
         ) : (
-          <p className="text-[1.5rem] text-center">Unexpected data format.</p>
+          <p className="text-[1.5rem] text-center"> </p>
         )
       }
       </div>
