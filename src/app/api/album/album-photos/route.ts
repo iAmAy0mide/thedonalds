@@ -12,11 +12,12 @@ export async function GET(req: NextRequest) {
 
     try {
         await dbConnect();
-        const AlbumPhotos = await Album.findById(albumId, { album: 1 });
+        const AlbumData = await Album.findById(albumId, { album: 1, albumName: 1 });
+        const albumName = AlbumData.albumName;
+        const AlbumPhotos = AlbumData.album;
+        // console.log([{albumName}, AlbumPhotos], "from server");
 
-        // console.log(AlbumPhotos.album, "from server");
-
-        return NextResponse.json(AlbumPhotos.album);
+        return NextResponse.json([{albumName}, AlbumPhotos]);
     } catch (error: any) {
         return NextResponse.json({ error: error.message })
     }
