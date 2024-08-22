@@ -70,13 +70,13 @@ const NavBar = () => {
                 className="w-[4rem] -mr-3 cursor-pointer" title='Menu' aria-label='Menu'>
                     <BsGrid3X3Gap  className='w-full text-actionBg text-[2.3rem]' />
                 </div>
-                <div className={`${!showSmallScreenOptions  && "hidden"} sm-menu-option`}>               
+                <div className={`${!showSmallScreenOptions  && "hidden"}  sm-menu-option`}>               
                         <button onClick={() => {
                             dispatch(setUploadPhotoModalStatus(true));
                         }} className='upload-button'>Upload</button>
                         <button onClick={() => {
                             router.push(redirectTo)
-                        }} className='deleted-gallery-button mt-4'>{cBtnName}</button>
+                        }} className='deleted-gallery-button border-[2px] mt-4'>{cBtnName}</button>
                 </div>
             </div>
 
