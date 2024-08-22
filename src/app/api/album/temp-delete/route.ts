@@ -4,7 +4,6 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function PATCH(req: NextRequest ) {
     const albumId = req.nextUrl.searchParams.get("albumId");
-    console.log(albumId, "from server here and right now");
 
     try {
         await dbConnect();
