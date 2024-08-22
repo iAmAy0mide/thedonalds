@@ -21,6 +21,7 @@ const Gallery =  () => {
   
 
   useEffect(()=> {
+    console.log(albums, "from gallery")
     if (!Array.isArray(albums)) return;
     if (shouldUpdate) {
       
@@ -28,10 +29,9 @@ const Gallery =  () => {
     }
   }, [albums]);
 
-  if (!Array.isArray(albums)) return <ErrorComponent />
 
   return (
-    <>{!albums ? (
+    <>{!albums || !Array.isArray(albums) ? (
         <LoadingSpinner />
       ) : (
       <GalleryPage albums={albums}>
