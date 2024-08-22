@@ -41,8 +41,6 @@ const AlbumPhotoCarousel = () => {
         const screenWidth = window.innerWidth;
   
         if (screenWidth <= 435) {
-  
-          console.log(slidesPerView, "in check 435");
           setSlidePerview(2);
           SetCenteredSlides(false);
           return
@@ -76,7 +74,7 @@ const AlbumPhotoCarousel = () => {
         onClick={() => {
           router.push(`/gallery/album/${albumId}?albumName=${albumName}`);
         }}
-        className="absolute  z-[100] rounded-lg T3d-effect px-2 py-1 text-md text-[#fff] bg-actionBg top-1 right-0">View Album</button>
+        className="absolute transition-all duration-300 hover:brightness-90  z-[100] rounded-lg T3d-effect px-2 py-1 text-[#fff] bg-actionBg text-sm top-1 right-2">View Album</button>
       <Swiper
         slidesPerView={3}
         spaceBetween={0}
