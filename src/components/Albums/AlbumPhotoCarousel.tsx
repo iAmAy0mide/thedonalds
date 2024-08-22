@@ -15,27 +15,30 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import { EffectCoverflow, Pagination, Navigation } from "swiper/modules";
+import { EffectCoverflow, Pagination, Navigation, FreeMode } from "swiper/modules";
 import Human from "/public/human.svg";
 import { useAlbumContext } from "@/hooks/AlbumContext";
 import { useGetAlbumPhotosQuery } from "@/lib/features/api/albumApiSlice";
 import LoadingSpinner from "../UI/LoadingSpinner";
+import { useRouter } from "next/navigation";
+
 
 const AlbumPhotoCarousel = () => {
+
     const [slidesPerView, setSlidePerview] = useState<number>(3);
     const [centeredSlides, SetCenteredSlides] = useState<boolean>(true);
     const { currentAlbumId } = useAlbumContext();
-    const { data: albumPhotos } = useGetAlbumPhotosQuery(currentAlbumId, {refetchOnMountOrArgChange: true });
+    const { data  } = useGetAlbumPhotosQuery(currentAlbumId, {refetchOnMountOrArgChange: true });  
 
-
-    
+    const albumName: string = data &&  data[0].albumName;
+    const albumPhotos = data && data[1] || [];
+    const albumId: string = currentAlbumId;
     
     useEffect(() => {
 
       const handleResize = () => {
 
         const screenWidth = window.innerWidth;
-        console.log(screenWidth)
   
         if (screenWidth <= 435) {
   
@@ -64,37 +67,40 @@ const AlbumPhotoCarousel = () => {
       
     }, []);
 
+    const router = useRouter();
+
 
   return (
-    <div className="mx-auto  bg-red rounded-xl flex justify-center  album-resp-mobile items-center  md: px- 16 max-w-[30rem] max-sm:max-w-[2 5rem] w-full h-[10rem]  p-1">
-      <Swiper
-        effect={'coverflow'}
-        grabCursor={true}
-        centeredSlides={centeredSlides}
-        slidesPerView={slidesPerView}
-        coverflowEffect={{
-          rotate: 90,
-          stretch: 2,
-          depth: 10,
-          modifier: 20,
-          slideShadows: true,
+    <div className="mx-auto relative  bg-red rounded-xl flex justify-center  album-resp-mobile items-center  md: px- 16 max-w-[30rem] max-sm:max-w-[2 5rem] w-full h-[10rem]  p-1">
+      <button 
+        onClick={() => {
+          router.push(`/gallery/album/${albumId}?albumName=${albumName}`);
         }}
-        // pagination={true}
-        modules={[EffectCoverflow, Pagination]}
-        className="w-full bg-deep Blue" 
+        className="absolute  z-[100] rounded-lg T3d-effect px-2 py-1 text-md text-[#fff] bg-actionBg top-1 right-0">View Album</button>
+      <Swiper
+        slidesPerView={3}
+        spaceBetween={0}
+        freeMode={true}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[FreeMode, Pagination]}
+        className="w-full rounded-lg cursor-pointer" 
       >
 
-        {/* {
+        {
           !albumPhotos ? (<LoadingSpinner />) : 
             Array.isArray(albumPhotos) && (
               albumPhotos.map((a) => (
-                <SwiperSlide key={a.image.url} className=" bg-ac tionBg">
-                    <Image priority width={100} height={100} alt={""} src={a.image.url} className="w-full " />
+                <SwiperSlide key={a.image.url} className=" h-[9.8rem] ">
+                  <div className="w-full h-[9.8rem]">
+                    <Image priority width={100} height={100} alt={"album photo"} src={a.image.url} className="w-fit" />
+                  </div>
                 </SwiperSlide>
-              )) [0.2rem]
+              ))
             )          
-        } */}
-<SwiperSlide className="bg-ac tionBg">
+        }
+{/* <SwiperSlide className="bg-ac tionBg">
     <Image width={100} height={100} alt={""} src={Human} className="w-full max-sm:h-full" />
 </SwiperSlide>
 <SwiperSlide className="bg-ac tionBg">
@@ -109,25 +115,10 @@ const AlbumPhotoCarousel = () => {
 <SwiperSlide className=" bg-ac tionBg">
     <Image width={100} height={100} alt={""} src={Human} className="w-full " />
 </SwiperSlide>
-      </Swiper>
+*/}
+      </Swiper> 
     </div>
   )
 }
 
 export default AlbumPhotoCarousel;
-
-{/* <SwiperSlide className="bg-ac tionBg">
-    <Image width={100} height={100} alt={""} src={Human} className="w-full max-sm:h-full" />
-</SwiperSlide>
-<SwiperSlide className="bg-ac tionBg">
-    <Image width={100} height={100} alt={""} src={Human} className="w-full " />
-</SwiperSlide>
-<SwiperSlide className=" bg-ac tionBg">
-    <Image width={100} height={100} alt={""} src={Human} className="w-full " />
-</SwiperSlide>
-<SwiperSlide className="bg-ac tionBg">
-    <Image width={100} height={100} alt={""} src={Human} className="w-full  " />
-</SwiperSlide>
-<SwiperSlide className=" bg-ac tionBg">
-    <Image width={100} height={100} alt={""} src={Human} className="w-full " />
-</SwiperSlide> */}
