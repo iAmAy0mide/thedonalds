@@ -1,5 +1,7 @@
 import Image from 'next/image';
 import AlbumFolderIcon from "/public/AlbumFolderIcon.svg";
+import { useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 
 interface IAlbumProps {
     albumId: String;
@@ -9,11 +11,20 @@ interface IAlbumProps {
     renderButtons: () => React.ReactNode
 }
 
-const Album: React.FC<IAlbumProps> = ({ albumName, createdAt, coverImage, renderButtons }) => {
+const Album: React.FC<IAlbumProps> = ({ albumName, createdAt, coverImage, renderButtons, albumId }) => {
+
+    const router = useRouter();
+    const pathName = usePathname();
 
     return (
         <div className='relative border bg-[#394c4c] border-deepBlue text-[#fff]  flex flex-col  overflow-hidden h-[18rem]  rounded-xl' >
-            <div className="rounded-xl relative  h-[82%]" style={{ backgroundImage: `url(${coverImage})`, backgroundPosition: "center", backgroundSize: "cover" }}>
+            <div  
+                onClick={() => {
+                    if (pathName === "/gallery") {
+                        router.push(`/gallery/album/${albumId}?albumName=${albumName}`);
+                    }
+                }}
+                className="rounded-xl relative  h-[82%]" style={{ backgroundImage: `url(${coverImage})`, backgroundPosition: "center", backgroundSize: "cover" }}>
                 <div className="absolute bg-albumOverlay rounded-xl  inset-0 z-[5] "></div>
                 <div className="flex relative flex-col h-full w-full z-20  p-2">
                     <div className="w-[17em] ">
