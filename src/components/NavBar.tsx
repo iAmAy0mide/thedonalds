@@ -34,9 +34,9 @@ const NavBar = () => {
     const isModalOpen = useSelector((state: RootState) => state.auth.isLoginModalOpen);
     const [showSmallScreenOptions, setShowSmallScreenOptions] = useState<boolean>(false);
 
-    // useEffect(() => {
-    //     session ? router.replace("/gallery") : router.replace("/");
-    // }, [session]);
+    useEffect(() => {
+        session ? router.replace("/gallery") : router.replace("/");
+    }, [session]);
 
     const cBtnName = pathName === "/gallery" ? "Deleted Album" : "Gallery";
     const redirectTo = cBtnName === "Deleted Album" ? "/deleted-album" : "/gallery";
