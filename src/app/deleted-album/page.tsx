@@ -27,7 +27,7 @@ const DeletedGallery =  () => {
       }
     }, [deletedAlbums]);
     
-    if (!Array.isArray(deletedAlbums)) return <ErrorComponent />
+    if (!Array.isArray(deletedAlbums)) return  <LoadingSpinner />
 
   return (
     <>
