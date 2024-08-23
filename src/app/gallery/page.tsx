@@ -10,18 +10,16 @@ import { useGetAlbumsQuery } from "@/lib/features/api/albumApiSlice";
 
 import LoadingSpinner from "@/components/UI/LoadingSpinner";
 import { updateAlbumPage } from "@/lib/features/store/newAlbum/newAlbum";
-import ErrorComponent from "@/components/ErrorComponent";
+
 
 const Gallery =  () => {
 
-  const updatedAlbums = useSelector((state: RootState) => state.updatedAlbums.updatedAlbums);
   const { data: albums } = useGetAlbumsQuery(undefined, { refetchOnMountOrArgChange: true });
   const shouldUpdate = useSelector((state: RootState) => state.updatedAlbums.shouldUpdate);
   const dispatch = useDispatch();
   
 
   useEffect(()=> {
-    console.log(albums, "from gallery")
     if (!Array.isArray(albums)) return;
     if (shouldUpdate) {
       

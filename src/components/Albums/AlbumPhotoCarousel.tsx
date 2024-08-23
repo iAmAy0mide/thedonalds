@@ -26,7 +26,6 @@ import { useRouter } from "next/navigation";
 const AlbumPhotoCarousel = () => {
 
     const [slidesPerView, setSlidePerview] = useState<number>(3);
-    const [centeredSlides, SetCenteredSlides] = useState<boolean>(true);
     const { currentAlbumId } = useAlbumContext();
     const { data  } = useGetAlbumPhotosQuery(currentAlbumId, {refetchOnMountOrArgChange: true });  
 
@@ -42,18 +41,15 @@ const AlbumPhotoCarousel = () => {
   
         if (screenWidth <= 435) {
           setSlidePerview(2);
-          SetCenteredSlides(false);
           return
         }
         
         if (screenWidth <= 388) {
           setSlidePerview(2);
-          SetCenteredSlides(true);
           return
         }
   
           setSlidePerview(3);
-          SetCenteredSlides(true);
      
       }
 

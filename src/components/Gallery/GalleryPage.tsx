@@ -1,14 +1,10 @@
-"use client";
-
-
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 import Albums from '../Albums/Albums';
 import { RootState } from '@/lib/features/store';
 import UploadAlbumPhotosModal from "@/components/uploadAlbumPhoto/UploadAlbumPhotosModal";
 import GalleryHomeBtns from '../Albums/GalleryHomeBtns';
-// import { updateAlbumPage } from '@/lib/features/store/newAlbum/newAlbum';
 
 
 const GalleryPage = (props: { albums: IAlbumData[]; children: React.ReactNode; }) => {
