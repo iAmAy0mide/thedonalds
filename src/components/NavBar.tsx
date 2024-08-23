@@ -25,7 +25,7 @@ import { signOut } from 'next-auth/react';
 
 
 const NavBar = () => {
-    const { data: session } = useSession();
+    const { data: session, status } = useSession();
 
     const router = useRouter();
     const pathName = usePathname();
@@ -35,8 +35,13 @@ const NavBar = () => {
     const [showSmallScreenOptions, setShowSmallScreenOptions] = useState<boolean>(false);
 
     useEffect(() => {
+
+        if (status === "loading") {
+            return;
+        }
+
         !session && router.replace("/");
-    }, [session]);
+    }, [session, status, router]);
 
 
 
