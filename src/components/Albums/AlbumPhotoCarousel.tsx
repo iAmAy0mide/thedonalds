@@ -65,7 +65,7 @@ const AlbumPhotoCarousel = () => {
 
 
   return (
-    <div className="mx-auto relative  bg-red rounded-xl flex justify-center  album-resp-mobile items-center  md: px- 16 max-w-[30rem] max-sm:max-w-[2 5rem] w-full h-[10rem]  p-1">
+    <div className="mx-auto relative  bg-red rounded-xl flex justify-center  album-resp-mobile items-center  md: px- 16 max-w-[30rem] w-full h-[10rem]  p-1">
       <button 
         onClick={() => {
           router.push(`/gallery/album/${albumId}?albumName=${albumName}`);
@@ -79,7 +79,7 @@ const AlbumPhotoCarousel = () => {
           clickable: true,
         }}
         modules={[FreeMode, Pagination]}
-        className="w-full rounded-lg cursor-pointer" 
+        className="w-full flex justify-center items-center rounded-lg cursor-pointer" 
       >
 
         {
@@ -94,22 +94,6 @@ const AlbumPhotoCarousel = () => {
               ))
             )          
         }
-{/* <SwiperSlide className="bg-ac tionBg">
-    <Image width={100} height={100} alt={""} src={Human} className="w-full max-sm:h-full" />
-</SwiperSlide>
-<SwiperSlide className="bg-ac tionBg">
-    <Image width={100} height={100} alt={""} src={Human} className="w-full  " />
-</SwiperSlide>
-<SwiperSlide className="bg-ac tionBg">
-    <Image width={100} height={100} alt={""} src={Human} className="w-full  " />
-</SwiperSlide>
-<SwiperSlide className="bg-ac tionBg">
-    <Image width={100} height={100} alt={""} src={Human} className="w-full  " />
-</SwiperSlide>
-<SwiperSlide className=" bg-ac tionBg">
-    <Image width={100} height={100} alt={""} src={Human} className="w-full " />
-</SwiperSlide>
-*/}
       </Swiper> 
     </div>
   )
