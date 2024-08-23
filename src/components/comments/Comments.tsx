@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import Spinner from "/public/spinner.gif";
 
 import CommentForm from "./CommentForm";
-
+import UserIcon from "/public/user-profile-icon.png"
 import Human from "/public/human.svg";
 
 
@@ -52,7 +52,7 @@ const Comments: React.FC<IComments> = ({ comments }) => {
                 <Image
                   width={100}
                   height={100}
-                  src={Human}
+                  src={UserIcon}
                   alt="" 
                   className="w-full rounded-lg float-left"
                 />
