@@ -51,42 +51,11 @@ const Album: React.FC<AlbumProps> = ({ params, searchParams }) => {
       }
     ));
 
-
-    const images = [
-        {
-          original: "/wedding-d.jpg",
-          thumbnail: "/wedding-d.jpg",
-        },
-        {
-          original: "/wedding-e.jpg",
-          thumbnail: "/wedding-e.jpg",
-        },
-        {
-          original: "/wedding-s.jpg",
-          thumbnail: "/wedding-s.jpg",
-        },
-        {
-          original: "/wedding-v.jpg",
-          thumbnail: "/wedding-v.jpg",
-        },
-        {
-          original: "/wedding-sh.jpg",
-          thumbnail: "/wedding-sh.jpg",
-        },
-        {
-          original: "/wedding-v.jpg",
-          thumbnail: "/wedding-v.jpg",
-        },
-        {
-          original: "https://picsum.photos/id/1019/1000/600/",
-          thumbnail: "https://picsum.photos/id/1019/250/150/",
-        },
-      ];
       
     return (
-        <main className="max-w-[48rem] w-full flex justify-center items-center max-sm:pt-[10rem] mx-auto pt-[14rem] min-h-[100dvh] max-lg:px-2 over flow-x-hidden relative">
+        <main className="w-full flex justify-center items-center max-sm:pt-[10rem] mx-auto pt-[13rem] min-h-[100dvh] max-lg:px-2 relative  mb-10">
           { !albumPhotos[0] && <div className="-mt-[30rem]"><LoadingSpinner /></div> }
-          <div className="max-sm:mt-[3rem] mb-10">
+          <div className="max-sm:mt-[3rem] w-full max-w-[48rem]">
             <ImageGallery items={albumPhotos} thumbnailPosition={thumbnailPosition} />
           </div>
           <div className="absolute text-xl glassy-blue text-[#fff] rounded-lg p-2 left-[50%] -translate-x-[50%] top-[32%] lg:top-[37%]">{albumName}</div>
