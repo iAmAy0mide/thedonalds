@@ -21,7 +21,7 @@ import { setUploadPhotoModalStatus } from '@/lib/features/store/modal/modalSlice
 import { setLoginModalStatus } from '@/lib/features/store/auth/authSlice';
 
 import { useSession } from 'next-auth/react';
-import { signOut, signIn } from 'next-auth/react';
+import { signOut } from 'next-auth/react';
 
 
 const NavBar = () => {
@@ -38,6 +38,8 @@ const NavBar = () => {
         !session && router.replace("/");
     }, [session]);
 
+
+
     const cBtnName = pathName === "/gallery" ? "Deleted Album" : "Gallery";
     const redirectTo = cBtnName === "Deleted Album" ? "/deleted-album" : "/gallery";
 
@@ -53,7 +55,6 @@ const NavBar = () => {
                 <button
                     onClick={() => {
                         dispatch(setLoginModalStatus(true));
-                        // signIn("google")
                     }}
                 className={`${isLoginSuccess && "hidden"} T3d-effect auth-button`}>Login</button>
                 <button
