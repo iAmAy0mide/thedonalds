@@ -25,7 +25,7 @@ const UploadAlbumForm: React.FC<UploadAlbumForm> = ({setAlbumPhotos, albumPhotos
     }
 
     // console.log(albumData.album[1]);
-    if (!albumData.album[1]) {
+    if (!albumData.album[4]) {
       alert("Please added more images")
       return;
     }
