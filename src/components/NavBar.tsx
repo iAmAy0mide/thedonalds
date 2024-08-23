@@ -49,7 +49,7 @@ const NavBar = () => {
     const redirectTo = cBtnName === "Deleted Album" ? "/deleted-album" : "/gallery";
 
   return (
-    <header className="fixed w-full mx-auto z-50 h-[11rem] md:h-[12rem] lg:h-[14rem] md:pb-2 top-0 pt-1  bg-[#303 A39] glassy-dark mobile px-8 md:px-16">    
+    <header className="fixed w-full mx-auto z-50 h-[11rem] md:h-[12rem] lg:h-[13rem] md:pb-2 top-0 pt-1  bg-[#303 A39] glassy-dark mobile px-8 md:px-16">    
         <nav className='w-full h-full relative flex justify-end max-w-[1440px] mx-a uto duration-300 transition-all'>
             
 
