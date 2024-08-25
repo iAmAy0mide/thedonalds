@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <main  className="mobile pt-[11rem] md:pt-[12rem] lg:pt-[14rem] z-10 mx-auto  relative overflow-hidden h-[100dvh] ">
       <section style={{ backgroundImage: `url(${Building.src})`, backgroundPosition: "bottom" }} className="w-full relative h-full max-w-[1440px] bg-repeat-x posi">
-        <div className="absolute fly-right -translate-x-[1rem]  top-24 w-[5rem]"> 
+        {/* <div className="absolute fly-right -translate-x-[1rem]  top-24 w-[5rem]"> 
           <Image 
             alt=""
             width={100}
@@ -50,8 +50,8 @@ export default function Home() {
             unoptimized
             className="w-full"
           />
-        </div>
-        <div className="absolute top-16 fly-right4 -translate-x-[25rem] w-[4.5rem]"> 
+        </div> */}
+        {/* <div className="absolute top-16 fly-right4 -translate-x-[25rem] w-[4.5rem]"> 
           <Image 
             alt=""
             width={100}
@@ -60,7 +60,7 @@ export default function Home() {
             unoptimized
             className="w-full"
           />
-        </div>
+        </div> */}
       </section>
     </main>
   );
