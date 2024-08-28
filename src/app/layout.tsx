@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import StoreProvider from "./StoreProvider";
 import "@uploadthing/react/styles.css";
 import SessionWrapper from "@/components/SessionWrapper/SessionWrapper";
+import { Analytics } from "@vercel/analytics/react"
 
 // const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +24,7 @@ export default function RootLayout({
     <SessionWrapper>
       <html lang="en">
         <body>
+          <Analytics />
         {/* <body className={inter.className}> */}
             <StoreProvider>          
               <NavBar />
